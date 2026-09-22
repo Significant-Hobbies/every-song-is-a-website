@@ -89,6 +89,11 @@ The frame falls back to the themed faux transport when no id is configured.
 Note: restricted videos refuse playback on bare-IP origins (127.0.0.1) —
 embeds work on any named host or the deployed URL.
 
+Lyrics are the licensed Genius embed inside a `lyrics` frame — a notepad
+window on the desktop, a taped scrap on the blanket, a slab on the poster.
+It mounts in a srcdoc iframe so Genius's `embed.js` (which `document.write`s)
+runs sandboxed.
+
 ## Shared chrome
 
 - Song chip (title · artist · listen ↗ · next song) — themed but always

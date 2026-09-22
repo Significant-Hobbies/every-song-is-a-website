@@ -48,6 +48,8 @@ export function draggable(el, opts = {}) {
     if (e.target.closest('button, a, input, select, textarea, [data-nodrag]')) return;
     active = true;
     cancelAnimationFrame(raf);
+    // iframes swallow pointer events — mute them while a drag is live
+    document.documentElement.classList.add('drag-lock');
     try { handle.setPointerCapture(e.pointerId); } catch {}
     const r = el.getBoundingClientRect();
     px = e.clientX - r.left;
@@ -86,6 +88,7 @@ export function draggable(el, opts = {}) {
     if (!active) return;
     active = false;
     el.classList.remove('is-dragging');
+    document.documentElement.classList.remove('drag-lock');
     onRelease?.({ vx, vy });
     if (inertia && allows('physics')) fling(el, vx, vy, roll);
   };

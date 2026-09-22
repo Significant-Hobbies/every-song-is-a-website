@@ -343,6 +343,22 @@ const CONTENT = {
     }
     body.append(wrap);
   },
+  // Licensed lyrics via Genius's official embed, sandboxed in a srcdoc
+  // iframe (their embed.js document.writes, which only works mid-parse).
+  lyrics(body, spec, song) {
+    if (!song.genius) return;
+    const frame = document.createElement('iframe');
+    frame.className = 'lyrics-embed';
+    frame.title = `${song.title} — ${song.artist}, lyrics on Genius`;
+    frame.loading = 'lazy';
+    frame.srcdoc = `<!doctype html><body style="margin:0">` +
+      `<div id='rg_embed_link_${song.genius}' class='rg_embed_link' data-song-id='${song.genius}'>` +
+      `Read <a href='https://genius.com/songs/${song.genius}'>“${song.title}” by ${song.artist}</a> on Genius` +
+      `</div>` +
+      `<script crossorigin src='https://genius.com/songs/${song.genius}/embed.js'><\/script>` +
+      `</body>`;
+    body.append(frame);
+  },
   spec(body, spec, song) {
     const ul = document.createElement('ul');
     ul.className = 'spec-list';

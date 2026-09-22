@@ -37,7 +37,10 @@ node --check shared/*.js themes/*.js   # syntax check all modules
 
 - Keep it dependency-free. If a framework is ever adopted, say why in
   PRODUCT.md first.
-- Lyrics must be original demo text only — never real copyrighted lyrics.
+- Lyrics render via Genius's official embed (`shared/artifacts.js` →
+  `CONTENT.lyrics`, srcdoc iframe + `embed.js`) — licensed, never scraped.
+  Each song carries a verified `genius` id. Keep any hand-written lines as
+  original demo text only — never real copyrighted lyrics.
 - New artifacts belong in `shared/artifacts.js` with a `data-artifact` name
   and a style block in each theme CSS.
 - Respect `data-motion` (`full|calm|off`) and `prefers-reduced-motion`.

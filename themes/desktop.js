@@ -9,7 +9,7 @@ import { ORDER, SONGS } from '../shared/songs.js';
 import { glyphEl } from '../shared/artifacts.js';
 
 const ICON_GLYPH = {
-  chat: '💬', photos: '🖼', player: '♫', note: '✎',
+  chat: '💬', photos: '🖼', player: '♫', note: '✎', lyrics: '✎',
   spec: '≡', menu: '❏', invite: '✉', welcome: '♥',
 };
 
