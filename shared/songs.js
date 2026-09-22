@@ -1,7 +1,89 @@
 // The song registry. Every field is static curation — no runtime fetching.
 // artifacts: generic types re-skinned by whichever theme is active.
 // frames: titled cards (window / paper scrap / slab depending on theme).
+// youtube: verified official-video id — the player frame embeds it.
 export const SONGS = {
+  'strawberry-fields-forever': {
+    slug: 'strawberry-fields-forever',
+    title: 'Strawberry Fields Forever',
+    artist: 'The Beatles',
+    year: 1967,
+    era: 'psychedelic picnic, half-dreamed',
+    mood: 'drowsy, wondering',
+    imagery: 'strawberries, field flowers, torn paper',
+    energy: 'low, floaty',
+    theme: 'picnic',
+    motion: 'full',
+    seed: 1967,
+    listen: 'https://www.youtube.com/watch?v=HtUH9z_Oey8',
+    youtube: 'HtUH9z_Oey8',
+    hero: { kind: 'tag' },
+    frames: [
+      { id: 'note', type: 'note', title: 'a note, half-remembered', note: 'demo lyric card' },
+      { id: 'postcard', type: 'chat', title: 'a postcard, unsigned' },
+      { id: 'player', type: 'player', title: 'the portable radio' },
+    ],
+    artifacts: [
+      { type: 'fruit', kind: 'strawberry', count: 4 },
+      { type: 'fruit', kind: 'watermelon', count: 1 },
+      { type: 'flower', count: 6 },
+    ],
+    lyrics: [
+      'the grass bends like a held breath',
+      'down where the red fruit grows wild',
+      'nothing here needs to be true',
+      'let the afternoon decide',
+    ],
+    chat: [
+      { who: 'them', text: 'meet me past the trees' },
+      { who: 'me', text: 'the field by the river?' },
+      { who: 'them', text: 'where nothing is real' },
+      { who: 'me', text: 'nothing to get hung about' },
+      { who: 'them', text: 'forever, then' },
+    ],
+  },
+
+  'never-gonna-give-you-up': {
+    slug: 'never-gonna-give-you-up',
+    title: 'Never Gonna Give You Up',
+    artist: 'Rick Astley',
+    year: 1987,
+    era: 'early internet loyalty test',
+    mood: 'loyal, bouncy, suspicious of links',
+    imagery: 'pixel hearts, pop-ups, promises',
+    energy: 'bouncy, stubborn',
+    theme: 'desktop',
+    motion: 'full',
+    seed: 1987,
+    listen: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    youtube: 'dQw4w9WgXcQ',
+    hero: { kind: 'window' },
+    frames: [
+      { id: 'chat', type: 'chat', title: 'instant message — rick_4eva' },
+      { id: 'player', type: 'player', title: 'now playing' },
+      { id: 'photos', type: 'photos', title: 'scanned polaroids' },
+      { id: 'note', type: 'note', title: 'promise.txt — notepad', note: 'demo lyric card' },
+    ],
+    artifacts: [
+      { type: 'heart', count: 8 },
+      { type: 'star', count: 5 },
+    ],
+    lyrics: [
+      'the dial-up tone sings in key',
+      'a promise older than the web',
+      'click the link, take the chance',
+      'some things never let you down',
+    ],
+    chat: [
+      { who: 'them', text: 'check out this link i found' },
+      { who: 'me', text: 'is this another one of those links' },
+      { who: 'them', text: 'this one is different. promise' },
+      { who: 'me', text: 'you know the rules. and so do i' },
+      { who: 'them', text: 'just click it. trust me' },
+      { who: 'me', text: '...fine. but if the drums start—' },
+    ],
+  },
+
   'digital-love': {
     slug: 'digital-love',
     title: 'Digital Love',
@@ -14,8 +96,9 @@ export const SONGS = {
     theme: 'desktop',
     motion: 'full',
     seed: 2001,
-    listen: 'https://open.spotify.com/search/Digital%20Love%20Daft%20Punk',
-    hero: { kind: 'window', hint: 'drag windows · click icons · catch hearts' },
+    listen: 'https://www.youtube.com/watch?v=FxzBvqY5PP0',
+    youtube: 'FxzBvqY5PP0',
+    hero: { kind: 'window' },
     frames: [
       { id: 'chat', type: 'chat', title: 'instant message — daft_lover_88' },
       { id: 'photos', type: 'photos', title: 'my pictures' },
@@ -43,6 +126,39 @@ export const SONGS = {
     ],
   },
 
+  'humble': {
+    slug: 'humble',
+    title: 'HUMBLE.',
+    artist: 'Kendrick Lamar',
+    year: 2017,
+    era: 'monumental minimalism',
+    mood: 'defiant, airborne, exact',
+    imagery: 'oversized type, chrome weight, negative space',
+    energy: 'high, percussive',
+    theme: 'kinetic',
+    motion: 'full',
+    seed: 2017,
+    listen: 'https://www.youtube.com/watch?v=tvTRZJ-4EyI',
+    youtube: 'tvTRZJ-4EyI',
+    hero: { kind: 'letters' },
+    frames: [
+      { id: 'note', type: 'note', title: 'lyrics.txt', note: 'demo lyric card' },
+      { id: 'player', type: 'player', title: 'watch' },
+      { id: 'spec', type: 'spec', title: 'track spec' },
+    ],
+    artifacts: [
+      { type: 'object', count: 4 },
+      { type: 'lozenge', count: 5 },
+    ],
+    lyrics: [
+      'be measured, then be more',
+      'the room adjusts around the beat',
+      'light falls where it is told to',
+      'say less — the type says it',
+    ],
+    spec: ['tempo: marching', 'texture: brushed chrome', 'color: acid on ink', 'format: monumental'],
+  },
+
   'watermelon-sugar': {
     slug: 'watermelon-sugar',
     title: 'Watermelon Sugar',
@@ -55,11 +171,13 @@ export const SONGS = {
     theme: 'picnic',
     motion: 'full',
     seed: 707,
-    listen: 'https://open.spotify.com/search/Watermelon%20Sugar%20Harry%20Styles',
-    hero: { kind: 'tag', hint: 'drag the fruit · click the melon' },
+    listen: 'https://www.youtube.com/watch?v=E07s5ZYygMg',
+    youtube: 'E07s5ZYygMg',
+    hero: { kind: 'tag' },
     frames: [
       { id: 'note', type: 'note', title: 'a note, folded twice', note: 'demo lyric card' },
       { id: 'menu', type: 'note', title: "today's picnic", note: 'menu' },
+      { id: 'player', type: 'player', title: 'the portable radio' },
       { id: 'invite', type: 'chat', title: 'the invitation' },
     ],
     artifacts: [
@@ -83,6 +201,41 @@ export const SONGS = {
     ],
   },
 
+  'peaches': {
+    slug: 'peaches',
+    title: 'Peaches',
+    artist: 'Justin Bieber',
+    year: 2021,
+    era: 'convertible summer, top down',
+    mood: 'soft, ripe, unbothered',
+    imagery: 'peaches, roadside fruit stand, gingham',
+    energy: 'warm, cruising',
+    theme: 'picnic',
+    motion: 'full',
+    seed: 404,
+    listen: 'https://www.youtube.com/watch?v=tQ0yjYUFKAE',
+    youtube: 'tQ0yjYUFKAE',
+    hero: { kind: 'tag' },
+    frames: [
+      { id: 'note', type: 'note', title: 'a note from the drive', note: 'demo lyric card' },
+      { id: 'menu', type: 'note', title: 'fruit stand haul', note: 'menu' },
+      { id: 'player', type: 'player', title: 'car radio' },
+    ],
+    artifacts: [
+      { type: 'fruit', kind: 'peach', count: 4 },
+      { type: 'fruit', kind: 'orange', count: 2 },
+      { type: 'fruit', kind: 'strawberry', count: 2 },
+      { type: 'flower', count: 3 },
+    ],
+    lyrics: [
+      'windows down past the orchard rows',
+      'sticky hands on a paper map',
+      'the radio keeps one song warm',
+      'we get there when we get there',
+    ],
+    menu: ['three peaches, still warm', 'one soda, glass bottle', 'napkins we will not use', 'the long way home'],
+  },
+
   'von-dutch': {
     slug: 'von-dutch',
     title: 'Von dutch',
@@ -95,10 +248,12 @@ export const SONGS = {
     theme: 'kinetic',
     motion: 'full',
     seed: 360,
-    listen: 'https://open.spotify.com/search/Von%20dutch%20Charli%20XCX',
-    hero: { kind: 'letters', hint: 'run your cursor through the title · grab the chrome' },
+    listen: 'https://www.youtube.com/watch?v=cwZ1L_0QLjw',
+    youtube: 'cwZ1L_0QLjw',
+    hero: { kind: 'letters' },
     frames: [
       { id: 'note', type: 'note', title: 'lyrics.txt', note: 'demo lyric card' },
+      { id: 'player', type: 'player', title: 'watch' },
       { id: 'spec', type: 'spec', title: 'track spec' },
     ],
     artifacts: [
@@ -113,9 +268,50 @@ export const SONGS = {
     ],
     spec: ['bpm: club', 'texture: liquid chrome', 'color: acid on ink', 'format: oversized'],
   },
+
+  '360': {
+    slug: '360',
+    title: '360',
+    artist: 'Charli XCX',
+    year: 2024,
+    era: 'mirror-check at the function',
+    mood: 'everywhere, razor-clean',
+    imagery: 'reflective chrome, flash photography, tight type',
+    energy: 'high, spinning',
+    theme: 'kinetic',
+    motion: 'full',
+    seed: 666,
+    listen: 'https://www.youtube.com/watch?v=WJW-VvmRKsE',
+    youtube: 'WJW-VvmRKsE',
+    hero: { kind: 'letters' },
+    frames: [
+      { id: 'note', type: 'note', title: 'lyrics.txt', note: 'demo lyric card' },
+      { id: 'player', type: 'player', title: 'watch' },
+    ],
+    artifacts: [
+      { type: 'object', count: 3 },
+      { type: 'lozenge', count: 6 },
+    ],
+    lyrics: [
+      'catch the light from every side',
+      'the mirror never blinks first',
+      'three sixty and still turning',
+      'the party orbits, not the other way',
+    ],
+  },
 };
 
-export const ORDER = ['digital-love', 'watermelon-sugar', 'von-dutch'];
+// chronological — the gallery reads like a timeline of how songs looked
+export const ORDER = [
+  'strawberry-fields-forever',
+  'never-gonna-give-you-up',
+  'digital-love',
+  'humble',
+  'watermelon-sugar',
+  'peaches',
+  'von-dutch',
+  '360',
+];
 
 export function neighbors(slug) {
   const i = ORDER.indexOf(slug);

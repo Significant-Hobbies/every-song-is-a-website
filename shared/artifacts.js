@@ -88,6 +88,20 @@ const PIX = {
     ],
     palette: { R: '#f03e52', S: '#ffd9a0', G: '#3d9a4e' },
   },
+  peach: {
+    map: [
+      '....GG...',
+      '...GGGG..',
+      '.PPPPPPP.',
+      'PPPPPPPPP',
+      'PCPPPPPPP',
+      'PCCPPPPP.',
+      '.PPPPPPP.',
+      '..PPPPP..',
+      '...PPP...',
+    ],
+    palette: { P: '#ffa37e', C: '#e8795a', G: '#43a047' },
+  },
   flower: {
     map: [
       '.W.W.W.',
@@ -163,6 +177,11 @@ const GLYPHS = {
       <ellipse cx="60" cy="46" rx="2.2" ry="3.4"/><ellipse cx="52" cy="66" rx="2.2" ry="3.4"/>
       <ellipse cx="68" cy="66" rx="2.2" ry="3.4"/><ellipse cx="60" cy="82" rx="2.2" ry="3.4"/>
     </g>`,
+  peach: `
+    <path class="g-outline" d="M60 26 C40 26 22 44 22 64 C22 90 40 108 60 108 C80 108 98 90 98 64 C98 44 80 26 60 26 Z"/>
+    <path class="g-flesh" d="M60 33 C45 33 30 47 30 65 C30 85 44 101 60 101 C76 101 90 85 90 65 C90 47 75 33 60 33 Z"/>
+    <path class="g-cleft" d="M60 30 C53 48 53 78 60 103"/>
+    <path class="g-leaf" d="M60 24 C58 12 66 6 78 8 C78 18 70 25 60 24 Z"/>`,
   flower: `
     <g class="g-petal">
       <circle cx="60" cy="26" r="16"/><circle cx="92" cy="47" r="16"/>
@@ -299,13 +318,29 @@ const CONTENT = {
   player(body, spec, song) {
     const wrap = document.createElement('div');
     wrap.className = 'player';
-    wrap.innerHTML = `
-      <div class="player-track">${song.title.toLowerCase()} — ${song.artist.toLowerCase()}</div>
-      <div class="player-bar"><i class="player-fill loop"></i></div>
-      <div class="player-row">
-        <span class="player-btns">◂◂ ▶ ▸▸</span>
-        <span class="player-meta">128 kbps · 44 kHz</span>
-      </div>`;
+    const track = document.createElement('div');
+    track.className = 'player-track';
+    track.textContent = `${song.title.toLowerCase()} — ${song.artist.toLowerCase()}`;
+    wrap.append(track);
+    if (song.youtube) {
+      const frame = document.createElement('iframe');
+      frame.className = 'player-embed';
+      frame.src = `https://www.youtube.com/embed/${song.youtube}?rel=0`;
+      frame.title = `${song.title} — ${song.artist} (official video)`;
+      frame.loading = 'lazy';
+      frame.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      frame.allowFullscreen = true;
+      wrap.append(frame);
+    } else {
+      const fake = document.createElement('div');
+      fake.innerHTML = `
+        <div class="player-bar"><i class="player-fill loop"></i></div>
+        <div class="player-row">
+          <span class="player-btns">◂◂ ▶ ▸▸</span>
+          <span class="player-meta">128 kbps · 44 kHz</span>
+        </div>`;
+      wrap.append(fake);
+    }
     body.append(wrap);
   },
   spec(body, spec, song) {

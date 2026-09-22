@@ -217,6 +217,9 @@ html[data-theme="desktop"] .photo-pool {
     repeating-linear-gradient(0deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px),
     linear-gradient(180deg, #4fc3e8 0%, #1f7fc0 100%);
 }
+html[data-theme="desktop"] .player-embed {
+  border: 2px solid; border-color: #404040 #fff #fff #404040;
+}
 html[data-theme="desktop"] .player { color: #0f0; }
 html[data-theme="desktop"] .player-track {
   background: #101010; color: #7dff7d; font-family: "Courier New", monospace;

@@ -80,6 +80,15 @@ An acid-printed poster you can grab.
   velocity, snap transitions.
 - **Song chrome:** top-left mono spec block; acid pill "listen" button.
 
+## Media
+
+Each song's player frame embeds the official YouTube video
+(`youtube.com/embed/<id>`, lazy-loaded) inside the theme's chrome — a media
+window on the desktop, a taped scrap on the blanket, a slab on the poster.
+The frame falls back to the themed faux transport when no id is configured.
+Note: restricted videos refuse playback on bare-IP origins (127.0.0.1) —
+embeds work on any named host or the deployed URL.
+
 ## Shared chrome
 
 - Song chip (title · artist · listen ↗ · next song) — themed but always

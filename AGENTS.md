@@ -23,7 +23,10 @@ node --check shared/*.js themes/*.js   # syntax check all modules
 - `index.html` — song gallery.
 - `song/<slug>/index.html` — one directory per song; shareable URL.
 - `shared/songs.js` — the song registry: every song's config (theme, mood,
-  imagery, artifacts, motion, seed, lyrics) lives here.
+  imagery, artifacts, motion, seed, lyrics, `youtube` video id) lives here.
+  Adding a song = one config block + one `song/<slug>/index.html` shell.
+- `gallery.js` — renders the index doors from the registry (per-theme mini
+  scenes), so new songs appear automatically.
 - `shared/` — world runtime: seeded rng, scatter layout, behaviours
   (drag/spring/float/trail), artifact factories, chrome, experiment panel.
 - `themes/` — one `.js` + `.css` per world (`desktop`, `picnic`, `kinetic`).
@@ -38,4 +41,8 @@ node --check shared/*.js themes/*.js   # syntax check all modules
 - New artifacts belong in `shared/artifacts.js` with a `data-artifact` name
   and a style block in each theme CSS.
 - Respect `data-motion` (`full|calm|off`) and `prefers-reduced-motion`.
+- Player frames embed YouTube (`www.youtube.com/embed/<id>`). Restricted
+  videos refuse to play on bare-IP origins — `127.0.0.1` shows "unavailable"
+  while any named host works. For local playback map a name in /etc/hosts
+  (e.g. `127.0.0.1 esw.local`) or serve over the deployed URL.
 - Design evidence and review receipts live in `.fleet/` and `artifacts/design/`.

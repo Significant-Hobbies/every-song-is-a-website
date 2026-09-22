@@ -126,7 +126,9 @@ html[data-theme="kinetic"] .glyph .g-outline { fill: var(--acid); stroke: none; 
 html[data-theme="kinetic"] .glyph .g-fill { fill: var(--ink-ground); }
 html[data-theme="kinetic"] .glyph-watermelon .g-fill,
 html[data-theme="kinetic"] .glyph-strawberry .g-fill,
-html[data-theme="kinetic"] .glyph-orange .g-fill { fill: var(--acid); }
+html[data-theme="kinetic"] .glyph-orange .g-fill,
+html[data-theme="kinetic"] .glyph-peach .g-flesh { fill: var(--acid); }
+html[data-theme="kinetic"] .glyph .g-cleft { stroke: var(--ink-ground); stroke-width: 3; fill: none; }
 html[data-theme="kinetic"] .glyph .g-rind, html[data-theme="kinetic"] .glyph .g-pith,
 html[data-theme="kinetic"] .glyph .g-leaf { fill: var(--ink-ground); }
 html[data-theme="kinetic"] .glyph .g-seed { fill: var(--ink-ground); }
