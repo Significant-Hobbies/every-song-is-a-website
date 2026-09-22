@@ -4,6 +4,7 @@
 // youtube: verified official-video id — the player frame embeds it.
 // genius: Genius song id — the lyrics frame embeds it.
 import { CATALOG } from './catalog.js';
+import { makeRng } from './rng.js';
 
 /* Per-theme defaults. Bulk songs inherit the world's whole furniture cast —
    same frames, same artifacts, same little script — and differ only in the
@@ -104,21 +105,77 @@ function slugHash(s) {
   return Math.abs(h);
 }
 
+/* Variation pools — the seed picks the cast, so two desktops or two
+   picnics share a world but not a room. */
+
+const PICNIC_FRUITS = ['watermelon', 'orange', 'strawberry', 'peach'];
+const PICNIC_MENU_POOL = [
+  'one blanket, mostly red', 'something cold in the cooler', 'the good knife this time',
+  'somewhere to put our feet up', 'napkins — the cloth ones', 'a speaker, charged',
+  'the jar of pickles nobody eats', 'sunscreen before the second hour',
+];
+const FRUIT_EMOJI = { watermelon: '🍉', orange: '🍊', strawberry: '🍓', peach: '🍑' };
+
+function varyCatalog(slug, d, r) {
+  const frames = d.frames.map((f) => ({ ...f }));
+  if (d === THEME_DEFAULTS.desktop) {
+    const chat = frames.find((f) => f.type === 'chat');
+    if (chat) chat.title = `instant message — ${slug.split('-')[0]}@aol`;
+    return {
+      frames,
+      artifacts: [
+        { type: 'heart', count: r.int(5, 10) },
+        { type: 'star', count: r.int(3, 7) },
+      ],
+    };
+  }
+  if (d === THEME_DEFAULTS.picnic) {
+    const kinds = [...PICNIC_FRUITS];
+    const first = kinds.splice(Math.floor(r.next() * kinds.length), 1)[0];
+    const second = kinds.splice(Math.floor(r.next() * kinds.length), 1)[0];
+    const menu = [...PICNIC_MENU_POOL]
+      .sort(() => r.next() - 0.5)
+      .slice(0, r.int(3, 4));
+    const menuFrame = frames.find((f) => f.note === 'menu');
+    if (menuFrame) menuFrame.title = `${first} ${FRUIT_EMOJI[first]} & friends`;
+    return {
+      frames,
+      menu,
+      artifacts: [
+        { type: 'fruit', kind: first, count: r.int(2, 3) },
+        { type: 'fruit', kind: second, count: r.int(1, 3) },
+        { type: 'fruit', kind: 'strawberry', count: r.int(0, 3) },
+        { type: 'flower', count: r.int(2, 5) },
+      ],
+    };
+  }
+  return {
+    frames,
+    artifacts: [
+      { type: 'object', count: r.int(2, 4) },
+      { type: 'lozenge', count: r.int(3, 6) },
+    ],
+  };
+}
+
 // catalog row: [slug, title, artist, year, theme, youtubeId, geniusId]
-function expandCatalog(row, i) {
+function expandCatalog(row) {
   const [slug, title, artist, year, theme, youtube, genius] = row;
   const d = THEME_DEFAULTS[theme];
+  const seed = slugHash(slug) % 9973;
+  const r = makeRng(seed);
+  const varied = varyCatalog(slug, d, r);
   return {
     slug, title, artist, year,
     era: d.era, mood: d.mood, imagery: d.imagery, energy: d.energy,
     theme, motion: 'full',
-    seed: slugHash(slug) % 9973,
+    seed,
     listen: `https://www.youtube.com/watch?v=${youtube}`,
     youtube, genius,
     hero: d.hero,
-    frames: d.frames,
-    artifacts: d.artifacts,
-    chat: d.chat, menu: d.menu, spec: d.spec, lyrics: d.lyrics,
+    frames: varied.frames,
+    artifacts: varied.artifacts,
+    chat: d.chat, menu: varied.menu ?? d.menu, spec: d.spec, lyrics: d.lyrics,
   };
 }
 
