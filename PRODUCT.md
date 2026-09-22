@@ -2,6 +2,13 @@
 
 **Live:** https://music.significanthobbies.com
 
+**Current state (2026-09):** 143 songs at root URLs (`/<slug>/`), five worlds
+(desktop, picnic, kinetic, neon, scrapbook), embedded YouTube player driven
+by the chip's listen button (plays in place, no redirect), licensed Genius
+lyric embeds, expandable windows, gallery with search + era headers +
+surprise-me, 404 recovery. The PRD below is the original brief; shipped scope
+exceeds it.
+
 ## Purpose contract
 
 Every Song Is a Website gives each song its own playable, full-screen visual
