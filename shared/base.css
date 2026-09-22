@@ -1,0 +1,136 @@
+/* Every Song Is a Website — structural base.
+   Theme skins live in themes/*.css under [data-theme="…"] scopes.
+   This file owns layout mechanics, not looks. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { overflow: hidden; overscroll-behavior: none; }
+button { font: inherit; color: inherit; }
+
+#world { position: fixed; inset: 0; overflow: hidden; }
+
+.layer { position: absolute; inset: 0; pointer-events: none; }
+.layer-furniture { z-index: 1; }
+.layer-artifacts { z-index: 2; }
+.layer-hero { z-index: 3; }
+.layer-fx { z-index: 4; }
+.layer-chrome { z-index: 6; }
+
+.layer-furniture > *, .layer-artifacts > *, .layer-hero > *,
+.layer-chrome > * { pointer-events: auto; }
+.layer-furniture .sun, .layer-furniture .ant-parade,
+.layer-furniture .crop-marks, .layer-furniture .marquee { pointer-events: none; }
+
+/* ---------- artifacts ---------- */
+
+.artifact, .frame {
+  position: absolute;
+  transform: rotate(var(--rot, 0deg));
+}
+.artifact-body { display: grid; place-items: center; }
+.artifact.is-hidden, .frame.is-hidden { display: none; }
+.frame.is-closed { display: none; }
+
+.pixel-art { display: block; image-rendering: pixelated; }
+.glyph { display: block; width: 100%; height: 100%; overflow: visible; }
+.glyph-el { display: inline-grid; place-items: center; }
+.glyph-el .glyph { width: 22px; height: 22px; }
+
+.trail-glyph { position: fixed; z-index: 1; pointer-events: none; }
+
+/* elastic squash (kinetic objects, any theme that opts in) */
+.artifact-body {
+  transform:
+    rotate(var(--sq-a, 0rad))
+    scale(var(--sq, 1), calc(1 / var(--sq, 1)))
+    rotate(calc(var(--sq-a, 0rad) * -1));
+}
+
+.can-drag { cursor: grab; }
+.is-dragging { cursor: grabbing; }
+
+/* gentle ambient bobbing — killed by calm/off below */
+.floaty { animation: floaty var(--float-dur, 6s) ease-in-out var(--float-delay, 0s) infinite; }
+@keyframes floaty {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+
+/* ---------- frames ---------- */
+
+.frame { min-width: 170px; max-width: min(92vw, 340px); }
+.frame-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; user-select: none;
+}
+.frame-controls { display: inline-flex; gap: 4px; }
+.frame-btn { line-height: 1; }
+.frame.is-collapsed .frame-body { display: none; }
+
+.chat-log {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 6px;
+  max-height: 180px; overflow-y: auto;
+}
+.chat-bubble { display: inline-block; }
+.chat-msg.is-typing .chat-bubble i {
+  display: inline-block; width: 5px; height: 5px; border-radius: 50%;
+  background: currentColor; margin-right: 3px; opacity: .5;
+  animation: typing 0.9s infinite;
+}
+.chat-msg.is-typing .chat-bubble i:nth-child(2) { animation-delay: .15s; }
+.chat-msg.is-typing .chat-bubble i:nth-child(3) { animation-delay: .3s; }
+@keyframes typing { 50% { opacity: 1; translate: 0 -2px; } }
+
+.photo-grid { display: flex; gap: 10px; flex-wrap: wrap; }
+.photo { margin: 0; }
+.photo-scene { width: 84px; height: 64px; }
+.photo figcaption { font-size: 10px; }
+
+/* ---------- chrome: chip + panel ---------- */
+
+.chip {
+  position: fixed; top: 10px; left: 10px; z-index: 20;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px;
+}
+.chip-id { display: flex; flex-direction: column; line-height: 1.15; }
+.chip-artist { font-size: 0.82em; opacity: 0.75; }
+.chip a { color: inherit; text-decoration: none; }
+.chip-nav { display: inline-flex; gap: 4px; }
+.chip button { cursor: pointer; }
+
+.panel {
+  position: fixed; right: 12px; bottom: 12px; z-index: 30;
+  width: min(250px, calc(100vw - 24px));
+  font-size: 13px;
+}
+.panel[hidden] { display: none; }
+.panel-inner { display: flex; flex-direction: column; gap: 10px; }
+.panel-head { margin: 0; font-weight: 700; letter-spacing: 0.02em; }
+.panel-group { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.panel-group legend { font-size: 11px; opacity: 0.7; margin-bottom: 4px; padding: 0; }
+.panel-opt { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+.panel-artifacts { display: flex; flex-wrap: wrap; gap: 6px; }
+.panel-motion { display: flex; gap: 6px; }
+.panel-seed { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.panel-seed code { font-size: 11px; opacity: 0.7; }
+.panel-home { color: inherit; font-size: 12px; }
+
+/* ---------- misc ---------- */
+
+:focus-visible { outline: 2px solid var(--focus, #4d9fff); outline-offset: 2px; }
+
+.seed-flying, .seed-stuck { position: fixed; pointer-events: none; z-index: 3; }
+.seed-stuck { position: absolute; }
+.ring-pulse { position: fixed; width: 90px; height: 90px; border-radius: 50%; pointer-events: none; }
+
+/* ---------- motion gates ---------- */
+
+html[data-motion="calm"] .loop { animation: none !important; }
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation: none !important;
+  transition: none !important;
+}

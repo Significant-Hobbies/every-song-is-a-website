@@ -1,0 +1,113 @@
+{
+  "$schema": "fleet.design-review.v1",
+  "version": 1,
+  "project": "every-song-is-a-website",
+  "target": "three song worlds + gallery",
+  "surfaceMode": "experience",
+  "mode": "overhaul",
+  "register": "product",
+  "context": {
+    "product": "PRODUCT.md",
+    "design": "DESIGN.md"
+  },
+  "direction": {
+    "references": [
+      "Windows 98 / early-2000s desktop OS (windows, taskbar, IM chat)",
+      "summer picnic blanket: gingham cloth, sticker fruit, paper scraps",
+      "contemporary acid-print poster: oversized kinetic type, liquid chrome"
+    ],
+    "probes": [],
+    "selected": "prd-supplied-three-worlds",
+    "approval": "approved",
+    "before": "",
+    "library": {
+      "strategy": "upstream-first",
+      "primary": "custom",
+      "sources": [
+        "https://www.8bitcn.com/",
+        "https://reactbits.dev/"
+      ],
+      "runtime": "none",
+      "customReplacement": {
+        "used": true,
+        "authorization": "owner-requested",
+        "reason": "The PRD explicitly requests a bespoke theme/artifact/behaviour composition system where every atom is drawn in the active world's grammar; upstream component kits contain no window-manager, picnic, or kinetic-poster artifacts, and the ui-library standard says not to add a runtime to a static surface solely for sourcing."
+      }
+    },
+    "contract": {
+      "purpose": "Every Song Is a Website gives each song its own playable, full-screen visual world assembled from curated themes, artifacts, and light interaction.",
+      "purposeSource": "PRD in owner request",
+      "canonicalPurpose": "Every Song Is a Website gives each song its own playable, full-screen visual world assembled from curated themes, artifacts, and light interaction.",
+      "purposeAlignment": "match",
+      "driftNote": "New project; no catalog entry yet.",
+      "audience": "Music fans and web-playful visitors following a shared link.",
+      "job": "Let a visitor step inside a song's world, play with it for a minute, and jump to the next song.",
+      "thesis": "Each song is a committed, different world \u2014 a 2000s desktop, a picnic blanket, an acid poster \u2014 not one layout recoloured. Randomness is confined to position, timing, and surprise; the design is curated.",
+      "system": "data-theme scoped CSS worlds (desktop/picnic/kinetic) + shared artifact factories + behaviour toolkit (drag, spring, float, trail) + seeded scatter layout + themed chrome and experiment panel.",
+      "signature": "The theme switcher re-skins every artifact into a different world live \u2014 a watermelon becomes a pixel sprite, a window becomes a sticker note.",
+      "risk": "Full-commit themed worlds risk feeling gimmicky if craft slips; mitigated by restrained motion, authentic surface materials (real gingham, real bevels), and keeping chrome secondary."
+    }
+  },
+  "evidence": {
+    "screenshots": [
+      {
+        "width": 390,
+        "path": "artifacts/design/after-390.png"
+      },
+      {
+        "width": 768,
+        "path": "artifacts/design/after-768.png"
+      },
+      {
+        "width": 1440,
+        "path": "artifacts/design/after-1440.png"
+      }
+    ],
+    "projectCheck": {
+      "command": "node --check shared/*.js themes/*.js && curl -f http://127.0.0.1:8642/song/digital-love/",
+      "status": "pass"
+    },
+    "critique": {
+      "score": 35,
+      "maximum": 40
+    },
+    "audit": {
+      "score": 18,
+      "maximum": 20
+    },
+    "unresolved": {
+      "p0": 0,
+      "p1": 0
+    },
+    "detector": {
+      "posture": "advisory",
+      "findings": []
+    },
+    "comprehension": {
+      "status": "not-applicable",
+      "reviewer": "",
+      "answers": {
+        "product": "",
+        "audience": "",
+        "value": "",
+        "mechanism": "",
+        "proof": "",
+        "nextAction": ""
+      },
+      "purposeScore": {
+        "product": 0,
+        "audience": 0,
+        "value": 0,
+        "mechanism": 0,
+        "proof": 0,
+        "nextAction": 0,
+        "total": 0
+      },
+      "mismatches": []
+    }
+  },
+  "ownerFeedback": {
+    "decision": "keep",
+    "note": "Owner supplied the complete direction in the PRD: three named worlds with era, mood, artifacts, and interactions specified."
+  }
+}

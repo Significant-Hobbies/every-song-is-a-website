@@ -1,0 +1,138 @@
+/* Gallery — a quiet dark lobby; each door carries its world's skin. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  background: #101010;
+  color: #efece4;
+  font-family: "JetBrains Mono", monospace;
+  display: flex; flex-direction: column; min-height: 100dvh;
+  padding: clamp(20px, 5vw, 64px);
+}
+
+.masthead h1 {
+  font-family: "Archivo", sans-serif;
+  font-variation-settings: "wdth" 118;
+  font-weight: 800; letter-spacing: -0.02em;
+  font-size: clamp(30px, 6vw, 64px);
+  margin: 0; text-transform: lowercase;
+}
+.masthead p {
+  margin: 10px 0 0; font-size: 13px; color: rgba(239, 236, 228, 0.55);
+  letter-spacing: 0.04em;
+}
+
+.doors {
+  flex: 1;
+  display: grid; gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  align-content: center;
+  padding: clamp(28px, 6vh, 64px) 0;
+}
+
+.door {
+  display: flex; flex-direction: column;
+  text-decoration: none; color: inherit;
+  border: 1px solid rgba(239, 236, 228, 0.16);
+  transition: transform 0.35s cubic-bezier(.2,.9,.3,1.2), border-color 0.25s;
+}
+.door:hover, .door:focus-visible {
+  transform: translateY(-6px);
+  border-color: rgba(239, 236, 228, 0.5);
+}
+.door-scene {
+  position: relative; height: 240px; overflow: hidden;
+}
+.door-meta { padding: 16px 18px 18px; border-top: 1px solid rgba(239, 236, 228, 0.16); }
+.door-meta h2 {
+  margin: 0; font-family: "Archivo", sans-serif; font-weight: 700;
+  font-size: 22px; letter-spacing: -0.01em;
+}
+.door-meta p { margin: 4px 0 12px; font-size: 11px; color: rgba(239, 236, 228, 0.55); }
+.door-go { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+.door:hover .door-go { color: #d2ff2f; }
+
+/* ---- door 1: miniature desktop ---- */
+.d-desktop .door-scene {
+  background: #008080;
+  background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1.4px);
+  background-size: 5px 5px;
+}
+.mini-window {
+  position: absolute; left: 22%; top: 24%; width: 56%; height: 44%;
+  background: #c8c8c8;
+  border: 2px solid; border-color: #fff #404040 #404040 #fff;
+  box-shadow: 4px 4px 0 rgba(0,0,0,.2);
+  padding: 3px;
+}
+.mini-bar {
+  display: flex; justify-content: flex-end; gap: 3px;
+  background: linear-gradient(90deg, #000080, #1084d0);
+  padding: 3px 4px;
+}
+.mini-bar i { width: 10px; height: 8px; background: #c8c8c8; border: 1px solid; border-color: #fff #404040 #404040 #fff; }
+.mini-title { display: block; margin-top: 8px; text-align: center; font-size: 10px; color: #000080; font-weight: 700; }
+.mini-taskbar {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 18px;
+  background: #c8c8c8; border-top: 2px solid #fff;
+}
+.mini-heart { position: absolute; width: 4px; height: 4px; background: #ff4f8e; box-shadow:
+  4px 0 #ff4f8e, 12px 0 #ff4f8e, 16px 0 #ff4f8e,
+  0 4px #ff4f8e, 4px 4px #ff4f8e, 8px 4px #ff4f8e, 12px 4px #ff4f8e, 16px 4px #ff4f8e, 20px 4px #ff4f8e,
+  4px 8px #ff4f8e, 8px 8px #ff4f8e, 12px 8px #ff4f8e, 16px 8px #ff4f8e,
+  8px 12px #ff4f8e, 12px 12px #ff4f8e,
+  10px 16px #ff4f8e; }
+.mini-heart.h1 { left: 12%; top: 20%; animation: bob 4s ease-in-out infinite; }
+.mini-heart.h2 { right: 14%; top: 60%; scale: .7; animation: bob 5s ease-in-out -2s infinite; }
+.mini-heart.h3 { left: 60%; top: 74%; scale: .55; animation: bob 4.5s ease-in-out -1s infinite; }
+@keyframes bob { 50% { translate: 0 -8px; } }
+
+/* ---- door 2: miniature picnic ---- */
+.d-picnic .door-scene {
+  background-color: #f7efe0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(196,44,44,.3) 0 24px, transparent 24px 48px),
+    repeating-linear-gradient(0deg, rgba(196,44,44,.3) 0 24px, transparent 24px 48px);
+}
+.mini-melon {
+  position: absolute; left: 50%; top: 46%; width: 130px;
+  translate: -50% -50%; rotate: -8deg;
+  filter: drop-shadow(2px 4px 6px rgba(120,40,20,.35));
+  transition: rotate .4s cubic-bezier(.2,.9,.3,1.3);
+}
+.d-picnic:hover .mini-melon { rotate: 6deg; }
+.mini-seed {
+  position: absolute; width: 6px; height: 9px; background: #33262b;
+  border-radius: 50% 50% 55% 55% / 65% 65% 40% 40%;
+}
+.mini-seed.s1 { left: 30%; top: 68%; rotate: 40deg; }
+.mini-seed.s2 { left: 66%; top: 30%; rotate: -30deg; }
+.mini-seed.s3 { left: 74%; top: 70%; rotate: 110deg; }
+
+/* ---- door 3: miniature acid poster ---- */
+.d-kinetic .door-scene {
+  background: #0d0d0b;
+  display: grid; place-items: center;
+}
+.mini-type {
+  font-family: "Archivo", sans-serif; font-weight: 800;
+  font-variation-settings: "wdth" 75;
+  font-size: 52px; line-height: .9; letter-spacing: -0.03em;
+  color: #d2ff2f; text-align: center;
+  transition: font-variation-settings .5s cubic-bezier(.2,.9,.3,1.2), letter-spacing .5s;
+}
+.d-kinetic:hover .mini-type { font-variation-settings: "wdth" 122; letter-spacing: 0em; }
+.mini-blob {
+  position: absolute; right: 14%; bottom: 12%; width: 44px; height: 44px;
+  border-radius: 47% 53% 62% 38% / 45% 48% 52% 55%;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255,255,255,.95) 0 6%, transparent 26%),
+    conic-gradient(from 210deg at 50% 50%, #e8e8e8, #6d6d68 12%, #f6f6f2 22%, #3c3c38 34%, #cfcfc8 46%, #565650 58%, #fff 70%, #454540 82%, #dcdcd4 92%, #e8e8e8);
+}
+
+.colophon p { font-size: 10px; letter-spacing: 0.14em; color: rgba(239, 236, 228, 0.4); margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mini-heart, .d-picnic .mini-melon, .mini-type { animation: none; transition: none; }
+}

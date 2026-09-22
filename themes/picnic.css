@@ -1,0 +1,299 @@
+/* THEME: picnic — a gingham blanket in warm noon light.
+   Everything on the cloth is a sticker or a paper scrap. */
+
+html[data-theme="picnic"] {
+  --focus: #8c2b12;
+  --ink: #4a2a1a;
+  --paper: #fffdf2;
+  --sticker-shadow: 2px 4px 10px rgba(120, 40, 20, 0.28);
+  font-family: "Shantell Sans", "Segoe UI", sans-serif;
+}
+
+html[data-theme="picnic"] body { background: #d24a4a; }
+
+html[data-theme="picnic"] #world {
+  color: var(--ink);
+  font-family: "Shantell Sans", "Segoe UI", sans-serif;
+  font-size: 14px;
+  background-color: #f7efe0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(196, 44, 44, 0.3) 0 30px, transparent 30px 60px),
+    repeating-linear-gradient(0deg, rgba(196, 44, 44, 0.3) 0 30px, transparent 30px 60px),
+    repeating-linear-gradient(45deg, rgba(90, 40, 20, 0.025) 0 2px, transparent 2px 5px),
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 238, 180, 0.5), transparent 60%),
+    radial-gradient(140% 120% at 50% 110%, rgba(120, 30, 20, 0.22), transparent 55%);
+}
+
+/* ---------- sun ---------- */
+
+html[data-theme="picnic"] .sun {
+  position: absolute; top: -56px; right: -40px; width: 220px; height: 220px;
+}
+html[data-theme="picnic"] .sun-face {
+  position: absolute; inset: 34%;
+  background: radial-gradient(circle at 38% 34%, #ffe9a3, #ffcf4d 70%, #ffb93a);
+  border-radius: 50%;
+  box-shadow: 0 6px 24px rgba(255, 170, 40, 0.45);
+}
+html[data-theme="picnic"] .sun-rays {
+  position: absolute; inset: 0;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 205, 90, 0.55) 0 7deg, transparent 7deg 24deg);
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(circle, transparent 0 33%, #000 34% 70%, transparent 71%);
+  mask: radial-gradient(circle, transparent 0 33%, #000 34% 70%, transparent 71%);
+  animation: sunspin 60s linear infinite;
+}
+@keyframes sunspin { to { transform: rotate(360deg); } }
+
+/* ---------- ant parade ---------- */
+
+html[data-theme="picnic"] .ant-parade { position: absolute; inset: 0; }
+html[data-theme="picnic"] .ant {
+  position: absolute; width: 15px; height: 7px; offset-rotate: auto;
+  background:
+    radial-gradient(circle 2.6px at 2.6px 50%, #33231a 96%, transparent),
+    radial-gradient(circle 2.2px at 7px 50%, #33231a 96%, transparent),
+    radial-gradient(circle 3.1px at 12px 50%, #33231a 96%, transparent);
+  animation: march 34s linear infinite;
+}
+html[data-theme="picnic"] .ant::after {
+  content: ""; position: absolute; left: 1px; right: 1px; top: 6px; height: 4px;
+  background: repeating-linear-gradient(100deg, #33231a 0 1px, transparent 1px 4px);
+}
+html[data-theme="picnic"] .ant-crumb::before {
+  content: ""; position: absolute; left: -3px; top: -5px;
+  width: 7px; height: 7px; border-radius: 2px;
+  background: #f3d9a0; box-shadow: 0 1px 1px rgba(80, 40, 10, 0.4);
+}
+@keyframes march { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+
+/* ---------- hero: kraft tag ---------- */
+
+html[data-theme="picnic"] .hero-tag {
+  position: absolute; padding: 26px 34px 22px;
+  background: linear-gradient(160deg, #ecd7ae, #e2c491);
+  border-radius: 6px 10px 8px 12px;
+  box-shadow: 3px 6px 18px rgba(100, 40, 15, 0.35);
+  rotate: -4deg; max-width: min(430px, 82vw);
+  text-align: center;
+}
+html[data-theme="picnic"] .tag-hole {
+  position: absolute; top: 12px; left: 50%; translate: -50% 0;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #b99b6b; box-shadow: inset 0 2px 3px rgba(60, 30, 10, 0.6);
+}
+html[data-theme="picnic"] .tag-string {
+  position: absolute; top: -46px; left: 50%; width: 2px; height: 60px;
+  background: repeating-linear-gradient(0deg, #a5825a 0 4px, #8a6a42 4px 8px);
+  rotate: 7deg; transform-origin: bottom;
+}
+html[data-theme="picnic"] .hero-kicker {
+  margin: 0 0 4px; font-size: 13px; letter-spacing: 0.14em; color: #7a5a34;
+}
+html[data-theme="picnic"] .hero-title {
+  margin: 0; font-family: Caveat, cursive; font-weight: 700;
+  font-size: clamp(44px, 9vw, 68px); line-height: 0.95; color: #83321c;
+}
+html[data-theme="picnic"] .hero-artist { margin: 6px 0 0; font-family: Caveat, cursive; font-size: 22px; color: #7a4a28; }
+html[data-theme="picnic"] .hero-hint { margin: 12px 0 0; font-size: 12px; color: #96693d; }
+
+/* ---------- artifacts: stickers ---------- */
+
+html[data-theme="picnic"] .artifact { cursor: default; }
+html[data-theme="picnic"] .artifact .glyph { width: 100%; height: 100%; }
+html[data-theme="picnic"] .artifact-fruit { width: 88px; height: 88px; }
+html[data-theme="picnic"] .artifact-flower { width: 54px; height: 54px; }
+html[data-theme="picnic"] .artifact-heart { width: 46px; height: 46px; }
+html[data-theme="picnic"] .artifact-star { width: 50px; height: 50px; }
+html[data-theme="picnic"] .artifact-object { width: 90px; height: 90px; }
+html[data-theme="picnic"] .artifact-lozenge { width: 60px; height: 44px; }
+html[data-theme="picnic"] .artifact-body { filter: drop-shadow(var(--sticker-shadow)); }
+html[data-theme="picnic"] .artifact-fruit,
+html[data-theme="picnic"] .artifact-flower {
+  animation: floaty var(--float-dur, 7s) ease-in-out var(--float-delay, 0s) infinite;
+}
+
+/* sticker ink */
+html[data-theme="picnic"] .g-outline { fill: #fff; stroke: #fff; stroke-width: 14; stroke-linejoin: round; }
+html[data-theme="picnic"] .glyph-heart .g-fill { fill: #f2547a; }
+html[data-theme="picnic"] .glyph-star .g-fill { fill: #ffc93f; }
+html[data-theme="picnic"] .glyph-watermelon .g-rind { fill: #3f9e4d; }
+html[data-theme="picnic"] .glyph-watermelon .g-pith { fill: #eef5dc; }
+html[data-theme="picnic"] .glyph-watermelon .g-flesh { fill: #ff6b7d; }
+html[data-theme="picnic"] .glyph-watermelon .g-seed { fill: #3a2a2e; }
+html[data-theme="picnic"] .glyph-orange .g-rind { fill: #f58a1f; }
+html[data-theme="picnic"] .glyph-orange .g-flesh { fill: #ffbf5e; }
+html[data-theme="picnic"] .glyph-orange .g-pith { stroke: #ffe9bf; stroke-width: 3.4; fill: none; }
+html[data-theme="picnic"] .glyph-orange .g-pith-fill { fill: #ffe9bf; }
+html[data-theme="picnic"] .glyph-strawberry .g-flesh { fill: #f03e52; }
+html[data-theme="picnic"] .glyph-strawberry .g-leaf { fill: #43a047; }
+html[data-theme="picnic"] .glyph-strawberry .g-seed { fill: #ffe1a8; }
+html[data-theme="picnic"] .glyph-flower .g-petal { fill: #fff7ea; stroke: #efd9b0; stroke-width: 2; }
+html[data-theme="picnic"] .glyph-flower .g-fill { fill: #ffd23f; }
+html[data-theme="picnic"] .glyph-object .g-fill { fill: #ffb347; }
+html[data-theme="picnic"] .glyph-lozenge .g-fill { stroke: #57a05a; stroke-width: 6; fill: none; stroke-linecap: round; }
+
+/* rolling fruit gets a squash hint while held */
+html[data-theme="picnic"] .artifact-fruit.is-dragging .artifact-body { scale: 1.06; }
+
+/* ---------- seeds ---------- */
+
+html[data-theme="picnic"] .seed-flying,
+html[data-theme="picnic"] .seed-stuck {
+  width: 7px; height: 11px;
+  background: #33262b;
+  border-radius: 50% 50% 55% 55% / 65% 65% 40% 40%;
+}
+html[data-theme="picnic"] .trail-seed {
+  display: block; width: 9px; height: 9px;
+  background: #57a05a; border-radius: 0 65% 0 65%;
+}
+
+/* ---------- frames: paper scraps ---------- */
+
+html[data-theme="picnic"] .frame {
+  width: 240px;
+  background: var(--paper);
+  border-radius: 3% 5% 4% 6% / 6% 4% 6% 3%;
+  box-shadow: 2px 5px 14px rgba(110, 45, 20, 0.32);
+  padding: 10px 14px 14px;
+}
+html[data-theme="picnic"] .frame::before {
+  content: ""; position: absolute; top: -9px; left: 50%; translate: -50% 0;
+  width: 64px; height: 18px; rotate: -3deg;
+  background: rgba(245, 226, 160, 0.72);
+  border-left: 1px dashed rgba(160, 120, 60, 0.4);
+  border-right: 1px dashed rgba(160, 120, 60, 0.4);
+}
+html[data-theme="picnic"] .frame-bar { justify-content: space-between; padding-bottom: 4px; }
+html[data-theme="picnic"] .frame-title {
+  font-family: "Shantell Sans", sans-serif; font-weight: 700; font-size: 13px;
+  color: #8a4526; border-bottom: 2px solid rgba(160, 90, 40, 0.35);
+}
+html[data-theme="picnic"] .frame-btn {
+  width: 17px; height: 17px; border-radius: 50%; border: 0;
+  background: #fff; box-shadow: 0 1px 3px rgba(100, 40, 15, 0.35);
+  font-size: 10px; line-height: 1; color: #8a4526; display: grid; place-items: center;
+}
+html[data-theme="picnic"] .frame-body { font-family: Caveat, cursive; font-size: 19px; line-height: 1.25; color: #553218; }
+
+html[data-theme="picnic"] .note-text p { margin: 0 0 2px; }
+html[data-theme="picnic"] .note-text ul { margin: 0; padding-left: 18px; }
+html[data-theme="picnic"] .note-text li { margin-bottom: 2px; }
+html[data-theme="picnic"] .note-demo-tag {
+  font-family: "Shantell Sans", sans-serif; font-size: 10px !important;
+  color: #a0744a; margin-top: 8px !important;
+}
+
+/* chat as exchanged scraps */
+html[data-theme="picnic"] .chat-log { max-height: 150px; font-size: 17px; }
+html[data-theme="picnic"] .chat-msg .chat-bubble {
+  padding: 2px 9px; border-radius: 3px; display: inline-block;
+}
+html[data-theme="picnic"] .chat-msg.is-them .chat-bubble { background: #fff3d6; rotate: -0.6deg; }
+html[data-theme="picnic"] .chat-msg.is-me { text-align: right; }
+html[data-theme="picnic"] .chat-msg.is-me .chat-bubble { background: #e4f0dd; rotate: 0.7deg; }
+html[data-theme="picnic"] .chat-input { display: none; }
+html[data-theme="picnic"] .photo { background: #fff; padding: 5px 5px 14px; box-shadow: 1px 3px 8px rgba(110, 45, 20, 0.3); rotate: -2deg; }
+html[data-theme="picnic"] .photo:nth-child(2n) { rotate: 2.5deg; }
+html[data-theme="picnic"] .photo figcaption { font-family: Caveat, cursive; font-size: 14px; text-align: center; }
+html[data-theme="picnic"] .photo-scene { width: 78px; height: 58px; }
+html[data-theme="picnic"] .photo-sunset {
+  background:
+    radial-gradient(circle at 68% 30%, #ffe27a 0 9px, transparent 10px),
+    linear-gradient(180deg, #ff9a56 0%, #e0567a 55%, #3b2d66 56%, #241b45 100%);
+}
+html[data-theme="picnic"] .photo-drive {
+  background:
+    linear-gradient(115deg, transparent 44%, rgba(255, 230, 140, 0.8) 45%, transparent 47%),
+    linear-gradient(115deg, transparent 54%, rgba(255, 230, 140, 0.5) 55%, transparent 57%),
+    linear-gradient(180deg, #0d1440 0%, #1b2a63 60%, #0a0a18 100%);
+}
+html[data-theme="picnic"] .photo-pool {
+  background:
+    repeating-radial-gradient(circle at 30% 40%, transparent 0 7px, rgba(255,255,255,.25) 7px 8px),
+    linear-gradient(180deg, #4fc3e8 0%, #1f7fc0 100%);
+}
+html[data-theme="picnic"] .player-track { font-family: Caveat, cursive; font-size: 19px; }
+html[data-theme="picnic"] .player-bar {
+  height: 8px; margin-top: 6px; background: #efe6d0; border-radius: 4px; overflow: hidden;
+}
+html[data-theme="picnic"] .player-fill {
+  display: block; height: 100%; width: 100%;
+  background: #e0684e; border-radius: 4px; transform-origin: left;
+  animation: playbar 24s linear infinite;
+}
+html[data-theme="picnic"] .player-row {
+  display: flex; justify-content: space-between; margin-top: 6px;
+  font-family: "Shantell Sans", sans-serif; font-size: 10px; color: #96693d;
+}
+html[data-theme="picnic"] .spec-list { margin: 0; padding-left: 18px; }
+
+/* ---------- chrome ---------- */
+
+html[data-theme="picnic"] .chip {
+  background: var(--paper);
+  border-radius: 40px;
+  box-shadow: var(--sticker-shadow);
+  padding: 6px 12px; gap: 9px;
+  rotate: -1.2deg;
+}
+html[data-theme="picnic"] .chip-home {
+  width: 24px; height: 24px; display: grid; place-items: center;
+  background: #d24a4a; color: #fff; border-radius: 50%; font-size: 13px;
+}
+html[data-theme="picnic"] .chip-title { font-family: Caveat, cursive; font-size: 19px; font-weight: 700; }
+html[data-theme="picnic"] .chip-artist { font-size: 10px; color: #96693d; }
+html[data-theme="picnic"] .chip-listen {
+  background: #ff6b7d; color: #fff; border-radius: 20px; padding: 3px 11px;
+  font-size: 12px; font-weight: 700; box-shadow: 0 2px 4px rgba(160, 40, 40, 0.4);
+}
+html[data-theme="picnic"] .chip-nav a {
+  width: 24px; height: 24px; display: grid; place-items: center;
+  background: #fff; border-radius: 50%; font-size: 12px;
+  box-shadow: 0 1px 3px rgba(100, 40, 15, 0.3);
+}
+html[data-theme="picnic"] .chip-motion,
+html[data-theme="picnic"] .chip-lab {
+  width: 24px; height: 24px; border: 0; border-radius: 50%;
+  background: #ffe9bf; font-size: 11px; display: grid; place-items: center;
+}
+html[data-theme="picnic"] .chip-lab { width: auto; padding: 0 10px; border-radius: 20px; }
+
+html[data-theme="picnic"] .panel {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 21px, rgba(120, 160, 200, 0.35) 21px 22px),
+    var(--paper);
+  border-radius: 4px;
+  box-shadow: 3px 6px 16px rgba(110, 45, 20, 0.35);
+  padding: 14px 14px 12px; rotate: 0.8deg;
+}
+html[data-theme="picnic"] .panel-head {
+  font-family: Caveat, cursive; font-size: 24px; color: #83321c; font-weight: 700;
+}
+html[data-theme="picnic"] .panel-group legend {
+  font-family: "Shantell Sans", sans-serif; color: #96693d; letter-spacing: 0.08em;
+  text-transform: uppercase; font-size: 9px;
+}
+html[data-theme="picnic"] .panel-opt {
+  font-family: Caveat, cursive; font-size: 17px; gap: 6px;
+  background: rgba(255, 255, 255, 0.65); border-radius: 12px; padding: 1px 9px;
+}
+html[data-theme="picnic"] .panel-opt input { accent-color: #d24a4a; margin: 0; }
+html[data-theme="picnic"] .panel-reseed {
+  border: 0; background: #57a05a; color: #fff; border-radius: 14px;
+  padding: 3px 12px; font-family: Caveat, cursive; font-size: 17px;
+  box-shadow: 0 2px 4px rgba(60, 110, 60, 0.4);
+}
+html[data-theme="picnic"] .panel-seed-label { font-family: Caveat, cursive; font-size: 15px; color: #7a4a28; }
+html[data-theme="picnic"] .panel-home { font-family: Caveat, cursive; font-size: 16px; }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 640px) {
+  html[data-theme="picnic"] .hero-tag { padding: 22px 24px 18px; }
+  html[data-theme="picnic"] .artifact-fruit { width: 66px; height: 66px; }
+  html[data-theme="picnic"] .frame { width: min(230px, 78vw); }
+  html[data-theme="picnic"] .chip-artist { display: none; }
+  html[data-theme="picnic"] .sun { scale: 0.7; }
+}

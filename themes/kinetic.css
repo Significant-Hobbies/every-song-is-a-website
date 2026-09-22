@@ -1,0 +1,284 @@
+/* THEME: kinetic — an acid-printed poster. Ink ground, lime type,
+   liquid-chrome objects, sharp edges, fast springs. */
+
+html[data-theme="kinetic"] {
+  --acid: #d2ff2f;
+  --ink-ground: #0d0d0b;
+  --bone: #f2efe4;
+  --focus: #d2ff2f;
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+
+html[data-theme="kinetic"] body { background: #0d0d0b; }
+
+html[data-theme="kinetic"] #world {
+  background:
+    radial-gradient(90% 70% at 50% 30%, rgba(210, 255, 47, 0.05), transparent 60%),
+    var(--ink-ground);
+  color: var(--bone);
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- crop marks ---------- */
+
+html[data-theme="kinetic"] .crop-marks { position: absolute; inset: 0; }
+html[data-theme="kinetic"] .cm {
+  position: absolute; width: 18px; height: 18px;
+  border: 0 solid rgba(242, 239, 228, 0.35);
+}
+html[data-theme="kinetic"] .cm.tl { top: 12px; left: 12px; border-top-width: 1px; border-left-width: 1px; }
+html[data-theme="kinetic"] .cm.tr { top: 12px; right: 12px; border-top-width: 1px; border-right-width: 1px; }
+html[data-theme="kinetic"] .cm.bl { bottom: 12px; left: 12px; border-bottom-width: 1px; border-left-width: 1px; }
+html[data-theme="kinetic"] .cm.br { bottom: 12px; right: 12px; border-bottom-width: 1px; border-right-width: 1px; }
+
+/* ---------- hero: oversized kinetic type ---------- */
+
+html[data-theme="kinetic"] .hero-kinetic {
+  position: absolute; left: 4vw; top: 12vh; right: 4vw;
+}
+html[data-theme="kinetic"] .k-title {
+  margin: 0; font-weight: 800; line-height: 0.88;
+  font-size: clamp(72px, 17vw, 240px);
+  letter-spacing: -0.03em;
+  color: var(--acid);
+  cursor: crosshair;
+  user-select: none;
+  white-space: normal;
+}
+html[data-theme="kinetic"] .k-word { display: block; white-space: nowrap; }
+html[data-theme="kinetic"] .k-letter {
+  display: inline-block;
+  font-variation-settings: "wdth" 100, "wght" 800;
+  will-change: transform, font-variation-settings;
+}
+html[data-theme="kinetic"] .k-sub {
+  margin: 18px 0 0; font-family: "JetBrains Mono", monospace;
+  font-size: clamp(10px, 1.4vw, 13px); letter-spacing: 0.28em;
+  color: rgba(242, 239, 228, 0.6);
+}
+html[data-theme="kinetic"] .k-hint {
+  margin: 8px 0 0; font-family: "JetBrains Mono", monospace;
+  font-size: 10px; letter-spacing: 0.14em; color: rgba(210, 255, 47, 0.55);
+}
+
+/* ---------- marquee ---------- */
+
+html[data-theme="kinetic"] .marquee {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  border-top: 1px solid rgba(210, 255, 47, 0.35);
+  padding: 7px 0; overflow: hidden;
+}
+html[data-theme="kinetic"] .marquee-track {
+  display: flex; width: max-content;
+  font-family: "JetBrains Mono", monospace; font-size: 12px;
+  letter-spacing: 0.3em; color: var(--acid); white-space: nowrap;
+  animation: marq 22s linear infinite;
+}
+html[data-theme="kinetic"] .marquee-track span { padding-right: 2em; }
+@keyframes marq { to { transform: translateX(-50%); } }
+
+/* ---------- artifacts ---------- */
+
+/* sculptural chrome blob */
+html[data-theme="kinetic"] .artifact-object { width: 130px; height: 130px; }
+html[data-theme="kinetic"] .artifact-object .artifact-body { width: 100%; height: 100%; }
+html[data-theme="kinetic"] .chrome-blob {
+  display: block; width: 100%; height: 100%;
+  border-radius: 47% 53% 62% 38% / 45% 48% 52% 55%;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.95) 0 6%, transparent 26%),
+    conic-gradient(from 210deg at 50% 50%,
+      #e8e8e8, #6d6d68 12%, #f6f6f2 22%, #3c3c38 34%,
+      #cfcfc8 46%, #565650 58%, #ffffff 70%, #454540 82%, #dcdcd4 92%, #e8e8e8);
+  box-shadow:
+    inset -8px -12px 26px rgba(0, 0, 0, 0.55),
+    inset 6px 8px 18px rgba(255, 255, 255, 0.35),
+    14px 22px 34px rgba(0, 0, 0, 0.55);
+}
+html[data-theme="kinetic"] .artifact-object:nth-of-type(2n) .chrome-blob {
+  border-radius: 62% 38% 41% 59% / 55% 42% 58% 45%;
+}
+html[data-theme="kinetic"] .artifact-object:nth-of-type(3n) .chrome-blob {
+  border-radius: 38% 62% 55% 45% / 52% 58% 42% 48%;
+  scale: 0.72;
+}
+html[data-theme="kinetic"] .artifact-object.is-dragging .chrome-blob { filter: brightness(1.12); }
+
+/* acid lozenges */
+html[data-theme="kinetic"] .artifact-lozenge { width: 76px; height: 34px; }
+html[data-theme="kinetic"] .artifact-lozenge .artifact-body { width: 100%; height: 100%; }
+html[data-theme="kinetic"] .glyph-lozenge .g-outline {
+  fill: var(--acid); stroke: none;
+}
+html[data-theme="kinetic"] .glyph-lozenge .g-fill {
+  stroke: var(--ink-ground); stroke-width: 4; fill: none; stroke-linecap: round;
+}
+html[data-theme="kinetic"] .artifact-lozenge {
+  animation: floaty var(--float-dur, 6s) ease-in-out var(--float-delay, 0s) infinite;
+}
+
+/* glyphs that arrive via theme-switch print in acid on ink */
+html[data-theme="kinetic"] .artifact-heart,
+html[data-theme="kinetic"] .artifact-star { width: 56px; height: 56px; }
+html[data-theme="kinetic"] .artifact-fruit { width: 84px; height: 84px; }
+html[data-theme="kinetic"] .artifact-flower { width: 56px; height: 56px; }
+html[data-theme="kinetic"] .glyph .g-outline { fill: var(--acid); stroke: none; }
+html[data-theme="kinetic"] .glyph .g-fill { fill: var(--ink-ground); }
+html[data-theme="kinetic"] .glyph-watermelon .g-fill,
+html[data-theme="kinetic"] .glyph-strawberry .g-fill,
+html[data-theme="kinetic"] .glyph-orange .g-fill { fill: var(--acid); }
+html[data-theme="kinetic"] .glyph .g-rind, html[data-theme="kinetic"] .glyph .g-pith,
+html[data-theme="kinetic"] .glyph .g-leaf { fill: var(--ink-ground); }
+html[data-theme="kinetic"] .glyph .g-seed { fill: var(--ink-ground); }
+html[data-theme="kinetic"] .glyph .g-petal { fill: var(--acid); }
+html[data-theme="kinetic"] .glyph .g-pith-fill { fill: var(--ink-ground); }
+html[data-theme="kinetic"] .glyph-orange .g-pith { stroke: var(--ink-ground); stroke-width: 3.4; fill: none; }
+
+html[data-theme="kinetic"] .ring-pulse { border: 2px solid var(--acid); }
+html[data-theme="kinetic"] .trail-spark {
+  display: block; font-family: "JetBrains Mono", monospace; font-style: normal;
+  color: var(--acid); font-size: 15px; transform: translate(-50%, -50%);
+}
+
+/* ---------- frames: spec slabs ---------- */
+
+html[data-theme="kinetic"] .frame {
+  width: 250px;
+  background: var(--bone); color: #141410;
+  border: 1px solid #141410; border-radius: 2px;
+  box-shadow: 10px 12px 0 rgba(210, 255, 47, 0.16);
+  padding: 0;
+}
+html[data-theme="kinetic"] .frame-bar {
+  border-bottom: 1px solid #141410; padding: 7px 10px;
+}
+html[data-theme="kinetic"] .frame-title {
+  font-family: "JetBrains Mono", monospace; font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+}
+html[data-theme="kinetic"] .frame-btn {
+  width: 16px; height: 16px; border: 1px solid #141410; background: transparent;
+  font-size: 9px; line-height: 1; display: grid; place-items: center;
+}
+html[data-theme="kinetic"] .frame-btn:hover { background: var(--acid); }
+html[data-theme="kinetic"] .frame-body { padding: 10px 12px; font-size: 13px; }
+
+html[data-theme="kinetic"] .note-text p {
+  margin: 0 0 3px; font-family: "JetBrains Mono", monospace; font-size: 12px;
+}
+html[data-theme="kinetic"] .note-text p::before { content: "▸ "; color: #8aa30f; }
+html[data-theme="kinetic"] .note-demo-tag { color: #777; font-size: 9px !important; }
+html[data-theme="kinetic"] .note-text ul { margin: 0; padding-left: 16px; }
+
+html[data-theme="kinetic"] .chat-msg .chat-bubble {
+  font-family: "JetBrains Mono", monospace; font-size: 12px;
+}
+html[data-theme="kinetic"] .chat-msg.is-them .chat-bubble { color: #141410; }
+html[data-theme="kinetic"] .chat-msg.is-me .chat-bubble { color: #5c6f00; }
+html[data-theme="kinetic"] .chat-msg.is-me { text-align: right; }
+html[data-theme="kinetic"] .chat-input { display: none; }
+
+html[data-theme="kinetic"] .photo { background: #141410; padding: 4px; }
+html[data-theme="kinetic"] .photo-scene { filter: grayscale(1) contrast(1.2); }
+html[data-theme="kinetic"] .photo figcaption {
+  color: var(--acid); font-family: "JetBrains Mono", monospace; font-size: 9px;
+}
+html[data-theme="kinetic"] .photo-sunset {
+  background:
+    radial-gradient(circle at 68% 30%, #ffe27a 0 9px, transparent 10px),
+    linear-gradient(180deg, #ff9a56 0%, #e0567a 55%, #3b2d66 56%, #241b45 100%);
+}
+html[data-theme="kinetic"] .photo-drive {
+  background:
+    linear-gradient(115deg, transparent 44%, rgba(255, 230, 140, 0.8) 45%, transparent 47%),
+    linear-gradient(180deg, #0d1440 0%, #1b2a63 60%, #0a0a18 100%);
+}
+html[data-theme="kinetic"] .photo-pool {
+  background:
+    repeating-radial-gradient(circle at 30% 40%, transparent 0 7px, rgba(255,255,255,.25) 7px 8px),
+    linear-gradient(180deg, #4fc3e8 0%, #1f7fc0 100%);
+}
+html[data-theme="kinetic"] .player-track {
+  font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+html[data-theme="kinetic"] .player-bar {
+  margin-top: 8px; height: 5px; background: #d8d4c4;
+}
+html[data-theme="kinetic"] .player-fill {
+  display: block; height: 100%; width: 100%;
+  background: #141410; transform-origin: left;
+  animation: playbar 24s linear infinite;
+}
+html[data-theme="kinetic"] .player-row {
+  display: flex; justify-content: space-between; margin-top: 8px;
+  font-family: "JetBrains Mono", monospace; font-size: 9px; color: #666;
+}
+html[data-theme="kinetic"] .spec-list {
+  margin: 0; padding: 0; list-style: none;
+  font-family: "JetBrains Mono", monospace; font-size: 11px;
+}
+html[data-theme="kinetic"] .spec-list li { padding: 3px 0; border-bottom: 1px solid #d8d4c4; }
+html[data-theme="kinetic"] .spec-list li::before { content: "· "; }
+
+/* ---------- chrome ---------- */
+
+html[data-theme="kinetic"] .chip {
+  background: rgba(13, 13, 11, 0.85);
+  border: 1px solid rgba(210, 255, 47, 0.5);
+  padding: 7px 10px; gap: 10px;
+  font-family: "JetBrains Mono", monospace; font-size: 11px;
+  backdrop-filter: blur(4px);
+}
+html[data-theme="kinetic"] .chip-home { color: var(--acid); font-size: 14px; }
+html[data-theme="kinetic"] .chip-title {
+  font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--acid);
+}
+html[data-theme="kinetic"] .chip-artist { color: rgba(242, 239, 228, 0.55); letter-spacing: 0.1em; }
+html[data-theme="kinetic"] .chip-listen {
+  background: var(--acid); color: #141410; font-weight: 700;
+  padding: 3px 10px; border-radius: 20px; letter-spacing: 0.08em;
+}
+html[data-theme="kinetic"] .chip-nav a {
+  color: var(--bone); padding: 2px 7px; border: 1px solid rgba(242, 239, 228, 0.3);
+}
+html[data-theme="kinetic"] .chip-nav a:hover { border-color: var(--acid); color: var(--acid); }
+html[data-theme="kinetic"] .chip-motion, html[data-theme="kinetic"] .chip-lab {
+  background: transparent; border: 1px solid rgba(210, 255, 47, 0.5);
+  color: var(--acid); padding: 2px 8px; font-family: inherit; font-size: 10px;
+}
+html[data-theme="kinetic"] .chip-lab { letter-spacing: 0.16em; }
+
+html[data-theme="kinetic"] .panel {
+  background: rgba(13, 13, 11, 0.92);
+  border: 1px solid rgba(210, 255, 47, 0.5);
+  padding: 12px; bottom: 46px;
+  font-family: "JetBrains Mono", monospace;
+  backdrop-filter: blur(6px);
+}
+html[data-theme="kinetic"] .panel-head {
+  color: var(--acid); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+}
+html[data-theme="kinetic"] .panel-group legend { color: rgba(242, 239, 228, 0.45); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; }
+html[data-theme="kinetic"] .panel-opt {
+  border: 1px solid rgba(242, 239, 228, 0.25); padding: 3px 9px; font-size: 10px;
+  color: var(--bone);
+}
+html[data-theme="kinetic"] .panel-opt:has(input:checked) { border-color: var(--acid); color: var(--acid); }
+html[data-theme="kinetic"] .panel-opt input { accent-color: var(--acid); margin: 0; }
+html[data-theme="kinetic"] .panel-reseed {
+  background: var(--acid); color: #141410; border: 0; padding: 4px 12px;
+  font-family: inherit; font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+}
+html[data-theme="kinetic"] .panel-seed-label { font-size: 10px; color: rgba(242, 239, 228, 0.6); }
+html[data-theme="kinetic"] .panel-home { color: rgba(242, 239, 228, 0.6); font-size: 10px; }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 640px) {
+  html[data-theme="kinetic"] .hero-kinetic { top: 9vh; }
+  html[data-theme="kinetic"] .artifact-object { width: 88px; height: 88px; }
+  html[data-theme="kinetic"] .frame { width: min(230px, 78vw); }
+  html[data-theme="kinetic"] .chip-artist { display: none; }
+}
