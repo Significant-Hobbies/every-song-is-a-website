@@ -87,13 +87,12 @@ for (const slug of ORDER) {
   }
   const door = document.createElement('a');
   door.className = `door d-${song.theme}`;
-  door.href = `song/${slug}/`;
+  door.href = `${slug}/`;
   door.innerHTML = `
     <div class="door-scene" aria-hidden="true">${SCENES[song.theme](song)}</div>
     <div class="door-meta">
       <h2>${song.title}</h2>
       <p>${song.artist} · ${song.year} · ${DESC[song.theme]}</p>
-      ${song.yours ? '<span class="door-yours">♥ from your library</span>' : ''}
       <span class="door-go">enter →</span>
     </div>`;
   built.push({ door, haystack: `${song.title} ${song.artist} ${song.year}`.toLowerCase() });
@@ -118,7 +117,7 @@ seek?.addEventListener('input', () => {
 
 /* surprise me */
 document.getElementById('surprise')?.addEventListener('click', () => {
-  location.href = `song/${ORDER[Math.floor(Math.random() * ORDER.length)]}/`;
+  location.href = `${ORDER[Math.floor(Math.random() * ORDER.length)]}/`;
 });
 seek?.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') { seek.value = ''; seek.dispatchEvent(new Event('input')); }

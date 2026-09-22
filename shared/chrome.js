@@ -16,7 +16,7 @@ export function mountChrome(world) {
   chip.className = 'chip';
   chip.setAttribute('aria-label', 'song');
   chip.innerHTML = `
-    <a class="chip-home" href="../../" aria-label="all songs">♪</a>
+    <a class="chip-home" href="../" aria-label="all songs">♪</a>
     <span class="chip-id">
       <span class="chip-title">${song.title}</span>
       <span class="chip-artist">${song.artist}</span>
@@ -75,7 +75,7 @@ export function mountChrome(world) {
         <span class="panel-seed-label">layout seed <code>${world.seed}</code></span>
         <button class="panel-reseed" type="button">recompose</button>
       </div>
-      <a class="panel-home" href="../../">← all songs</a>
+      <a class="panel-home" href="../">← all songs</a>
     </div>`;
   world.layers.chrome.append(panel);
 

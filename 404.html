@@ -36,7 +36,7 @@
       return !q || `${s.title} ${s.artist} ${s.year}`.toLowerCase().includes(q);
     });
     list.innerHTML = hits.length
-      ? hits.map((slug) => `<li><a href="/song/${slug}/"><strong>${SONGS[slug].title}</strong> — ${SONGS[slug].artist}, ${SONGS[slug].year}</a></li>`).join('')
+      ? hits.map((slug) => `<li><a href="/${slug}/"><strong>${SONGS[slug].title}</strong> — ${SONGS[slug].artist}, ${SONGS[slug].year}</a></li>`).join('')
       : '<li class="lost-none">nothing matches — <a href="/">head home</a>?</li>';
   };
   input.addEventListener('input', () => render(input.value.trim().toLowerCase()));
