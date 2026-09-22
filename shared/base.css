@@ -80,6 +80,22 @@ html.drag-lock iframe { pointer-events: none; }
 .frame-btn { line-height: 1; }
 .frame.is-collapsed .frame-body { display: none; }
 
+/* maximized frame — fills the viewport, immovable, Esc or □ restores */
+.frame.is-maxed {
+  left: 0 !important; top: 0 !important;
+  width: 100vw !important; height: 100dvh !important;
+  min-width: 0; max-width: none;
+  transform: none !important;
+  z-index: 9999; /* beats inline bringToFront z; layers keep it under the chip */
+  display: flex; flex-direction: column;
+}
+.frame.is-maxed .frame-body {
+  flex: 1; min-height: 0; overflow: auto;
+}
+.frame.is-maxed .player-embed { aspect-ratio: auto; height: 100%; flex: 1; }
+.frame.is-maxed .lyrics-embed { height: 100%; }
+.frame.is-maxed .chat-log { max-height: none; }
+
 .chat-log {
   list-style: none; margin: 0; padding: 0;
   display: flex; flex-direction: column; gap: 6px;
@@ -110,6 +126,7 @@ html.drag-lock iframe { pointer-events: none; }
 .chip-id { display: flex; flex-direction: column; line-height: 1.15; }
 .chip-artist { font-size: 0.82em; opacity: 0.75; }
 .chip a { color: inherit; text-decoration: none; }
+.chip-listen { background: none; border: 0; padding: 0; font: inherit; color: inherit; }
 .chip-nav { display: inline-flex; gap: 4px; }
 .chip button { cursor: pointer; }
 

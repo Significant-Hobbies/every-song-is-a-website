@@ -248,7 +248,19 @@ export function glyphEl(spec, theme) {
 
 // A frame: titlebar + body. Content renderer chosen by spec.type.
 // All chrome differences between worlds are CSS on [data-theme].
+let escBound = false;
+function bindMaxEscape() {
+  if (escBound) return;
+  escBound = true;
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const m = document.querySelector('.frame.is-maxed');
+    if (m) m.querySelector('.frame-max')?.click();
+  });
+}
+
 export function makeFrame(spec, song, hooks = {}) {
+  bindMaxEscape();
   const el = document.createElement('section');
   el.className = `frame frame-${spec.type}`;
   el.dataset.artifact = 'frame';
@@ -267,17 +279,28 @@ export function makeFrame(spec, song, hooks = {}) {
   collapse.type = 'button';
   collapse.setAttribute('aria-label', `collapse ${spec.title}`);
   collapse.textContent = '_';
+  const max = document.createElement('button');
+  max.className = 'frame-btn frame-max';
+  max.type = 'button';
+  max.setAttribute('aria-label', `expand ${spec.title}`);
+  max.textContent = '□';
   const close = document.createElement('button');
   close.className = 'frame-btn frame-close';
   close.type = 'button';
   close.setAttribute('aria-label', `close ${spec.title}`);
   close.textContent = '✕';
   collapse.addEventListener('click', () => el.classList.toggle('is-collapsed'));
+  max.addEventListener('click', () => {
+    el.classList.remove('is-collapsed');
+    const on = el.classList.toggle('is-maxed');
+    max.setAttribute('aria-label', `${on ? 'restore' : 'expand'} ${spec.title}`);
+    max.textContent = on ? '❐' : '□';
+  });
   close.addEventListener('click', () => {
     el.classList.add('is-closed');
     hooks.onClose?.(spec.id);
   });
-  controls.append(collapse, close);
+  controls.append(collapse, max, close);
   bar.append(title, controls);
 
   const bodyEl = document.createElement('div');
@@ -333,10 +356,10 @@ const CONTENT = {
     if (song.youtube) {
       const frame = document.createElement('iframe');
       frame.className = 'player-embed';
-      frame.src = `https://www.youtube.com/embed/${song.youtube}?rel=0`;
+      // enablejsapi lets the chip's listen button drive play/pause in place
+      frame.src = `https://www.youtube.com/embed/${song.youtube}?rel=0&enablejsapi=1`;
       frame.title = `${song.title} — ${song.artist} (official video)`;
-      frame.loading = 'lazy';
-      frame.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       frame.allowFullscreen = true;
       wrap.append(frame);
     } else {

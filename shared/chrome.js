@@ -21,7 +21,7 @@ export function mountChrome(world) {
       <span class="chip-title">${song.title}</span>
       <span class="chip-artist">${song.artist}</span>
     </span>
-    <a class="chip-listen" href="${song.listen}" target="_blank" rel="noopener">listen ↗</a>
+    <button class="chip-listen" type="button" aria-pressed="false">listen ▶</button>
     <span class="chip-nav">
       <a href="../${prev.slug}/" aria-label="previous song: ${prev.title}">←</a>
       <a href="../${next.slug}/" aria-label="next song: ${next.title}">→</a>
@@ -87,6 +87,20 @@ export function mountChrome(world) {
   };
   labBtn.addEventListener('click', () => setPanel(panel.hidden));
   addEventListener('keydown', (e) => { if (e.key === 'Escape') setPanel(false); });
+
+  // listen = play the embedded video in place; never redirects
+  const listenBtn = chip.querySelector('.chip-listen');
+  let playing = false;
+  listenBtn.addEventListener('click', () => {
+    const pf = document.querySelector('.frame-player');
+    if (pf?.classList.contains('is-closed')) pf.classList.remove('is-closed');
+    if (pf?.classList.contains('is-hidden')) pf.classList.remove('is-hidden');
+    playing = !playing;
+    pf?.querySelector('iframe')?.contentWindow?.postMessage(
+      JSON.stringify({ event: 'command', func: playing ? 'playVideo' : 'pauseVideo', args: '' }), '*');
+    listenBtn.textContent = playing ? 'pause ❚❚' : 'listen ▶';
+    listenBtn.setAttribute('aria-pressed', String(playing));
+  });
 
   panel.addEventListener('change', (e) => {
     const input = e.target;

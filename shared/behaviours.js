@@ -30,7 +30,7 @@ export function draggable(el, opts = {}) {
   el.addEventListener('keydown', (e) => {
     const step = e.shiftKey ? 48 : 14;
     const keys = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] };
-    if (!keys[e.key]) return;
+    if (!keys[e.key] || el.classList.contains('is-maxed')) return;
     e.preventDefault();
     const parent = el.offsetParent?.getBoundingClientRect() ?? { width: innerWidth, height: innerHeight };
     const cur = el.dataset.fx !== undefined
@@ -45,6 +45,7 @@ export function draggable(el, opts = {}) {
 
   handle.addEventListener('pointerdown', (e) => {
     if (e.button > 0) return;
+    if (el.classList.contains('is-maxed')) return;
     if (e.target.closest('button, a, input, select, textarea, [data-nodrag]')) return;
     active = true;
     cancelAnimationFrame(raf);
