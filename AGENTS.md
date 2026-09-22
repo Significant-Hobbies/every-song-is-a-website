@@ -40,6 +40,13 @@ node --check shared/*.js themes/*.js   # syntax check all modules
   Themes are runtime-switchable; artifacts must re-skin under every theme via
   `data-theme` scoping and `data-artifact` selectors.
 
+## Deploy
+
+Live at **https://music.significanthobbies.com** — a static-assets Cloudflare
+Worker (`wrangler.jsonc`: `assets.directory: ./`, `not_found_handling:
+404-page`, custom-domain route). Deploy with `npx wrangler deploy` from this
+directory; `.assetsignore` keeps repo artifacts out of the bundle.
+
 ## Rules
 
 - Keep it dependency-free. If a framework is ever adopted, say why in
