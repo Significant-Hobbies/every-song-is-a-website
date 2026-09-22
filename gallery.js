@@ -93,6 +93,7 @@ for (const slug of ORDER) {
     <div class="door-meta">
       <h2>${song.title}</h2>
       <p>${song.artist} · ${song.year} · ${DESC[song.theme]}</p>
+      ${song.yours ? '<span class="door-yours">♥ from your library</span>' : ''}
       <span class="door-go">enter →</span>
     </div>`;
   built.push({ door, haystack: `${song.title} ${song.artist} ${song.year}`.toLowerCase() });

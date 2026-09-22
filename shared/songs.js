@@ -158,6 +158,18 @@ function varyCatalog(slug, d, r) {
   };
 }
 
+// songs pulled from the owner's Apple Music library/suggestions
+const YOURS = new Set([
+  'dancing-on-my-own', 'imagine', 'counting-stars', 'borrowed-love',
+  'glad-you-came', 'make-you-mine', 'nice-to-meet-ya', 'savage-love',
+  'numb-little-bug', 'wondering-why', 'die-with-a-smile', 'storm-ii',
+  'drag-me-down', 'what-i-need', 'bloom', 'the-hills', 'you-and-me',
+  'woman', 'gotta-be-a-reason', 'party-in-the-usa', 'karma', 'true-blue',
+  'thursday', 'all-i-am', 'steal-my-girl', 'i-got-to-live', 'remedy',
+  'never-did-coke', 'routines-in-the-night', 'hymn-to-virgil',
+  'no-judgement', 'stressed-out',
+]);
+
 // catalog row: [slug, title, artist, year, theme, youtubeId, geniusId]
 function expandCatalog(row) {
   const [slug, title, artist, year, theme, youtube, genius] = row;
@@ -170,6 +182,7 @@ function expandCatalog(row) {
     era: d.era, mood: d.mood, imagery: d.imagery, energy: d.energy,
     theme, motion: 'full',
     seed,
+    yours: YOURS.has(slug),
     listen: `https://www.youtube.com/watch?v=${youtube}`,
     youtube, genius,
     hero: d.hero,
