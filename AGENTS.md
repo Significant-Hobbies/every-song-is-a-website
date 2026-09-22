@@ -20,7 +20,10 @@ node --check shared/*.js themes/*.js   # syntax check all modules
 
 ## Structure
 
-- `index.html` — song gallery.
+- `index.html` — song gallery (registry-driven doors + live filter search).
+- `404.html` — recovery page with the same live search; served automatically
+  by static hosts (Cloudflare Pages etc.) for unknown URLs. Uses absolute
+  `/song/…` links since 404s resolve from arbitrary paths.
 - `song/<slug>/index.html` — one directory per song; shareable URL.
 - `shared/songs.js` — the song registry: every song's config (theme, mood,
   imagery, artifacts, motion, seed, lyrics, `youtube` video id) lives here.

@@ -132,6 +132,39 @@ body {
 }
 
 .colophon p { font-size: 10px; letter-spacing: 0.14em; color: rgba(239, 236, 228, 0.4); margin: 0; }
+.colophon a { color: inherit; }
+
+/* ---------- search ---------- */
+
+.seek-input {
+  margin-top: 22px; width: min(420px, 100%);
+  background: transparent; color: inherit;
+  font-family: "JetBrains Mono", monospace; font-size: 13px;
+  border: 0; border-bottom: 1px solid rgba(239, 236, 228, 0.3);
+  padding: 8px 2px; outline: none; border-radius: 0;
+}
+.seek-input:focus-visible { border-bottom-color: #d2ff2f; }
+.seek-input::placeholder { color: rgba(239, 236, 228, 0.35); }
+.seek-empty { font-size: 12px; color: rgba(239, 236, 228, 0.6); }
+.seek-empty a, .seek-clear {
+  color: #d2ff2f; background: none; border: 0; padding: 0;
+  font: inherit; cursor: pointer; text-decoration: underline;
+}
+
+/* ---------- 404 ---------- */
+
+.lost { flex: 1; display: flex; flex-direction: column; align-content: flex-start; }
+.lost .seek-input { width: min(480px, 100%); }
+.lost-results { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 10px; }
+.lost-results a {
+  display: inline-block; padding: 10px 14px; text-decoration: none; color: inherit;
+  border: 1px solid rgba(239, 236, 228, 0.16); font-size: 13px;
+  transition: border-color 0.2s, translate 0.2s;
+}
+.lost-results a:hover, .lost-results a:focus-visible { border-color: #d2ff2f; translate: 2px 0; }
+.lost-results strong { font-family: "Archivo", sans-serif; font-weight: 700; }
+.lost-none { font-size: 12px; color: rgba(239, 236, 228, 0.55); }
+.lost-none a { color: #d2ff2f; }
 
 @media (prefers-reduced-motion: reduce) {
   .mini-heart, .d-picnic .mini-melon, .mini-type { animation: none; transition: none; }

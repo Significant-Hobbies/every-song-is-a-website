@@ -15,9 +15,11 @@
 <header class="masthead">
   <h1>every song is a website</h1>
   <p>eight songs, three worlds, one video player each. pick a door — drag things, click things, stay a minute.</p>
+  <input class="seek-input" id="seek" type="search" placeholder="search a song or artist…" aria-label="search songs">
 </header>
 
 <main class="doors" id="doors">
+  <p class="seek-empty" id="seekEmpty" hidden>nothing matches — <button class="seek-clear" id="seekClear" type="button">show everything</button></p>
   <noscript>
     <ul>
       <li><a href="song/strawberry-fields-forever/">Strawberry Fields Forever — The Beatles</a></li>

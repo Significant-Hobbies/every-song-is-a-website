@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wrong door · every song is a website</title>
+<meta name="description" content="That song never made the record. Search the ones that did.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#127926;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/gallery.css">
+</head>
+<body>
+<header class="masthead">
+  <h1>wrong door</h1>
+  <p>that song never made the record — these ones did:</p>
+</header>
+
+<main class="lost">
+  <input class="seek-input" id="lostSeek" type="search" placeholder="search a song or artist…" aria-label="search songs" autofocus>
+  <ul class="lost-results" id="lostResults"></ul>
+</main>
+
+<footer class="colophon">
+  <p><a href="/">← back to the gallery</a></p>
+</footer>
+
+<script type="module">
+  import { ORDER, SONGS } from '/shared/songs.js';
+  const list = document.getElementById('lostResults');
+  const input = document.getElementById('lostSeek');
+  const render = (q) => {
+    const hits = ORDER.filter((slug) => {
+      const s = SONGS[slug];
+      return !q || `${s.title} ${s.artist} ${s.year}`.toLowerCase().includes(q);
+    });
+    list.innerHTML = hits.length
+      ? hits.map((slug) => `<li><a href="/song/${slug}/"><strong>${SONGS[slug].title}</strong> — ${SONGS[slug].artist}, ${SONGS[slug].year}</a></li>`).join('')
+      : '<li class="lost-none">nothing matches — <a href="/">head home</a>?</li>';
+  };
+  input.addEventListener('input', () => render(input.value.trim().toLowerCase()));
+  render('');
+</script>
+</body>
+</html>

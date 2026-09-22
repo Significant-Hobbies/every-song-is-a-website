@@ -32,6 +32,7 @@ const SCENES = {
 };
 
 const doors = document.getElementById('doors');
+const built = [];
 for (const slug of ORDER) {
   const song = SONGS[slug];
   const door = document.createElement('a');
@@ -44,5 +45,26 @@ for (const slug of ORDER) {
       <p>${song.artist} · ${song.year} · ${DESC[song.theme]}</p>
       <span class="door-go">enter →</span>
     </div>`;
+  built.push({ door, haystack: `${song.title} ${song.artist} ${song.year}`.toLowerCase() });
   doors.append(door);
 }
+
+/* filter search */
+const seek = document.getElementById('seek');
+const empty = document.getElementById('seekEmpty');
+seek?.addEventListener('input', () => {
+  const q = seek.value.trim().toLowerCase();
+  let shown = 0;
+  for (const { door, haystack } of built) {
+    const hit = !q || haystack.includes(q);
+    door.style.display = hit ? '' : 'none';
+    if (hit) shown++;
+  }
+  empty.hidden = shown > 0;
+});
+seek?.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { seek.value = ''; seek.dispatchEvent(new Event('input')); }
+});
+document.getElementById('seekClear')?.addEventListener('click', () => {
+  seek.value = ''; seek.dispatchEvent(new Event('input')); seek.focus();
+});
