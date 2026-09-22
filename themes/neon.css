@@ -1,0 +1,231 @@
+/* THEME: neon — a midnight city block. Dark glass panels, glowing
+   sign borders, retrowave sun over a perspective grid. */
+
+html[data-theme="neon"] {
+  --pink: #ff2d78;
+  --cyan: #22e5ff;
+  --amber: #ffd94f;
+  --ink: #eae6ff;
+  --glass: rgba(12, 8, 30, 0.82);
+  --focus: #22e5ff;
+  font-family: "JetBrains Mono", monospace;
+}
+
+html[data-theme="neon"] body { background: #060412; }
+
+html[data-theme="neon"] #world {
+  color: var(--ink);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  background:
+    radial-gradient(80% 46% at 50% 62%, rgba(255, 45, 120, 0.16), transparent 70%),
+    linear-gradient(180deg, #060412 0%, #0d0624 48%, #1a0733 62%, #0a0418 100%);
+}
+
+/* ---------- night sky ---------- */
+
+html[data-theme="neon"] .night-sky { position: absolute; inset: 0; }
+html[data-theme="neon"] .sky-star {
+  position: absolute; width: 2px; height: 2px; border-radius: 50%;
+  background: #cfd4ff; opacity: 0.75;
+}
+html[data-theme="neon"] .sky-star.twinkle {
+  animation: twinkle 3.4s ease-in-out infinite;
+}
+@keyframes twinkle { 50% { opacity: 0.15; } }
+
+/* ---------- retrowave sun ---------- */
+
+html[data-theme="neon"] .neon-sun {
+  position: absolute; left: 50%; bottom: 26%;
+  width: 300px; height: 300px; margin-left: -150px;
+  border-radius: 50%;
+  background:
+    repeating-linear-gradient(180deg,
+      transparent 0 14px, rgba(6, 4, 18, 0.9) 14px 20px),
+    linear-gradient(180deg, #ffd94f 0%, #ff7a3d 46%, #ff2d78 78%, #a8218e 100%);
+  mask-image: linear-gradient(180deg, #000 0 52%, transparent 52%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0 52%, transparent 52%);
+  box-shadow: 0 0 90px rgba(255, 45, 120, 0.5);
+}
+
+/* ---------- grid floor ---------- */
+
+html[data-theme="neon"] .grid-floor {
+  position: absolute; left: -50%; right: -50%; bottom: -6%; height: 34%;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(34, 229, 255, 0.28) 0 2px, transparent 2px 90px),
+    repeating-linear-gradient(0deg, rgba(34, 229, 255, 0.3) 0 2px, transparent 2px 34px);
+  transform: perspective(340px) rotateX(58deg);
+  transform-origin: 50% 0;
+  mask-image: linear-gradient(180deg, transparent 0, #000 26%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 26%);
+}
+
+/* ---------- hero: the sign ---------- */
+
+html[data-theme="neon"] .hero-sign {
+  position: absolute; text-align: center; pointer-events: none;
+}
+html[data-theme="neon"] .n-title {
+  margin: 0; font-family: "Caveat", cursive; font-weight: 700;
+  font-size: clamp(64px, 11vw, 150px); line-height: 0.95;
+  color: #fff2f9;
+  text-shadow:
+    0 0 6px rgba(255, 45, 120, 0.9),
+    0 0 22px rgba(255, 45, 120, 0.75),
+    0 0 60px rgba(255, 45, 120, 0.5),
+    0 0 120px rgba(255, 45, 120, 0.35);
+}
+html[data-theme="neon"] .n-space { display: inline-block; width: 0.35em; }
+html[data-theme="neon"] .n-letter.flicker {
+  animation: neonflick 4.6s steps(1) infinite;
+}
+@keyframes neonflick {
+  0%, 7%, 9%, 54%, 56%, 100% { opacity: 1; }
+  8%, 55% { opacity: 0.25; }
+}
+html[data-theme="neon"] .n-sub {
+  margin: 14px 0 0; font-size: 12px; letter-spacing: 0.42em;
+  text-transform: uppercase; color: var(--cyan);
+  text-shadow: 0 0 12px rgba(34, 229, 255, 0.8);
+}
+html[data-theme="neon"] .n-hint {
+  margin: 8px 0 0; font-size: 10px; letter-spacing: 0.14em;
+  color: rgba(234, 230, 255, 0.4);
+}
+
+/* ---------- frames: dark glass with neon trim ---------- */
+
+html[data-theme="neon"] .frame {
+  background: var(--glass);
+  border: 1.5px solid rgba(255, 45, 120, 0.75);
+  border-radius: 10px;
+  box-shadow: 0 0 22px rgba(255, 45, 120, 0.28), inset 0 0 30px rgba(20, 10, 50, 0.6);
+  backdrop-filter: blur(4px);
+}
+html[data-theme="neon"] .frame:nth-of-type(2n) {
+  border-color: rgba(34, 229, 255, 0.7);
+  box-shadow: 0 0 22px rgba(34, 229, 255, 0.24), inset 0 0 30px rgba(10, 20, 50, 0.6);
+}
+html[data-theme="neon"] .frame.is-maxed { border-radius: 0; }
+html[data-theme="neon"] .frame-bar {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(234, 230, 255, 0.14);
+}
+html[data-theme="neon"] .frame-title {
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--cyan);
+  text-shadow: 0 0 8px rgba(34, 229, 255, 0.7);
+}
+html[data-theme="neon"] .frame-btn {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 1px solid rgba(234, 230, 255, 0.4);
+  background: transparent; color: var(--ink);
+  font-size: 10px; font-family: inherit; cursor: pointer;
+  display: grid; place-items: center;
+}
+html[data-theme="neon"] .frame-btn:hover { border-color: var(--pink); color: var(--pink); }
+html[data-theme="neon"] .frame-body { padding: 10px 14px 14px; }
+html[data-theme="neon"] .frame.is-maxed .frame-body { overflow: auto; }
+
+html[data-theme="neon"] .chat-bubble {
+  background: rgba(34, 229, 255, 0.1); border: 1px solid rgba(34, 229, 255, 0.3);
+  border-radius: 4px 12px 12px 12px; padding: 6px 10px; font-size: 12px;
+}
+html[data-theme="neon"] .chat-msg:nth-child(2n) .chat-bubble {
+  background: rgba(255, 45, 120, 0.12); border-color: rgba(255, 45, 120, 0.35);
+}
+html[data-theme="neon"] .chat-input { border-top: 1px dashed rgba(234, 230, 255, 0.2); padding-top: 8px; margin-top: 8px; font-size: 11px; color: rgba(234,230,255,.45); }
+html[data-theme="neon"] .player-track { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); text-shadow: 0 0 10px rgba(255, 217, 79, 0.6); }
+html[data-theme="neon"] .lyrics-embed { border-radius: 6px; }
+html[data-theme="neon"] .spec-list { list-style: none; margin: 0; padding: 0; font-size: 12px; }
+html[data-theme="neon"] .spec-list li { padding: 5px 0; border-bottom: 1px dashed rgba(34, 229, 255, 0.25); }
+html[data-theme="neon"] .note-text { font-size: 12.5px; line-height: 1.6; }
+html[data-theme="neon"] .note-text ul { list-style: none; margin: 0; padding: 0; }
+html[data-theme="neon"] .note-text li::before { content: "✧ "; color: var(--pink); }
+
+/* ---------- artifacts: neon signs ---------- */
+
+html[data-theme="neon"] .artifact .glyph { width: 100%; height: 100%; overflow: visible; }
+html[data-theme="neon"] .artifact-heart { width: 56px; height: 56px; }
+html[data-theme="neon"] .artifact-star { width: 60px; height: 60px; }
+html[data-theme="neon"] .artifact-flower { width: 60px; height: 60px; }
+html[data-theme="neon"] .artifact-fruit { width: 76px; height: 76px; }
+html[data-theme="neon"] .artifact-object { width: 84px; height: 84px; }
+html[data-theme="neon"] .artifact-lozenge { width: 90px; height: 50px; }
+
+/* signs are outlines only — fill off, stroke on, glow via drop-shadow */
+html[data-theme="neon"] .artifact .glyph :is(.g-outline, .g-fill, .g-rind, .g-pith, .g-pith-fill, .g-flesh, .g-seed, .g-petal, .g-leaf) {
+  fill: none;
+}
+html[data-theme="neon"] .artifact .glyph :is(.g-outline, .g-fill, .g-rind, .g-pith, .g-flesh, .g-seed, .g-petal, .g-leaf, .g-cleft, .g-pith-fill) {
+  stroke-width: 7; stroke-linejoin: round; stroke-linecap: round;
+}
+html[data-theme="neon"] .artifact .glyph .g-pith { fill: none; stroke-width: 5; }
+html[data-theme="neon"] .artifact .glyph :is(.g-seed, .g-pith-fill) { stroke-width: 4; }
+html[data-theme="neon"] .artifact .glyph .g-petal { stroke-width: 6; }
+html[data-theme="neon"] .artifact-heart .glyph * { stroke: var(--pink); }
+html[data-theme="neon"] .artifact-heart .artifact-body { filter: drop-shadow(0 0 9px rgba(255, 45, 120, 0.9)); }
+html[data-theme="neon"] .artifact-star .glyph * { stroke: var(--amber); }
+html[data-theme="neon"] .artifact-star .artifact-body { filter: drop-shadow(0 0 9px rgba(255, 217, 79, 0.85)); }
+html[data-theme="neon"] .artifact-object .glyph *, html[data-theme="neon"] .artifact-lozenge .glyph * { stroke: var(--cyan); }
+html[data-theme="neon"] .artifact-object .artifact-body, html[data-theme="neon"] .artifact-lozenge .artifact-body { filter: drop-shadow(0 0 9px rgba(34, 229, 255, 0.85)); }
+html[data-theme="neon"] .artifact-flower .glyph * { stroke: #b06bff; }
+html[data-theme="neon"] .artifact-flower .artifact-body { filter: drop-shadow(0 0 9px rgba(176, 107, 255, 0.85)); }
+html[data-theme="neon"] .artifact-fruit .glyph * { stroke: #ff7a3d; }
+html[data-theme="neon"] .artifact-fruit .artifact-body { filter: drop-shadow(0 0 9px rgba(255, 122, 61, 0.85)); }
+
+/* buzz on click: the sign shorts out for a beat */
+html[data-theme="neon"] .artifact.buzz .artifact-body {
+  animation: buzz 0.45s steps(1);
+}
+@keyframes buzz {
+  0%, 30%, 70% { opacity: 1; }
+  15%, 45%, 85% { opacity: 0.25; transform: translateX(-1px); }
+  60% { opacity: 0.5; transform: translateX(1px); }
+}
+
+/* ---------- trail ---------- */
+
+html[data-theme="neon"] .trail-neon {
+  position: fixed; z-index: 5; pointer-events: none;
+  font-size: 14px; text-shadow: 0 0 8px currentColor;
+  animation: neonfade 0.7s ease-out forwards;
+}
+@keyframes neonfade { to { opacity: 0; transform: translateY(10px) scale(0.6); } }
+
+/* ---------- chrome ---------- */
+
+html[data-theme="neon"] .chip {
+  background: var(--glass); color: var(--ink);
+  border: 1px solid rgba(34, 229, 255, 0.4); border-radius: 22px;
+  padding: 7px 13px; backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(34, 229, 255, 0.18);
+}
+html[data-theme="neon"] .chip-artist { color: rgba(234, 230, 255, 0.5); }
+html[data-theme="neon"] .chip-listen {
+  background: var(--pink); color: #1a0510; font-weight: 700;
+  padding: 3px 11px; border-radius: 20px; letter-spacing: 0.06em;
+  box-shadow: 0 0 14px rgba(255, 45, 120, 0.55);
+}
+html[data-theme="neon"] .chip-nav a { border: 1px solid rgba(234,230,255,.3); padding: 2px 7px; border-radius: 4px; }
+html[data-theme="neon"] .chip-nav a:hover { border-color: var(--cyan); color: var(--cyan); }
+html[data-theme="neon"] .chip-motion, html[data-theme="neon"] .chip-lab {
+  background: transparent; border: 1px solid rgba(34, 229, 255, 0.4);
+  color: var(--cyan); padding: 2px 8px; border-radius: 4px;
+  font-family: inherit; font-size: 10px;
+}
+html[data-theme="neon"] .panel {
+  background: var(--glass); border: 1px solid rgba(255, 45, 120, 0.4);
+  border-radius: 12px; padding: 12px; color: var(--ink);
+  backdrop-filter: blur(6px);
+}
+html[data-theme="neon"] .panel-opt { font-size: 12px; }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 640px) {
+  html[data-theme="neon"] .neon-sun { width: 200px; height: 200px; margin-left: -100px; }
+  html[data-theme="neon"] .n-title { font-size: clamp(44px, 15vw, 72px); }
+}

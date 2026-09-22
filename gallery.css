@@ -185,3 +185,74 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .mini-heart, .d-picnic .mini-melon, .mini-type { animation: none; transition: none; }
 }
+
+/* ---- door 4: miniature neon night ---- */
+.d-neon .door-scene {
+  background: linear-gradient(180deg, #060412 0%, #0d0624 55%, #1a0733 100%);
+  overflow: hidden;
+}
+.mini-sun {
+  position: absolute; left: 50%; bottom: 34%; width: 110px; height: 110px;
+  margin-left: -55px; border-radius: 50%;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 8px, rgba(6,4,18,.9) 8px 12px),
+    linear-gradient(180deg, #ffd94f, #ff7a3d 50%, #ff2d78);
+  -webkit-mask-image: linear-gradient(180deg, #000 0 55%, transparent 55%);
+  mask-image: linear-gradient(180deg, #000 0 55%, transparent 55%);
+  box-shadow: 0 0 40px rgba(255,45,120,.55);
+}
+.mini-sign {
+  position: absolute; left: 50%; top: 26%; translate: -50% 0;
+  font-family: "Caveat", cursive; font-weight: 700; font-size: 30px;
+  color: #fff2f9; white-space: nowrap; max-width: 90%;
+  overflow: hidden; text-overflow: ellipsis;
+  text-shadow: 0 0 5px rgba(255,45,120,.9), 0 0 16px rgba(255,45,120,.7), 0 0 40px rgba(255,45,120,.4);
+  transition: text-shadow .4s;
+}
+.d-neon:hover .mini-sign {
+  text-shadow: 0 0 8px rgba(34,229,255,1), 0 0 24px rgba(34,229,255,.8), 0 0 60px rgba(34,229,255,.5);
+}
+.mini-grid {
+  position: absolute; left: -30%; right: -30%; bottom: -4%; height: 38%;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(34,229,255,.35) 0 1.5px, transparent 1.5px 34px),
+    repeating-linear-gradient(0deg, rgba(34,229,255,.35) 0 1.5px, transparent 1.5px 14px);
+  transform: perspective(160px) rotateX(58deg);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 30%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 30%);
+}
+
+/* ---- door 5: miniature scrapbook ---- */
+.d-scrapbook .door-scene {
+  background-color: #f6f0dd;
+  background-image:
+    linear-gradient(90deg, transparent 0 18px, rgba(220,90,80,.35) 18px 19px, transparent 19px),
+    repeating-linear-gradient(180deg, transparent 0 16px, rgba(110,140,190,.22) 16px 17px);
+  display: grid; place-items: center; overflow: hidden;
+}
+.mini-hand {
+  font-family: "Caveat", cursive; font-weight: 700; font-size: 30px;
+  color: #57504a; max-width: 88%; text-align: center; line-height: 1;
+  rotate: -2deg; transition: rotate .4s;
+}
+.d-scrapbook:hover .mini-hand { rotate: 2deg; }
+.mini-line {
+  position: absolute; left: 50%; top: 62%; width: 46%; height: 8px;
+  translate: -50% 0; rotate: -2deg;
+  border-bottom: 2.5px solid #d96a5f; border-radius: 50%;
+}
+.mini-tape {
+  position: absolute; top: -8px; left: 50%; width: 60px; height: 20px;
+  margin-left: -30px; rotate: -4deg;
+  background: rgba(255,220,130,.6);
+  box-shadow: 0 1px 3px rgba(80,60,30,.25);
+}
+.mini-doodle {
+  position: absolute; right: 14%; bottom: 14%; width: 26px; height: 26px;
+  border: 2.5px solid #d96a5f; border-radius: 50% 50% 50% 0;
+  rotate: -45deg; opacity: .8;
+}
+.mini-doodle::after {
+  content: ""; position: absolute; left: 7px; top: 7px; width: 8px; height: 8px;
+  border: 2px solid #d96a5f; border-radius: 50%;
+}

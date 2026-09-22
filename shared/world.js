@@ -15,8 +15,13 @@ import { draggable, bringToFront } from './behaviours.js';
 import { desktopTheme } from '../themes/desktop.js';
 import { picnicTheme } from '../themes/picnic.js';
 import { kineticTheme } from '../themes/kinetic.js';
+import { neonTheme } from '../themes/neon.js';
+import { scrapbookTheme } from '../themes/scrapbook.js';
 
-const THEMES = { desktop: desktopTheme, picnic: picnicTheme, kinetic: kineticTheme };
+const THEMES = {
+  desktop: desktopTheme, picnic: picnicTheme, kinetic: kineticTheme,
+  neon: neonTheme, scrapbook: scrapbookTheme,
+};
 const LAYERS = ['furniture', 'artifacts', 'hero', 'fx', 'chrome'];
 
 export function initWorld(slug) {

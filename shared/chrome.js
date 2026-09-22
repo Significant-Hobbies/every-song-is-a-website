@@ -4,7 +4,10 @@
 import { getMotion, setMotion, cycleMotion, onMotion } from './motion.js';
 import { neighbors, ORDER, SONGS } from './songs.js';
 
-const THEME_LABELS = { desktop: 'old desktop', picnic: 'picnic blanket', kinetic: 'acid poster' };
+const THEME_LABELS = {
+  desktop: 'old desktop', picnic: 'picnic blanket', kinetic: 'acid poster',
+  neon: 'neon night', scrapbook: 'scrapbook page',
+};
 const MOTION_LABELS = { full: 'full', calm: 'calm', off: 'off' };
 const MOTION_GLYPHS = { full: '●', calm: '◐', off: '○' };
 

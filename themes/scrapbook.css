@@ -1,0 +1,217 @@
+/* THEME: scrapbook — a journal page. Cream ruled paper, pencil doodles,
+   washi tape, a coffee ring, handwritten everything. */
+
+html[data-theme="scrapbook"] {
+  --pencil: #57504a;
+  --pencil-soft: #8a8178;
+  --paper: #f6f0dd;
+  --tape-pink: rgba(255, 150, 160, 0.55);
+  --tape-blue: rgba(140, 190, 220, 0.5);
+  --tape-yellow: rgba(255, 220, 130, 0.55);
+  --focus: #8c5a2b;
+  font-family: "Shantell Sans", "Segoe UI", sans-serif;
+}
+
+html[data-theme="scrapbook"] body { background: #3d3830; }
+
+html[data-theme="scrapbook"] #world {
+  color: var(--pencil);
+  font-family: "Shantell Sans", "Segoe UI", sans-serif;
+  font-size: 14px;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(90deg, transparent 0 52px, rgba(220, 90, 80, 0.35) 52px 54px, transparent 54px),
+    repeating-linear-gradient(180deg, transparent 0 30px, rgba(110, 140, 190, 0.22) 30px 31px),
+    radial-gradient(130% 100% at 50% 0%, rgba(255, 252, 240, 0.7), transparent 55%),
+    radial-gradient(120% 110% at 50% 110%, rgba(140, 105, 60, 0.14), transparent 55%);
+}
+
+/* ---------- furniture ---------- */
+
+html[data-theme="scrapbook"] .scrap-deco { position: absolute; inset: 0; pointer-events: none; }
+html[data-theme="scrapbook"] .tape {
+  position: absolute; width: 92px; height: 28px; opacity: 0.85;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.25) 0 6px, transparent 6px 12px),
+    var(--tape-pink);
+  box-shadow: 0 1px 3px rgba(80, 60, 30, 0.25);
+}
+html[data-theme="scrapbook"] .tape-tl { top: 14px; left: 18px; transform: rotate(-38deg); background-color: var(--tape-blue); }
+html[data-theme="scrapbook"] .tape-br { bottom: 20px; right: 24px; transform: rotate(-30deg); }
+html[data-theme="scrapbook"] .coffee-ring {
+  position: absolute; right: 8%; top: 12%; width: 110px; height: 110px;
+  border-radius: 50%;
+  border: 9px solid transparent;
+  background:
+    radial-gradient(circle, transparent 58%, rgba(140, 95, 40, 0.16) 60%, rgba(140, 95, 40, 0.3) 66%, transparent 70%);
+  filter: blur(0.4px);
+}
+html[data-theme="scrapbook"] .margin-note {
+  position: absolute; left: 6px; top: 40%; margin: 0;
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font-family: "Caveat", cursive; font-size: 17px; color: var(--pencil-soft);
+}
+
+/* ---------- hero: the page heading ---------- */
+
+html[data-theme="scrapbook"] .hero-page {
+  position: absolute; text-align: center; pointer-events: none;
+}
+html[data-theme="scrapbook"] .s-kicker {
+  margin: 0 0 2px; font-family: "JetBrains Mono", monospace;
+  font-size: 11px; letter-spacing: 0.3em; color: var(--pencil-soft);
+}
+html[data-theme="scrapbook"] .s-title {
+  margin: 0; font-family: "Caveat", cursive; font-weight: 700;
+  font-size: clamp(56px, 10vw, 120px); line-height: 1;
+  color: var(--pencil);
+}
+html[data-theme="scrapbook"] .s-squiggle {
+  display: block; width: min(70%, 340px); height: 14px; margin: 2px auto 0;
+}
+html[data-theme="scrapbook"] .s-squiggle-path {
+  fill: none; stroke: #d96a5f; stroke-width: 3; stroke-linecap: round;
+  stroke-dasharray: 1; stroke-dashoffset: 0;
+  animation: drawline 1.4s ease-out 0.4s both;
+}
+@keyframes drawline { from { stroke-dashoffset: 1; } }
+html[data-theme="scrapbook"] .s-artist {
+  margin: 10px 0 0; font-family: "JetBrains Mono", monospace;
+  font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--pencil-soft);
+}
+html[data-theme="scrapbook"] .s-hint {
+  margin: 6px 0 0; font-family: "Caveat", cursive; font-size: 15px;
+  color: rgba(87, 80, 74, 0.55);
+}
+
+/* ---------- frames: paper clippings ---------- */
+
+html[data-theme="scrapbook"] .frame {
+  background:
+    repeating-linear-gradient(180deg, transparent 0 22px, rgba(110, 140, 190, 0.18) 22px 23px),
+    #fffdf4;
+  border: 1px solid rgba(90, 75, 55, 0.35);
+  box-shadow: 2px 4px 12px rgba(90, 70, 40, 0.22);
+}
+html[data-theme="scrapbook"] .frame::before {
+  content: ""; position: absolute; top: -11px; left: 50%;
+  width: 74px; height: 22px; margin-left: -37px;
+  background: var(--tape-yellow);
+  transform: rotate(-2deg);
+  box-shadow: 0 1px 2px rgba(80, 60, 30, 0.2);
+}
+html[data-theme="scrapbook"] .frame:nth-of-type(3n)::before { background: var(--tape-pink); transform: rotate(3deg); }
+html[data-theme="scrapbook"] .frame:nth-of-type(2n)::before { background: var(--tape-blue); }
+html[data-theme="scrapbook"] .frame.is-maxed::before { display: none; }
+html[data-theme="scrapbook"] .frame-bar { padding: 10px 12px 6px; }
+html[data-theme="scrapbook"] .frame-title {
+  font-family: "Caveat", cursive; font-size: 19px; font-weight: 700;
+  color: var(--pencil);
+}
+html[data-theme="scrapbook"] .frame-btn {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 1.5px solid var(--pencil-soft); background: transparent;
+  color: var(--pencil); font-size: 9px; font-family: "JetBrains Mono", monospace;
+  cursor: pointer; display: grid; place-items: center; line-height: 1;
+}
+html[data-theme="scrapbook"] .frame-btn:hover { border-color: #d96a5f; color: #d96a5f; }
+html[data-theme="scrapbook"] .frame-body { padding: 8px 14px 14px; }
+
+html[data-theme="scrapbook"] .chat-bubble {
+  background: #fff; border: 1.5px solid var(--pencil-soft);
+  border-radius: 2px 12px 12px 12px; padding: 5px 10px; font-size: 12.5px;
+}
+html[data-theme="scrapbook"] .chat-input { border-top: 1px dashed var(--pencil-soft); padding-top: 8px; margin-top: 8px; font-size: 11px; color: var(--pencil-soft); }
+html[data-theme="scrapbook"] .player-track {
+  font-family: "Caveat", cursive; font-size: 18px; color: var(--pencil);
+}
+html[data-theme="scrapbook"] .lyrics-embed { border: 1px dashed rgba(90,75,55,.35); }
+html[data-theme="scrapbook"] .spec-list { list-style: none; margin: 0; padding: 0; font-size: 12.5px; }
+html[data-theme="scrapbook"] .spec-list li { padding: 4px 0; }
+html[data-theme="scrapbook"] .spec-list li::before { content: "✎ "; color: #d96a5f; }
+html[data-theme="scrapbook"] .note-text { font-size: 13px; line-height: 1.65; }
+html[data-theme="scrapbook"] .note-text ul { list-style: none; margin: 0; padding: 0; }
+html[data-theme="scrapbook"] .note-text li::before { content: "— "; color: #d96a5f; }
+html[data-theme="scrapbook"] .photo { border: 6px solid #fff; box-shadow: 1px 2px 6px rgba(90,70,40,.3); }
+html[data-theme="scrapbook"] .photo-scene { height: 52px; }
+html[data-theme="scrapbook"] .photo-sunset { background: linear-gradient(180deg, #f4c98b, #e8916b 70%, #8a6a5a); }
+html[data-theme="scrapbook"] .photo-drive { background: linear-gradient(180deg, #b8cfe0 55%, #9a8f78 55%); }
+html[data-theme="scrapbook"] .photo-pool { background: linear-gradient(180deg, #a8d0e8, #7fb4d8 60%, #5f8fb8); }
+
+/* ---------- artifacts: pencil doodles ---------- */
+
+html[data-theme="scrapbook"] .artifact .glyph { width: 100%; height: 100%; overflow: visible; }
+html[data-theme="scrapbook"] .artifact-heart { width: 46px; height: 46px; }
+html[data-theme="scrapbook"] .artifact-star { width: 50px; height: 50px; }
+html[data-theme="scrapbook"] .artifact-flower { width: 56px; height: 56px; }
+html[data-theme="scrapbook"] .artifact-fruit { width: 70px; height: 70px; }
+html[data-theme="scrapbook"] .artifact-object { width: 78px; height: 78px; }
+html[data-theme="scrapbook"] .artifact-lozenge { width: 80px; height: 44px; }
+
+/* doodles are pencil strokes — no fills */
+html[data-theme="scrapbook"] .artifact .glyph :is(.g-outline, .g-fill, .g-rind, .g-pith, .g-pith-fill, .g-flesh, .g-seed, .g-petal, .g-leaf) {
+  fill: none;
+}
+html[data-theme="scrapbook"] .artifact .glyph :is(.g-outline, .g-fill, .g-rind, .g-pith, .g-flesh, .g-seed, .g-petal, .g-leaf, .g-cleft) {
+  stroke: var(--pencil); stroke-width: 4.5;
+  stroke-linejoin: round; stroke-linecap: round;
+}
+html[data-theme="scrapbook"] .artifact-heart .glyph * { stroke: #d96a5f; }
+html[data-theme="scrapbook"] .artifact-star .glyph * { stroke: #d9a45f; }
+html[data-theme="scrapbook"] .artifact-flower .glyph * { stroke: #7a9a6d; }
+
+/* click → the doodle redraws itself */
+html[data-theme="scrapbook"] .artifact-body.redraw .glyph :is(path, circle, ellipse, rect) {
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: redraw 0.7s ease-out forwards;
+}
+@keyframes redraw { to { stroke-dashoffset: 0; } }
+
+/* ---------- trail ---------- */
+
+html[data-theme="scrapbook"] .trail-pencil {
+  position: fixed; z-index: 5; pointer-events: none;
+  font-family: "Caveat", cursive; font-size: 16px; color: var(--pencil-soft);
+  animation: pencilfade 0.9s ease-out forwards;
+}
+@keyframes pencilfade { to { opacity: 0; transform: translateY(6px) rotate(20deg); } }
+
+/* ---------- chrome ---------- */
+
+html[data-theme="scrapbook"] .chip {
+  background: #fffdf4; color: var(--pencil);
+  border: 1px solid rgba(90, 75, 55, 0.35); border-radius: 6px;
+  padding: 7px 13px;
+  box-shadow: 2px 3px 8px rgba(90, 70, 40, 0.25);
+}
+html[data-theme="scrapbook"] .chip-title { font-family: "Caveat", cursive; font-size: 19px; font-weight: 700; }
+html[data-theme="scrapbook"] .chip-artist { font-size: 10px; color: var(--pencil-soft); }
+html[data-theme="scrapbook"] .chip-listen {
+  background: #d96a5f; color: #fff; border-radius: 20px;
+  padding: 3px 11px; font-size: 12px; font-weight: 700;
+  box-shadow: 0 2px 4px rgba(160, 60, 50, 0.35);
+}
+html[data-theme="scrapbook"] .chip-nav a {
+  width: 24px; height: 24px; display: grid; place-items: center;
+  background: #fff; border-radius: 50%; font-size: 12px;
+  box-shadow: 0 1px 3px rgba(90, 70, 40, 0.3);
+}
+html[data-theme="scrapbook"] .chip-motion, html[data-theme="scrapbook"] .chip-lab {
+  background: transparent; border: 1.5px dashed var(--pencil-soft);
+  color: var(--pencil); padding: 2px 8px; border-radius: 4px;
+  font-family: inherit; font-size: 11px;
+}
+html[data-theme="scrapbook"] .panel {
+  background: #fffdf4; border: 1px solid rgba(90, 75, 55, 0.35);
+  box-shadow: 2px 4px 12px rgba(90, 70, 40, 0.25); padding: 12px;
+  color: var(--pencil);
+}
+html[data-theme="scrapbook"] .panel-opt { font-size: 12px; }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 640px) {
+  html[data-theme="scrapbook"] .margin-note { display: none; }
+  html[data-theme="scrapbook"] .coffee-ring { width: 74px; height: 74px; }
+}

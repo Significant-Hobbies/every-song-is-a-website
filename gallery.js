@@ -6,6 +6,8 @@ const DESC = {
   desktop: 'a year-2000 desktop',
   picnic: 'a picnic blanket',
   kinetic: 'an acid poster',
+  neon: 'a neon night',
+  scrapbook: 'a scrapbook page',
 };
 
 const hash = (s) => { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) | 0; return Math.abs(h); };
@@ -60,6 +62,15 @@ const SCENES = {
   kinetic: (s) => `
     <span class="mini-type">${s.title.toUpperCase().split(' ').join('<br>')}</span>
     <i class="mini-blob"></i>`,
+  neon: (s) => `
+    <i class="mini-sun"></i>
+    <span class="mini-sign">${s.title.toLowerCase()}</span>
+    <div class="mini-grid"></div>`,
+  scrapbook: (s) => `
+    <i class="mini-tape"></i>
+    <span class="mini-hand">${s.title.toLowerCase()}</span>
+    <span class="mini-line"></span>
+    <i class="mini-doodle"></i>`,
 };
 
 const ERAS = {
@@ -73,7 +84,7 @@ const eras = []; // { el, doors: [] }
 // masthead counts itself
 const tagline = document.querySelector('.masthead p');
 if (tagline) tagline.textContent =
-  `${ORDER.length} songs, three worlds, one video player each. pick a door — drag things, click things, stay a minute.`;
+  `${ORDER.length} songs, five worlds, one video player each. pick a door — drag things, click things, stay a minute.`;
 let era = null;
 for (const slug of ORDER) {
   const song = SONGS[slug];

@@ -25,6 +25,21 @@ const PICNIC_CHAT = [
   { who: 'me', text: 'deal. see you when the sun leans over' },
 ];
 
+const NEON_CHAT = [
+  { who: 'them', text: 'still awake?' },
+  { who: 'me', text: 'the city is' },
+  { who: 'them', text: 'meet me under the pink sign' },
+  { who: 'me', text: 'which one? they\'re all pink' },
+  { who: 'them', text: 'the one humming our song' },
+];
+
+const SCRAPBOOK_CHAT = [
+  { who: 'them', text: 'found this page in the old notebook' },
+  { who: 'me', text: 'the one with the tape?' },
+  { who: 'them', text: 'the tape is still holding' },
+  { who: 'me', text: 'so is the song' },
+];
+
 const THEME_DEFAULTS = {
   desktop: {
     era: 'a desktop that remembers you',
@@ -97,6 +112,62 @@ const THEME_DEFAULTS = {
     ],
     spec: ['bpm: up', 'texture: liquid chrome', 'color: acid on ink', 'format: oversized'],
   },
+  neon: {
+    era: 'last night, still glowing',
+    mood: 'electric, wistful',
+    imagery: 'neon signs, wet asphalt, a grid horizon',
+    energy: 'high, humming',
+    hero: { kind: 'sign' },
+    frames: [
+      { id: 'player', type: 'player', title: 'on air' },
+      { id: 'lyrics', type: 'lyrics', title: 'lyrics — via genius' },
+      { id: 'spec', type: 'spec', title: 'the marquee' },
+      { id: 'chat', type: 'chat', title: 'messages' },
+    ],
+    artifacts: [
+      { type: 'heart', count: 5 },
+      { type: 'star', count: 4 },
+      { type: 'object', count: 3 },
+      { type: 'lozenge', count: 3 },
+    ],
+    chat: NEON_CHAT,
+    spec: ['city: wet asphalt', 'hour: 2 a.m.', 'texture: chrome', 'skyline: pink on cyan'],
+    lyrics: [
+      'the sign hums the whole melody',
+      'every window a station left on',
+      'the night drive ends where the song begins',
+    ],
+  },
+  scrapbook: {
+    era: 'a page kept since then',
+    mood: 'soft, handwritten',
+    imagery: 'pencil doodles, washi tape, coffee rings',
+    energy: 'quiet',
+    hero: { kind: 'page' },
+    frames: [
+      { id: 'lyrics', type: 'lyrics', title: 'lyrics — via genius' },
+      { id: 'note', type: 'note', title: 'pressed between pages', note: 'menu' },
+      { id: 'player', type: 'player', title: 'the tape' },
+      { id: 'photos', type: 'photos', title: 'polaroids' },
+    ],
+    artifacts: [
+      { type: 'heart', count: 4 },
+      { type: 'star', count: 3 },
+      { type: 'flower', count: 4 },
+    ],
+    chat: SCRAPBOOK_CHAT,
+    menu: [
+      'a ticket stub, corner torn',
+      'the good pen, finally found',
+      'this song, underlined twice',
+      'a day we didn\u2019t photograph',
+    ],
+    lyrics: [
+      'written down so it stays true',
+      'the pencil remembers the melody',
+      'pressed flat and kept anyway',
+    ],
+  },
 };
 
 function slugHash(s) {
@@ -146,6 +217,33 @@ function varyCatalog(slug, d, r) {
         { type: 'fruit', kind: second, count: r.int(1, 3) },
         { type: 'fruit', kind: 'strawberry', count: r.int(0, 3) },
         { type: 'flower', count: r.int(2, 5) },
+      ],
+    };
+  }
+  if (d === THEME_DEFAULTS.neon) {
+    const chat = frames.find((f) => f.type === 'chat');
+    if (chat) chat.title = `pager — ${slug.split('-')[0]}`;
+    return {
+      frames,
+      artifacts: [
+        { type: 'heart', count: r.int(3, 6) },
+        { type: 'star', count: r.int(3, 6) },
+        { type: 'object', count: r.int(2, 4) },
+        { type: 'lozenge', count: r.int(2, 5) },
+      ],
+    };
+  }
+  if (d === THEME_DEFAULTS.scrapbook) {
+    const note = frames.find((f) => f.note === 'menu');
+    if (note) note.title = `pressed between pages — ${slug.split('-')[0]}`;
+    return {
+      frames,
+      menu: [...d.menu].sort(() => r.next() - 0.5).slice(0, r.int(3, 4)),
+      artifacts: [
+        { type: 'heart', count: r.int(2, 5) },
+        { type: 'star', count: r.int(2, 5) },
+        { type: 'flower', count: r.int(2, 5) },
+        { type: 'object', count: r.int(0, 2) },
       ],
     };
   }

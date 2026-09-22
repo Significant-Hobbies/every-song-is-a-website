@@ -36,7 +36,7 @@ node --check shared/*.js themes/*.js   # syntax check all modules
   scenes), so new songs appear automatically.
 - `shared/` — world runtime: seeded rng, scatter layout, behaviours
   (drag/spring/float/trail), artifact factories, chrome, experiment panel.
-- `themes/` — one `.js` + `.css` per world (`desktop`, `picnic`, `kinetic`).
+- `themes/` — one `.js` + `.css` per world (`desktop`, `picnic`, `kinetic`, `neon`, `scrapbook`).
   Themes are runtime-switchable; artifacts must re-skin under every theme via
   `data-theme` scoping and `data-artifact` selectors.
 
