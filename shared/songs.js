@@ -2,6 +2,126 @@
 // artifacts: generic types re-skinned by whichever theme is active.
 // frames: titled cards (window / paper scrap / slab depending on theme).
 // youtube: verified official-video id — the player frame embeds it.
+// genius: Genius song id — the lyrics frame embeds it.
+import { CATALOG } from './catalog.js';
+
+/* Per-theme defaults. Bulk songs inherit the world's whole furniture cast —
+   same frames, same artifacts, same little script — and differ only in the
+   song's face: title, artist, year, media ids, and a layout seed. */
+
+const DESKTOP_CHAT = [
+  { who: 'them', text: 'you still online?' },
+  { who: 'me', text: 'dial-up permitting' },
+  { who: 'them', text: 'burning you a mix cd tomorrow' },
+  { who: 'me', text: 'track one better be good' },
+  { who: 'them', text: 'it is. it always is' },
+];
+
+const PICNIC_CHAT = [
+  { who: 'them', text: 'bringing the blanket' },
+  { who: 'me', text: 'the checked one?' },
+  { who: 'them', text: 'obviously. save me the shady corner' },
+  { who: 'me', text: 'deal. see you when the sun leans over' },
+];
+
+const THEME_DEFAULTS = {
+  desktop: {
+    era: 'a desktop that remembers you',
+    mood: 'nostalgic, tender',
+    imagery: 'pixel hearts, IM windows, old photos',
+    energy: 'gentle',
+    hero: { kind: 'window' },
+    frames: [
+      { id: 'chat', type: 'chat', title: 'instant message — online' },
+      { id: 'photos', type: 'photos', title: 'my pictures' },
+      { id: 'player', type: 'player', title: 'now playing' },
+      { id: 'lyrics', type: 'lyrics', title: 'lyrics — via genius' },
+    ],
+    artifacts: [
+      { type: 'heart', count: 8 },
+      { type: 'star', count: 5 },
+    ],
+    chat: DESKTOP_CHAT,
+    lyrics: [
+      'the crt hums a borrowed tune',
+      'three dots arrive, then a name',
+      'some songs never log off',
+    ],
+  },
+  picnic: {
+    era: 'endless July afternoon',
+    mood: 'warm, bright, unhurried',
+    imagery: 'gingham, fruit, paper scraps',
+    energy: 'sunny',
+    hero: { kind: 'tag' },
+    frames: [
+      { id: 'lyrics', type: 'lyrics', title: 'lyrics — via genius' },
+      { id: 'menu', type: 'note', title: "today's picnic", note: 'menu' },
+      { id: 'player', type: 'player', title: 'the portable radio' },
+      { id: 'invite', type: 'chat', title: 'the invitation' },
+    ],
+    artifacts: [
+      { type: 'fruit', kind: 'watermelon', count: 2 },
+      { type: 'fruit', kind: 'orange', count: 2 },
+      { type: 'fruit', kind: 'strawberry', count: 3 },
+      { type: 'flower', count: 4 },
+    ],
+    chat: PICNIC_CHAT,
+    menu: ['one blanket, mostly red', 'something cold in the cooler', 'the good knife this time', 'somewhere to put our feet up'],
+    lyrics: [
+      'the cloth remembers every summer',
+      'a warm wind reads the note aloud',
+      'stay until the ants clock out',
+    ],
+  },
+  kinetic: {
+    era: 'right now, louder',
+    mood: 'brash, elastic, alive',
+    imagery: 'oversized type, liquid chrome, acid lime',
+    energy: 'high, sharp',
+    hero: { kind: 'letters' },
+    frames: [
+      { id: 'lyrics', type: 'lyrics', title: 'lyrics — via genius' },
+      { id: 'player', type: 'player', title: 'watch' },
+      { id: 'spec', type: 'spec', title: 'track spec' },
+    ],
+    artifacts: [
+      { type: 'object', count: 3 },
+      { type: 'lozenge', count: 4 },
+    ],
+    lyrics: [
+      'loud enough to hold a room',
+      'the chorus lands like chrome',
+      'play it once more, bigger',
+    ],
+    spec: ['bpm: up', 'texture: liquid chrome', 'color: acid on ink', 'format: oversized'],
+  },
+};
+
+function slugHash(s) {
+  let h = 0;
+  for (const c of s) h = (h * 31 + c.charCodeAt(0)) | 0;
+  return Math.abs(h);
+}
+
+// catalog row: [slug, title, artist, year, theme, youtubeId, geniusId]
+function expandCatalog(row, i) {
+  const [slug, title, artist, year, theme, youtube, genius] = row;
+  const d = THEME_DEFAULTS[theme];
+  return {
+    slug, title, artist, year,
+    era: d.era, mood: d.mood, imagery: d.imagery, energy: d.energy,
+    theme, motion: 'full',
+    seed: slugHash(slug) % 9973,
+    listen: `https://www.youtube.com/watch?v=${youtube}`,
+    youtube, genius,
+    hero: d.hero,
+    frames: d.frames,
+    artifacts: d.artifacts,
+    chat: d.chat, menu: d.menu, spec: d.spec, lyrics: d.lyrics,
+  };
+}
+
 export const SONGS = {
   'strawberry-fields-forever': {
     slug: 'strawberry-fields-forever',
@@ -309,17 +429,17 @@ export const SONGS = {
   },
 };
 
+// expand the bulk catalog into the registry (curated entries above keep
+// their bespoke fields; catalog songs inherit theme defaults)
+for (const row of CATALOG) {
+  const song = expandCatalog(row);
+  if (!SONGS[song.slug]) SONGS[song.slug] = song;
+}
+
 // chronological — the gallery reads like a timeline of how songs looked
-export const ORDER = [
-  'strawberry-fields-forever',
-  'never-gonna-give-you-up',
-  'digital-love',
-  'humble',
-  'watermelon-sugar',
-  'peaches',
-  'von-dutch',
-  '360',
-];
+export const ORDER = Object.values(SONGS)
+  .sort((a, b) => a.year - b.year)
+  .map((s) => s.slug);
 
 export function neighbors(slug) {
   const i = ORDER.indexOf(slug);

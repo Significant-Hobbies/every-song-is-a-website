@@ -45,6 +45,7 @@ html[data-theme="kinetic"] .k-title {
   user-select: none;
   white-space: normal;
 }
+html[data-theme="kinetic"] .k-title.k-compact { font-size: clamp(42px, 11vw, 150px); }
 html[data-theme="kinetic"] .k-word { display: block; white-space: nowrap; }
 html[data-theme="kinetic"] .k-letter {
   display: inline-block;

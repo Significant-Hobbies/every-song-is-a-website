@@ -346,7 +346,10 @@ const CONTENT = {
   // Licensed lyrics via Genius's official embed, sandboxed in a srcdoc
   // iframe (their embed.js document.writes, which only works mid-parse).
   lyrics(body, spec, song) {
-    if (!song.genius) return;
+    if (!song.genius) {
+      CONTENT.note(body, { ...spec, note: 'demo' }, song);
+      return;
+    }
     const frame = document.createElement('iframe');
     frame.className = 'lyrics-embed';
     frame.title = `${song.title} — ${song.artist}, lyrics on Genius`;

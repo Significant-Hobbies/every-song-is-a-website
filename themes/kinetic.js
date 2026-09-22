@@ -30,7 +30,7 @@ export const kineticTheme = {
       `<span class="k-word">${[...word].map((ch) => `<span class="k-letter" data-letter>${ch}</span>`).join('')}</span>`,
     ).join('');
     hero.innerHTML = `
-      <h1 class="k-title" aria-label="${song.title}">${letters}</h1>
+      <h1 class="k-title${song.title.split(' ').length > 3 ? ' k-compact' : ''}" aria-label="${song.title}">${letters}</h1>
       <p class="k-sub">${song.artist.toUpperCase()} — ${song.year} — ${song.mood.toUpperCase()}</p>
       <p class="k-hint">run your cursor through the title · grab the chrome</p>`;
     layers.hero.append(hero);

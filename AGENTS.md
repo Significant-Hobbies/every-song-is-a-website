@@ -25,9 +25,13 @@ node --check shared/*.js themes/*.js   # syntax check all modules
   by static hosts (Cloudflare Pages etc.) for unknown URLs. Uses absolute
   `/song/…` links since 404s resolve from arbitrary paths.
 - `song/<slug>/index.html` — one directory per song; shareable URL.
-- `shared/songs.js` — the song registry: every song's config (theme, mood,
-  imagery, artifacts, motion, seed, lyrics, `youtube` video id) lives here.
-  Adding a song = one config block + one `song/<slug>/index.html` shell.
+- `shared/songs.js` — the song registry: the 8 curated configs plus
+  THEME_DEFAULTS that bulk songs inherit (frames, artifacts, chat, seed).
+- `shared/catalog.js` — generated `[slug, title, artist, year, theme,
+  youtubeId, geniusId]` rows for the bulk catalog (100+ songs).
+  Regenerate with `python3 tools/fetch-song-ids.py` — it calls Genius's
+  public search endpoint and scrapes YouTube results; review before
+  committing, it can return nulls or wrong hits for obscure queries.
 - `gallery.js` — renders the index doors from the registry (per-theme mini
   scenes), so new songs appear automatically.
 - `shared/` — world runtime: seeded rng, scatter layout, behaviours

@@ -33,6 +33,10 @@ const SCENES = {
 
 const doors = document.getElementById('doors');
 const built = [];
+// masthead counts itself
+const tagline = document.querySelector('.masthead p');
+if (tagline) tagline.textContent =
+  `${ORDER.length} songs, three worlds, one video player each. pick a door — drag things, click things, stay a minute.`;
 for (const slug of ORDER) {
   const song = SONGS[slug];
   const door = document.createElement('a');
