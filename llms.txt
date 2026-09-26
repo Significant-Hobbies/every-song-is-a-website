@@ -1,0 +1,25 @@
+# Every Song Is a Website
+
+> A small gallery where each song gets its own visual world. Pick a door.
+
+Site: https://music.significanthobbies.com
+
+## What it is
+
+A static, dependency-free gallery: one self-contained interactive world per
+song at `/<slug>/`. Eight curated songs get bespoke configs; the rest of the
+100+ song catalog inherit themed defaults (frames, artifacts, chat, seeded
+scatter layout). Themes are runtime-switchable.
+
+## Structure
+
+- `/` — the gallery index with live filter search
+- `/<slug>/` — one visual world per song (143 songs)
+- `/sitemap.xml` — full URL list
+
+## License notes
+
+Lyrics render via Genius's official embed (licensed, never scraped). Player
+frames embed YouTube. Hand-written lines are original demo text only.
+
+Maintained by Sarthak Agrawal: https://sarthakagrawal.dev
