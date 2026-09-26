@@ -5,6 +5,7 @@
 //   4. scatter + mount artifacts and frames, wire behaviours
 //   5. mount chrome + experiment panel
 // Theme switching remounts furniture and re-skins glyphs live.
+import './clarity.js';
 import { SONGS } from './songs.js';
 import { makeRng, randomSeed } from './rng.js';
 import { initMotion, allows, onMotion } from './motion.js';

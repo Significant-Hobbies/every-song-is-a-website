@@ -1,5 +1,6 @@
 // Gallery — renders one door per song from the registry. Each door carries a
 // miniature of its world's skin; adding a song to shared/songs.js is enough.
+import './shared/clarity.js';
 import { ORDER, SONGS } from './shared/songs.js';
 
 const DESC = {

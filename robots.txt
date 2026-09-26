@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://music.significanthobbies.com/sitemap.xml
