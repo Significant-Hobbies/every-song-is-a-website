@@ -95,6 +95,11 @@ export function mountChrome(world) {
   const listenBtn = chip.querySelector('.chip-listen');
   let playing = false;
   listenBtn.addEventListener('click', () => {
+    if (!playing) {
+      const health = window.appHealth;
+      health?.track('song_listen_clicked');
+      void Promise.resolve(health?.flush?.()).catch(() => {});
+    }
     const pf = document.querySelector('.frame-player');
     if (pf?.classList.contains('is-closed')) pf.classList.remove('is-closed');
     if (pf?.classList.contains('is-hidden')) pf.classList.remove('is-hidden');
