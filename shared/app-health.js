@@ -3,7 +3,7 @@
 // Logs tab at health.sassmaker.com. window.appHealthLog(event, options) is
 // available for custom events. Source: app-health/examples/dropin-log-client.
 (function () {
-  var KEY = 'ahk_pub_57cb16cde77092c2df6ced70c5e77d98fa371ffda9d6c7a45b99b7a2c6efaa3c',
+  var KEY = 'ahk_pub_0fcf93e0eab1d266f134011550f56667a2f0afd34862222ffda2a02333fb21aa',
     ENV = 'production',
     URL = 'https://ingest.sassmaker.com/v1/logs';
   // No-op until a browser public key (ahk_pub_...) is provisioned above.
@@ -11,7 +11,7 @@
   if (location.hostname !== 'music.significanthobbies.com') return;
   var tracker = document.createElement('script');
   tracker.src = 'https://health.sassmaker.com/tracker.js';
-  tracker.dataset.key = 'ahk_pub_0fcf93e0eab1d266f134011550f56667a2f0afd34862222ffda2a02333fb21aa';
+  tracker.dataset.key = KEY;
   tracker.dataset.project = 'app-import-12e69de5371e3b69b20174b184e66655c7edd664689b4cb755533d9a8e2dc80b';
   tracker.dataset.identity = 'session';
   document.head.append(tracker);
