@@ -1,9 +1,11 @@
 .git/
+.github/
 .wrangler/
 .fleet/
 tools/
 artifacts/
 node_modules/
+tests/
 *.md
 wrangler.jsonc
 .assetsignore
