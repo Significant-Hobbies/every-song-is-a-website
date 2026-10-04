@@ -1,0 +1,233 @@
+{
+  "$schema": "fleet.design-review.v2",
+  "version": 2,
+  "project": "music-gallery-capture-20261004",
+  "target": "Approved Direct line footer on Music gallery root",
+  "surfaceMode": "experience",
+  "mode": "preserve",
+  "register": "product",
+  "context": {
+    "product": "PRODUCT.md",
+    "design": "DESIGN.md"
+  },
+  "direction": {
+    "productSurfaces": {
+      "scope": "standalone",
+      "landing": "",
+      "app": "",
+      "reason": "Every Song Is a Website is a single static experience: the gallery is the entry route and song-world routes are its core experience, not a separate marketing landing page and app pair. This bounded change restores footer composition on the gallery root only."
+    },
+    "pairedPreview": {
+      "landing": "",
+      "app": ""
+    },
+    "source": "existing",
+    "references": [],
+    "probes": [],
+    "selected": "existing-music-worlds-with-approved-direct-line-footer",
+    "approval": "not-required",
+    "ownerEvidence": {
+      "path": ".fleet-local/evidence/music-gallery-footer-20261004/owner-approval.md",
+      "quote": "i like the second version the most ... game for this component sticking in footer with AI and strip ... feedback hover button can be used as needed"
+    },
+    "supplied": "",
+    "before": ".fleet-local/evidence/music-gallery-footer-20261004/before-1440.png",
+    "library": {
+      "strategy": "upstream-first",
+      "primary": "Existing SaaS Maker project-strip.js and ai-chat-footer.js custom-element footer composition",
+      "sources": [
+        "https://github.com/sass-maker/saas-maker/tree/main/packages/portfolio-project-strip/src/element.ts",
+        "https://github.com/sass-maker/saas-maker/tree/main/packages/ai-chat-footer/src/element.ts"
+      ],
+      "runtime": "none",
+      "customReplacement": {
+        "used": false,
+        "authorization": "not-required",
+        "reason": ""
+      }
+    },
+    "contract": {
+      "purpose": "Every Song Is a Website gives each song a curated visual world — a shareable URL with embedded video, licensed lyrics, and playful interactions.",
+      "purposeSource": "SaaS Maker catalog presentation.directory.purposeContract and PRODUCT.md",
+      "canonicalPurpose": "Every Song Is a Website gives each song a curated visual world — a shareable URL with embedded video, licensed lyrics, and playful interactions.",
+      "purposeAlignment": "match",
+      "driftNote": "",
+      "audience": "Anyone who loves music and the web.",
+      "job": "Enter the gallery, browse a song, and step into its shareable visual world; optionally request product updates or send feedback from the gallery footer.",
+      "thesis": "Keep the established music-gallery composition and restore the approved compact Direct line beside AI and the project strip, with feedback available as a separate hover control.",
+      "system": "Keep the existing static gallery typography, theme tokens, artwork, and layout; reuse the hosted project strip and AI footer custom elements without adding a runtime dependency.",
+      "signature": "The gallery footer composes newsletter, feedback, and project discovery in one inline shared footer while immersive song routes remain unobstructed.",
+      "risk": "Shared footer content could compete with the song gallery; constrain this patch to the existing gallery root and keep the form compact and inline.",
+      "qualityBar": "Preserve the curated gallery identity and hierarchy; make the approved footer available inline at the gallery root; keep song-world and 404 routes free of the strip; show newsletter-only wording with unchecked consent; maintain responsive behavior at 390, 768, and 1440 pixels."
+    }
+  },
+  "evidence": {
+    "platform": "web",
+    "productContinuity": {
+      "status": "not-applicable",
+      "reason": "Every Song Is a Website is one static experience with a gallery entry and song-world routes; it has no separate landing/app pair.",
+      "reviewer": "",
+      "report": ".fleet-local/evidence/music-gallery-footer-20261004/product-continuity.md",
+      "surfaces": {
+        "landing": "",
+        "app": ""
+      },
+      "checks": {
+        "designSystem": {
+          "status": "pending",
+          "observation": ""
+        },
+        "identity": {
+          "status": "pending",
+          "observation": ""
+        },
+        "vocabulary": {
+          "status": "pending",
+          "observation": ""
+        },
+        "productTruth": {
+          "status": "pending",
+          "observation": ""
+        },
+        "handoff": {
+          "status": "pending",
+          "observation": ""
+        }
+      }
+    },
+    "slopScale": {
+      "platform": "web",
+      "posture": "advisory",
+      "reason": "Preserve lane: established rendered direction is retained. Required iteration and final scans are recorded after the first working local render and final review.",
+      "checkpoints": [
+        {
+          "stage": "iteration",
+          "status": "scanned",
+          "command": "node /Users/sarthak/Desktop/fleet/saas-maker/tooling/scripts/slop-score.mjs http://127.0.0.1:8179/ --json",
+          "report": ".fleet-local/evidence/music-gallery-footer-20261004/slop-iteration.json",
+          "findingsReview": "Pinned score 18; the five triggered patterns (gradient backgrounds, colored glows, all-caps labels, permanent dark mode, wide body tracking) match the intentional themed music worlds and existing mono metadata. Screenshot review found no generic-pattern defect caused by the patch; no changes made to chase the advisory score."
+        },
+        {
+          "stage": "final",
+          "status": "scanned",
+          "command": "node /Users/sarthak/Desktop/fleet/saas-maker/tooling/scripts/slop-score.mjs http://127.0.0.1:8179/ --json",
+          "report": ".fleet-local/evidence/music-gallery-footer-20261004/slop-final.json",
+          "findingsReview": "Same pinned 2026.09 definitions, full preset, score 18 and five intentional theme/layout triggers as iteration. Final 390/768/1440 review confirms inline responsive footer and no new generic-pattern issue."
+        }
+      ]
+    },
+    "visualReview": {
+      "status": "pass",
+      "reviewer": "Fleet root rendered QA; implementation agent reviewed retained captures",
+      "direction": "existing-music-worlds-with-approved-direct-line-footer",
+      "report": ".fleet-local/evidence/music-gallery-footer-20261004/visual-review.md",
+      "checks": {
+        "hierarchy": {
+          "status": "pass",
+          "observation": "At 390 px the AI, discovery, inline feedback, and newsletter stack in order; wider layouts group AI and project discovery above feedback and newsletter."
+        },
+        "typography": {
+          "status": "pass",
+          "observation": "The mono/condensed music identity carries through the footer; the long AI heading wraps narrowly at 1440 px but stays legible."
+        },
+        "composition": {
+          "status": "pass",
+          "observation": "Footer surfaces remain inline and visually quiet; capture follows shared footer content without a fixed overlay."
+        },
+        "identity": {
+          "status": "pass",
+          "observation": "Dark mono footer and themed song artwork remain coherent with the established Music gallery direction."
+        },
+        "interaction": {
+          "status": "pass",
+          "observation": "Feedback dialog opens with title focus and dismisses; focus returns to BODY instead of the launcher, recorded as a P2 shared-widget follow-up."
+        },
+        "responsive": {
+          "status": "pass",
+          "observation": "390, 768, and 1440 px captures show stacked/narrow and two-column/wide layouts with no horizontal overflow."
+        }
+      }
+    },
+    "screenshots": [
+      {
+        "width": 390,
+        "path": ".fleet-local/evidence/music-gallery-footer-20261004/after-390.png"
+      },
+      {
+        "width": 768,
+        "path": ".fleet-local/evidence/music-gallery-footer-20261004/after-768.png"
+      },
+      {
+        "width": 1440,
+        "path": ".fleet-local/evidence/music-gallery-footer-20261004/after-1440.png"
+      }
+    ],
+    "projectCheck": {
+      "command": "for f in shared/*.js themes/*.js; do node --check \"$f\" || exit 1; done; git diff --check",
+      "status": "pass"
+    },
+    "critique": {
+      "score": 36,
+      "maximum": 40,
+      "dimensions": {
+        "hierarchy": 7,
+        "typography": 7,
+        "composition": 7,
+        "identity": 8,
+        "interaction": 3,
+        "responsive": 4
+      }
+    },
+    "audit": {
+      "score": 16,
+      "maximum": 20,
+      "dimensions": {
+        "purpose": 4,
+        "accessibility": 4,
+        "behavior": 3,
+        "responsive": 3,
+        "performance": 2
+      }
+    },
+    "unresolved": {
+      "p0": 0,
+      "p1": 0
+    },
+    "detector": {
+      "posture": "advisory",
+      "findings": [
+        {
+          "severity": "P2",
+          "finding": "AI Chat Footer dialog close returns focus to BODY instead of the Send feedback launcher.",
+          "disposition": "Follow up in the shared AI Chat Footer; outside the two-line Music source patch. Keyboard users can continue navigating, but lose their return point."
+        }
+      ]
+    },
+    "comprehension": {
+      "status": "not-applicable",
+      "reviewer": "",
+      "answers": {
+        "product": "",
+        "audience": "",
+        "value": "",
+        "mechanism": "",
+        "proof": "",
+        "nextAction": ""
+      },
+      "purposeScore": {
+        "product": 0,
+        "audience": 0,
+        "value": 0,
+        "mechanism": 0,
+        "proof": 0,
+        "nextAction": 0,
+        "total": 0
+      },
+      "mismatches": []
+    }
+  },
+  "ownerFeedback": {
+    "decision": "not-required",
+    "note": "Preserve work follows the existing direction; this is not owner acceptance of the result."
+  }
+}
