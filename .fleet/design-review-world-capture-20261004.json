@@ -1,0 +1,233 @@
+{
+  "$schema": "fleet.design-review.v2",
+  "version": 2,
+  "project": "every-song-is-a-website",
+  "target": "Gallery capture stays on the gallery; immersive song and recovery routes retain tracking without stray forms",
+  "surfaceMode": "experience",
+  "mode": "preserve",
+  "register": "product",
+  "context": {
+    "product": "PRODUCT.md",
+    "design": "DESIGN.md"
+  },
+  "direction": {
+    "productSurfaces": {
+      "scope": "standalone",
+      "landing": "",
+      "app": "",
+      "reason": "One static experience: gallery entry and immersive song routes, with no separate marketing landing/app pair."
+    },
+    "pairedPreview": {
+      "landing": "",
+      "app": ""
+    },
+    "source": "existing",
+    "references": [],
+    "probes": [],
+    "selected": "existing-music-worlds-gallery-capture-only",
+    "approval": "not-required",
+    "ownerEvidence": {
+      "path": "",
+      "quote": ""
+    },
+    "supplied": "",
+    "before": ".fleet-local/evidence/music-world-capture-20261004/before-1440.jpg",
+    "library": {
+      "strategy": "upstream-first",
+      "primary": "existing-project-system",
+      "sources": [
+        "https://github.com/Significant-Hobbies/every-song-is-a-website/blob/main/DESIGN.md"
+      ],
+      "runtime": "none",
+      "customReplacement": {
+        "used": false,
+        "authorization": "not-required",
+        "reason": ""
+      }
+    },
+    "contract": {
+      "purpose": "Every Song Is a Website gives each song a curated visual world \u2014 a shareable URL with embedded video, licensed lyrics, and playful interactions.",
+      "canonicalPurpose": "Every Song Is a Website gives each song a curated visual world \u2014 a shareable URL with embedded video, licensed lyrics, and playful interactions.",
+      "purposeSource": "SaaS Maker catalog presentation.directory.purposeContract; PRODUCT.md and DESIGN.md reviewed against all six purpose fields",
+      "purposeAlignment": "match",
+      "driftNote": "",
+      "audience": "Music fans and web-playful visitors following a shared song link.",
+      "job": "Browse the gallery or enter a song world; optional newsletter signup stays in the gallery footer.",
+      "thesis": "Preserve the five immersive world grammars by removing the stray generic capture field from song and recovery routes.",
+      "system": "Keep every theme, artifact, typography token, motion setting, song control and gallery footer component unchanged; route-scope only the newsletter mount.",
+      "signature": "Each song remains a full-screen curated playable world; the gallery retains the approved Direct line footer.",
+      "risk": "A broad early return would disable song telemetry; isolate the newsletter branch and test tracking, events, and client-error registration on every route type.",
+      "qualityBar": "No stray newsletter controls on song or recovery routes. Gallery still has exactly one newsletter form. Preserve tracking, CTA hooks, listening, motion and recovery navigation. Review 390, 768 and 1440 pixel renders."
+    }
+  },
+  "evidence": {
+    "platform": "web",
+    "productContinuity": {
+      "status": "not-applicable",
+      "reason": "One static experience: gallery entry and immersive song routes, with no separate marketing landing/app pair.",
+      "reviewer": "",
+      "report": "artifacts/design/product-continuity.md",
+      "surfaces": {
+        "landing": "artifacts/design/landing.png",
+        "app": "artifacts/design/app.png"
+      },
+      "checks": {
+        "designSystem": {
+          "status": "pending",
+          "observation": ""
+        },
+        "identity": {
+          "status": "pending",
+          "observation": ""
+        },
+        "vocabulary": {
+          "status": "pending",
+          "observation": ""
+        },
+        "productTruth": {
+          "status": "pending",
+          "observation": ""
+        },
+        "handoff": {
+          "status": "pending",
+          "observation": ""
+        }
+      }
+    },
+    "slopScale": {
+      "platform": "web",
+      "posture": "advisory",
+      "reason": "Iteration scan attempt was capacity-blocked; final scan completed freshly. No baseline score or before/after score comparison is claimed.",
+      "checkpoints": [
+        {
+          "stage": "iteration",
+          "status": "blocked",
+          "command": "fleet-workspace run --id music-world-capture-20261004 -- node /Users/sarthak/Desktop/fleet/saas-maker/tooling/scripts/slop-score.mjs http://127.0.0.1:8183/surfin-usa/ --json",
+          "report": ".fleet-local/evidence/music-world-capture-20261004/slop-iteration-blocked.txt",
+          "reason": "Managed scan could not acquire a heavy-command slot; the CLI did not execute.",
+          "findingsReview": "Unscored; continued direct Chrome review and retained the actual manager error."
+        },
+        {
+          "stage": "final",
+          "status": "scanned",
+          "command": "fleet-workspace run --id music-world-capture-20261004 -- node /Users/sarthak/Desktop/fleet/saas-maker/tooling/scripts/slop-score.mjs http://127.0.0.1:8183/surfin-usa/ --json",
+          "report": ".fleet-local/evidence/music-world-capture-20261004/slop-final.json",
+          "findingsReview": "Two intentional picnic-world flags: gradient backgrounds/artifact shading and one colored glow. DESIGN.md governs this world. Final Chrome candidate render removes the stray field without changing these intentional choices; no detector-driven restyle."
+        }
+      ]
+    },
+    "visualReview": {
+      "status": "pass",
+      "reviewer": "Fleet root direct Chrome rendered review",
+      "direction": "existing-music-worlds-gallery-capture-only",
+      "report": ".fleet-local/evidence/music-world-capture-20261004/visual-review.md",
+      "checks": {
+        "hierarchy": {
+          "status": "pass",
+          "observation": "Fresh phone, tablet and desktop loads keep song title and top navigation visible; the unwanted email field is removed."
+        },
+        "typography": {
+          "status": "pass",
+          "observation": "Handwritten Caveat/Shantell song grammar remains untouched; gallery retains the existing compact mono footer."
+        },
+        "composition": {
+          "status": "pass",
+          "observation": "Picnic blanket, sun, fruit, paper and media artifacts retain their established placement; capture remains only in gallery footer."
+        },
+        "identity": {
+          "status": "pass",
+          "observation": "Gallery entry and the song world preserve the product vocabulary and five-world identity; no generic form fragment overlays the world."
+        },
+        "interaction": {
+          "status": "pass",
+          "observation": "Gallery email can focus, consent remains unchecked and required; all-route tracker, CTA, custom log and error hooks pass route tests."
+        },
+        "responsive": {
+          "status": "pass",
+          "observation": "Fresh 390/768/1440 CSS-pixel loads: zero newsletter fragments, one tracker and zero horizontal overflow; screenshots use correct CSS-pixel clips."
+        }
+      }
+    },
+    "screenshots": [
+      {
+        "width": 390,
+        "path": ".fleet-local/evidence/music-world-capture-20261004/review-after-390.jpg"
+      },
+      {
+        "width": 768,
+        "path": ".fleet-local/evidence/music-world-capture-20261004/review-after-768.jpg"
+      },
+      {
+        "width": 1440,
+        "path": ".fleet-local/evidence/music-world-capture-20261004/review-after-1440.jpg"
+      }
+    ],
+    "projectCheck": {
+      "command": "node --test tests/*.test.mjs; node --check shared/app-health.js; git diff --check",
+      "status": "pass"
+    },
+    "critique": {
+      "score": 37,
+      "maximum": 40,
+      "dimensions": {
+        "hierarchy": 7,
+        "typography": 7,
+        "composition": 7,
+        "identity": 8,
+        "interaction": 4,
+        "responsive": 4
+      }
+    },
+    "audit": {
+      "score": 17,
+      "maximum": 20,
+      "dimensions": {
+        "purpose": 4,
+        "accessibility": 4,
+        "behavior": 4,
+        "responsive": 3,
+        "performance": 2
+      }
+    },
+    "unresolved": {
+      "p0": 0,
+      "p1": 0
+    },
+    "detector": {
+      "posture": "advisory",
+      "findings": [
+        {
+          "severity": "P2",
+          "finding": "Existing gallery AI heading wraps narrowly and optional immersive artifacts can overlap on compact screens.",
+          "disposition": "Preserved the owner-approved existing direction; route repair introduces neither treatment."
+        }
+      ]
+    },
+    "comprehension": {
+      "status": "not-applicable",
+      "reviewer": "",
+      "answers": {
+        "product": "",
+        "audience": "",
+        "value": "",
+        "mechanism": "",
+        "proof": "",
+        "nextAction": ""
+      },
+      "purposeScore": {
+        "product": 0,
+        "audience": 0,
+        "value": 0,
+        "mechanism": 0,
+        "proof": 0,
+        "nextAction": 0,
+        "total": 0
+      },
+      "mismatches": []
+    }
+  },
+  "ownerFeedback": {
+    "decision": "not-required",
+    "note": "Preserve work follows the existing direction; this is not owner acceptance of the result."
+  }
+}
