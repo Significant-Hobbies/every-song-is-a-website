@@ -16,9 +16,10 @@
   tracker.dataset.identity = 'session';
   document.head.append(tracker);
 
-  // Every route shares the same consent form, including song worlds and 404s.
-  var extension = document.querySelector('fleet-footer-extension') || document.createElement('fleet-footer-extension');
-  if (!document.querySelector('saas-maker-newsletter-capture')) {
+  // Keep newsletter capture in the gallery; song worlds and recovery retain tracking.
+  var isGallery = location.pathname === '/' || location.pathname === '/index.html';
+  if (isGallery && !document.querySelector('saas-maker-newsletter-capture')) {
+    var extension = document.querySelector('fleet-footer-extension') || document.createElement('fleet-footer-extension');
     var capture = document.createElement('saas-maker-newsletter-capture');
     capture.setAttribute('slot', 'capture');
     capture.setAttribute('catalog-id', 'every-song-is-a-website');
