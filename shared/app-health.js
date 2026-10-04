@@ -25,7 +25,6 @@
     capture.setAttribute('project-key', 'pk_4edecd55b55fd525bfb7a78b414986a3bf98d246a8dd4a90');
     capture.setAttribute('product-name', 'Every Song Is a Website');
     capture.setAttribute('kind', 'newsletter');
-    capture.setAttribute('allow-kind-selection', '');
     capture.setAttribute('source', 'fleet-footer');
     capture.setAttribute('privacy-url', 'https://sassmaker.com/privacy');
     extension.append(capture);

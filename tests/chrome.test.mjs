@@ -75,14 +75,21 @@ test('real song chrome keeps studio strip out and preserves navigation plus chat
     );
     assert.equal(created.get('tag:ai-chat-footer')?.attributes.get('product-name'), 'Every Song Is a Website');
 
-    for (const route of ['index.html', '404.html']) {
-      const html = readFileSync(new URL(`../${route}`, import.meta.url), 'utf8');
-      assert.doesNotMatch(html, /project-strip\.js/);
-      assert.match(html, /ai-chat-footer\.js/);
-    }
+    const recovery = readFileSync(new URL('../404.html', import.meta.url), 'utf8');
+    assert.doesNotMatch(recovery, /project-strip\.js/);
+    assert.match(recovery, /ai-chat-footer\.js/);
   } finally {
     globalThis.document = previousDocument;
     globalThis.window = previousWindow;
     globalThis.addEventListener = previousAddEventListener;
   }
+});
+
+test('gallery alone loads the hosted capture strip before the chat footer', () => {
+  const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  const strip = 'https://sassmaker.com/project-strip.js';
+  const chat = 'https://sassmaker.com/ai-chat-footer.js';
+  assert.equal(html.split(strip).length - 1, 1, 'gallery mounts one shared strip');
+  assert.equal(html.split(chat).length - 1, 1, 'gallery mounts one chat footer');
+  assert.ok(html.indexOf(strip) < html.indexOf(chat), 'strip loads before its capture extension');
 });
