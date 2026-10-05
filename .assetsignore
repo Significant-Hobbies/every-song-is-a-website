@@ -2,6 +2,7 @@
 .github/
 .wrangler/
 .fleet/
+.fleet-local/
 tools/
 artifacts/
 node_modules/
