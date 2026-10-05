@@ -1,0 +1,19 @@
+{
+  "asset": "footer-art/every-song-is-a-website.webp",
+  "credit": "Original illustration created for Every Song Is a Website",
+  "alt": "A moonlit record player beside an open visual-world folio",
+  "source": {
+    "format": "PNG",
+    "sha256": "619b8eb0b8d542e7c845447e2b9643c5ec4369b2f2f530eede648290452559ef",
+    "width": 2170,
+    "height": 725
+  },
+  "publicDerivative": {
+    "format": "WebP",
+    "sha256": "0ab195126b5a51f6d855485ef9c5e80b68c8b8e7f2fc673973dc615cb11a9e85",
+    "bytes": 1318490,
+    "width": 2170,
+    "height": 725
+  },
+  "prompt": "Not retained; alt text is not a prompt."
+}

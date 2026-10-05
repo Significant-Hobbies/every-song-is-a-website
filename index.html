@@ -21,8 +21,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900&family=Caveat:wght@500;700&family=JetBrains+Mono:wght@400;700&family=Shantell+Sans:wght@400..700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="gallery.css">
+<link rel="stylesheet" href="gallery-footer.css">
 </head>
-<body>
+<body class="gallery-page">
 <header class="masthead">
   <h1>every song is a website</h1>
   <p>eight songs, three worlds, one video player each. pick a door — drag things, click things, stay a minute.</p>
@@ -183,11 +184,25 @@
 </noscript>
 </main>
 
-<footer class="colophon">
-  <p>a visual experiment — curated worlds, seeded layouts, videos via youtube. anonymous site analytics via microsoft clarity.</p>
-</footer>
+<fleet-footer-extension
+  data-fleet-footer-project="every-song-is-a-website"
+  product-name="Every Song Is a Website"
+  theme="dark"
+  surface="web"
+  font-base="/fonts/fleet-footer-precise-v1/"
+  art-src="/footer-art/every-song-is-a-website.webp"
+  art-alt="A moonlit record player beside an open visual-world folio"
+  art-width="2170"
+  art-height="725"
+  art-position="50% 50%"
+  art-credit="Original illustration for Every Song Is a Website"
+>
+  <footer slot="navigation" data-fleet-footer-navigation class="gallery-colophon">
+    <p>a visual experiment — curated worlds, seeded layouts, videos via youtube. site analytics via Microsoft Clarity.</p>
+  </footer>
+</fleet-footer-extension>
 <script type="module" src="gallery.js"></script>
-  <script src="https://sassmaker.com/project-strip.js" data-project="every-song-is-a-website" defer></script>
-  <script src="https://sassmaker.com/ai-chat-footer.js" data-name="Every Song Is a Website" defer></script>
+  <script src="https://sassmaker.com/project-strip.js?v=precise-b0adaa67" data-project="every-song-is-a-website" data-theme="dark" data-host-only="true" defer></script>
+  <script src="https://sassmaker.com/ai-chat-footer.js?v=precise-b0adaa67" data-project="every-song-is-a-website" data-name="Every Song Is a Website" data-theme="dark" data-surface="web" data-host-only="true" defer></script>
 </body>
 </html>
