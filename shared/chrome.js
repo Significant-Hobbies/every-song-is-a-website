@@ -131,11 +131,9 @@ export function mountChrome(world) {
   return { chip, panel, panelArtifactsEl: panel.querySelector('.panel-artifacts') };
 }
 
-// Fleet widgets: dynamically inserted scripts see document.currentScript ===
-// null, which skips their attribute-driven auto-mount — so we load
-// https://sassmaker.com/project-strip.js and
-// https://sassmaker.com/ai-chat-footer.js, then mount the elements ourselves
-// with the same attributes a static tag would pass.
+// The AI chat footer stays outside the song scene. The project strip uses a
+// fixed overlay that crosses scene content at narrow widths, so it is not
+// mounted on immersive song pages or their gallery/recovery documents.
 function mountFleetWidgets() {
   const load = (src) => {
     const s = document.createElement('script');
@@ -144,15 +142,7 @@ function mountFleetWidgets() {
     document.body.append(s);
     return new Promise((resolve) => { s.onload = s.onerror = resolve; });
   };
-  Promise.all([
-    load('https://sassmaker.com/project-strip.js'),
-    load('https://sassmaker.com/ai-chat-footer.js'),
-  ]).then(() => {
-    if (!document.querySelector('portfolio-project-strip')) {
-      const strip = document.createElement('portfolio-project-strip');
-      strip.setAttribute('current-project', 'every-song-is-a-website');
-      document.body.append(strip);
-    }
+  load('https://sassmaker.com/ai-chat-footer.js').then(() => {
     if (!document.querySelector('ai-chat-footer')) {
       const footer = document.createElement('ai-chat-footer');
       footer.setAttribute('product-name', 'Every Song Is a Website');
