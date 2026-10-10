@@ -122,33 +122,12 @@ export function mountChrome(world) {
     const r = panel.querySelector(`input[name=esw-motion][value=${getMotion()}]`);
     if (r) r.checked = true;
   });
-  mountFleetWidgets();
   panel.querySelector('.panel-reseed').addEventListener('click', () => {
     world.recompose();
     panel.querySelector('.panel-seed code').textContent = world.seed;
   });
 
   return { chip, panel, panelArtifactsEl: panel.querySelector('.panel-artifacts') };
-}
-
-// The AI chat footer stays outside the song scene. The project strip uses a
-// fixed overlay that crosses scene content at narrow widths, so it is not
-// mounted on immersive song pages or their gallery/recovery documents.
-function mountFleetWidgets() {
-  const load = (src) => {
-    const s = document.createElement('script');
-    s.src = src;
-    s.defer = true;
-    document.body.append(s);
-    return new Promise((resolve) => { s.onload = s.onerror = resolve; });
-  };
-  load('https://sassmaker.com/ai-chat-footer.js').then(() => {
-    if (!document.querySelector('ai-chat-footer')) {
-      const footer = document.createElement('ai-chat-footer');
-      footer.setAttribute('product-name', 'Every Song Is a Website');
-      document.body.append(footer);
-    }
-  });
 }
 
 // Populate the artifact toggles once artifacts exist — frames count too

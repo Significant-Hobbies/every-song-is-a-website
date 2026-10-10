@@ -41,18 +41,9 @@ function boot(pathname, hostname = 'music.significanthobbies.com') {
 }
 
 for (const pathname of ['/', '/index.html', '/surfin-usa/', '/404.html', '/unknown-song/']) {
-  test(`capture scope and all-route telemetry: ${pathname}`, () => {
+  test(`all-route telemetry: ${pathname}`, () => {
     const state = boot(pathname);
-    const gallery = pathname === '/' || pathname === '/index.html';
-    const captures = state.elements.filter((node) => node.tag === 'saas-maker-newsletter-capture');
-    assert.equal(captures.length, gallery ? 1 : 0);
-    assert.equal(state.elements.filter((node) => node.tag === 'fleet-footer-extension').length, gallery ? 1 : 0);
-    if (gallery) {
-      assert.equal(captures[0].attributes.kind, 'newsletter');
-      assert.equal(captures[0].attributes['privacy-url'], 'https://sassmaker.com/privacy');
-      runInNewContext(source, state.context);
-      assert.equal(state.elements.filter((node) => node.tag === 'saas-maker-newsletter-capture').length, 1);
-    }
+    assert.equal(state.elements.filter((node) => /newsletter-capture|fleet-footer-extension/.test(node.tag)).length, 0, 'footer is static markup, not injected');
     const tracker = state.elements.find((node) => node.src === 'https://health.sassmaker.com/tracker.js');
     assert.ok(tracker, 'tracker remains on every production route');
     assert.equal(tracker.dataset.identity, 'session');

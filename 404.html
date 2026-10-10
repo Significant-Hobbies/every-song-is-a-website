@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/gallery.css">
+<link rel="stylesheet" href="/footer.css">
 </head>
 <body>
 <header class="masthead">
@@ -27,9 +28,13 @@
   <ul class="lost-results" id="lostResults"></ul>
 </main>
 
-<footer class="colophon">
-  <p><a href="/">← back to the gallery</a></p>
-</footer>
+<studio-footer product="Every Song Is a Website" url="https://music.significanthobbies.com"
+  catalog-id="every-song-is-a-website" capture="newsletter" data-mode="dark"
+  summary="a visual experiment — curated worlds, seeded layouts, videos via youtube.">
+  <script type="application/json">
+    {"groups":[{"title":"gallery","links":[{"label":"back to the gallery","href":"/"}]}]}
+  </script>
+</studio-footer>
 
 <script type="module">
   import '/shared/app-health.js';
@@ -48,6 +53,6 @@
   input.addEventListener('input', () => render(input.value.trim().toLowerCase()));
   render('');
 </script>
-  <script src="https://sassmaker.com/ai-chat-footer.js" data-name="Every Song Is a Website" defer></script>
+  <script type="module" src="/footer.js"></script>
 </body>
 </html>
