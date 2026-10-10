@@ -16,25 +16,6 @@
   tracker.dataset.identity = 'session';
   document.head.append(tracker);
 
-  // Keep newsletter capture in the gallery; song worlds and recovery retain tracking.
-  var isGallery = location.pathname === '/' || location.pathname === '/index.html';
-  if (isGallery && !document.querySelector('saas-maker-newsletter-capture')) {
-    var extension = document.querySelector('fleet-footer-extension') || document.createElement('fleet-footer-extension');
-    var capture = document.createElement('saas-maker-newsletter-capture');
-    capture.setAttribute('slot', 'capture');
-    capture.setAttribute('catalog-id', 'every-song-is-a-website');
-    capture.setAttribute('project-key', 'pk_4edecd55b55fd525bfb7a78b414986a3bf98d246a8dd4a90');
-    capture.setAttribute('product-name', 'Every Song Is a Website');
-    capture.setAttribute('kind', 'newsletter');
-    capture.setAttribute('source', 'fleet-footer');
-    capture.setAttribute('privacy-url', 'https://sassmaker.com/privacy');
-    extension.append(capture);
-    if (!extension.isConnected) document.body.append(extension);
-    var captureScript = document.createElement('script');
-    captureScript.type = 'module';
-    captureScript.src = 'https://sassmaker.com/newsletter-capture.js';
-    document.head.append(captureScript);
-  }
   function id() {
     return crypto.randomUUID();
   }

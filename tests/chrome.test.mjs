@@ -24,7 +24,7 @@ class ElementStub {
   }
 }
 
-test('real song chrome keeps studio strip out and preserves navigation plus chat footer', async () => {
+test('real song chrome keeps studio strip out and preserves navigation and loads no hosted footer scripts', async () => {
   const created = new Map();
   const appended = [];
   const queried = [];
@@ -68,17 +68,12 @@ test('real song chrome keeps studio strip out and preserves navigation plus chat
     assert.match(mounted[0].innerHTML ?? '', /class="chip-home"/);
     assert.match(mounted[1].innerHTML ?? '', /class="panel-head">experiment</);
     assert.ok(result.panelArtifactsEl, 'artifact controls remain available');
-    assert.equal(queried.includes('portfolio-project-strip'), false);
-    assert.equal(created.has('tag:portfolio-project-strip'), false);
-    assert.deepEqual(
-      appended.filter((element) => element.tagName === 'script').map((element) => element.src),
-      ['https://sassmaker.com/ai-chat-footer.js'],
-    );
-    assert.equal(created.get('tag:ai-chat-footer')?.attributes.get('product-name'), 'Every Song Is a Website');
+    assert.equal(appended.filter((element) => element.tagName === 'script').length, 0, 'no hosted loader scripts');
+    assert.equal(created.has('tag:ai-chat-footer'), false);
 
     const recovery = readFileSync(new URL('../404.html', import.meta.url), 'utf8');
-    assert.doesNotMatch(recovery, /project-strip\.js/);
-    assert.match(recovery, /ai-chat-footer\.js/);
+    assert.doesNotMatch(recovery, /sassmaker\.com\/(project-strip|ai-chat-footer|newsletter-capture|feedback-launcher)/);
+    assert.match(recovery, /<studio-footer\b[^>]*catalog-id="every-song-is-a-website"/);
   } finally {
     globalThis.document = previousDocument;
     globalThis.window = previousWindow;
@@ -86,37 +81,18 @@ test('real song chrome keeps studio strip out and preserves navigation plus chat
   }
 });
 
-test('gallery alone loads the hosted capture strip before the chat footer', () => {
+test('gallery and recovery use the static StudioFooter, not the Precise loaders', () => {
   const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-  const strip = 'https://sassmaker.com/project-strip.js?v=precise-b0adaa67';
-  const chat = 'https://sassmaker.com/ai-chat-footer.js?v=precise-b0adaa67';
-  assert.equal(html.split(strip).length - 1, 1, 'gallery mounts one shared strip');
-  assert.equal(html.split(chat).length - 1, 1, 'gallery mounts one chat footer');
-  assert.ok(html.indexOf(strip) < html.indexOf(chat), 'strip loads before its capture extension');
-  assert.match(html, /<fleet-footer-extension\b[^>]*data-fleet-footer-project="every-song-is-a-website"/);
-  assert.match(html, /font-base="\/fonts\/fleet-footer-precise-v1\/"/);
-  assert.match(html, /data-project="every-song-is-a-website" data-theme="dark" data-host-only="true"/);
-  assert.match(html, /data-surface="web" data-host-only="true"/);
-  assert.doesNotMatch(html, /data-capture\s*=\s*["']false["']/i, 'auto newsletter capture remains enabled');
-
-  const recovery = readFileSync(new URL('../404.html', import.meta.url), 'utf8');
+  assert.doesNotMatch(html, /sassmaker\.com\/(project-strip|ai-chat-footer|newsletter-capture|feedback-launcher)/);
+  assert.match(html, /<studio-footer\b[^>]*catalog-id="every-song-is-a-website"[^>]*capture="newsletter"/);
+  assert.match(html, /<script type="module" src="footer\.js"><\/script>/);
+  assert.match(html, /href="footer\.css"/);
   const song = readFileSync(new URL('../digital-love/index.html', import.meta.url), 'utf8');
-  for (const [name, source] of [['404', recovery], ['song', song]]) {
-    assert.doesNotMatch(source, /<fleet-footer-extension\b|project-strip\.js/, `${name} stays outside the composed footer`);
-  }
+  assert.doesNotMatch(song, /<studio-footer\b|project-strip\.js/, 'song worlds stay footer-free');
 });
 
-test('gallery footer mirrors preserve the approved art and font bytes', () => {
+test('gallery footer art mirror preserves the approved bytes', () => {
   const artPath = new URL('../footer-art/every-song-is-a-website.webp', import.meta.url);
   const artProvenance = JSON.parse(readFileSync(new URL('../footer-art/provenance.json', import.meta.url), 'utf8'));
   assert.equal(createHash('sha256').update(readFileSync(artPath)).digest('hex'), artProvenance.publicDerivative.sha256);
-
-  const fontRoot = new URL('../fonts/fleet-footer-precise-v1/', import.meta.url);
-  const fontProvenance = JSON.parse(readFileSync(new URL('provenance.json', fontRoot), 'utf8'));
-  for (const font of fontProvenance.fonts) {
-    const fontPath = new URL(font.asset, fontRoot);
-    const licensePath = new URL(font.license, fontRoot);
-    assert.equal(createHash('sha256').update(readFileSync(fontPath)).digest('hex'), font.sha256, font.asset);
-    assert.ok(readFileSync(licensePath).byteLength > 0, font.license);
-  }
 });
