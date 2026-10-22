@@ -183,7 +183,7 @@ body {
 .lost-none a { color: #d2ff2f; }
 
 @media (prefers-reduced-motion: reduce) {
-  .mini-heart, .d-picnic .mini-melon, .mini-type { animation: none; transition: none; }
+  .door .mini-heart, .d-picnic .mini-melon, .mini-type { animation: none; transition: none; }
 }
 
 /* ---- door 4: miniature neon night ---- */
