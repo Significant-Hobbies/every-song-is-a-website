@@ -277,7 +277,7 @@ export function makeFrame(spec, song, hooks = {}) {
   const collapse = document.createElement('button');
   collapse.className = 'frame-btn frame-collapse';
   collapse.type = 'button';
-  collapse.setAttribute('aria-label', `collapse ${spec.title}`);
+  collapse.setAttribute('aria-label', `minimize ${spec.title}`);
   collapse.textContent = '_';
   const max = document.createElement('button');
   max.className = 'frame-btn frame-max';
@@ -289,7 +289,10 @@ export function makeFrame(spec, song, hooks = {}) {
   close.type = 'button';
   close.setAttribute('aria-label', `close ${spec.title}`);
   close.textContent = '✕';
-  collapse.addEventListener('click', () => el.classList.toggle('is-collapsed'));
+  collapse.addEventListener('click', () => {
+    el.classList.add('is-closed');
+    hooks.onClose?.(spec.id);
+  });
   max.addEventListener('click', () => {
     el.classList.remove('is-collapsed');
     const on = el.classList.toggle('is-maxed');

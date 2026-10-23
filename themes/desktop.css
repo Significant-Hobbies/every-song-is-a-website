@@ -62,6 +62,7 @@ html[data-theme="desktop"] .frame-body {
   margin-top: 3px; padding: 8px;
   max-height: 60vh; overflow: auto;
 }
+html[data-theme="desktop"] .frame.is-maxed .frame-body { max-height: none; }
 html[data-theme="desktop"] .is-dragging { box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3); }
 
 /* hero window */
@@ -308,9 +309,34 @@ html[data-theme="desktop"] .alert-ok {
 /* ---------- responsive ---------- */
 
 @media (max-width: 640px) {
-  html[data-theme="desktop"] .icons { flex-direction: row; flex-wrap: wrap; max-width: 50vw; gap: 8px; }
-  html[data-theme="desktop"] .icon { width: 58px; }
-  html[data-theme="desktop"] .frame { width: min(250px, 80vw); }
+  html[data-theme="desktop"] .icons { top: 72px; left: 12px; right: 12px; flex-direction: row; gap: 4px; }
+  html[data-theme="desktop"] .icon { width: 64px; min-height: 64px; }
+  html[data-theme="desktop"] .layer-artifacts > .frame {
+    left: 12px !important; top: 154px !important; width: calc(100vw - 24px) !important;
+    max-width: none; max-height: calc(100dvh - 254px); transform: none;
+    display: flex; flex-direction: column;
+  }
+  html[data-theme="desktop"] .layer-artifacts > .frame:is(.is-closed, .is-hidden) { display: none; }
+  html[data-theme="desktop"] .frame-body { min-height: 0; overflow: auto; }
+  html[data-theme="desktop"] .frame-bar { min-height: 48px; gap: 4px; }
+  html[data-theme="desktop"] .frame-title { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  html[data-theme="desktop"] .frame-controls { flex-shrink: 0; }
+  html[data-theme="desktop"] .frame-btn { width: 44px; height: 44px; }
+  html[data-theme="desktop"] .frame-photos.is-maxed .photo:last-child { grid-column: 1 / -1; }
+  html[data-theme="desktop"] .layer-artifacts > .frame.is-maxed {
+    top: 72px !important; height: calc(100dvh - 172px) !important; max-height: none;
+  }
+  html[data-theme="desktop"] #world:has(.layer-artifacts > .frame:not(.is-closed):not(.is-hidden)) .hero-window { visibility: hidden; }
+  html[data-theme="desktop"] .hero-window { width: calc(100vw - 48px); max-width: none; left: 24px !important; }
+  html[data-theme="desktop"] .chip { right: 10px; gap: 4px; padding: 4px; min-height: 52px; }
+  html[data-theme="desktop"] .chip-id { flex: 1; min-width: 0; }
+  html[data-theme="desktop"] .chip-title { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  html[data-theme="desktop"] .chip :is(button, .chip-nav a) { min-height: 36px; display: grid; place-items: center; padding: 2px 5px; }
+  html[data-theme="desktop"] .taskbar { min-height: 88px; padding-bottom: max(4px, env(safe-area-inset-bottom)); }
+  html[data-theme="desktop"] .taskbar-tasks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; min-width: 0; }
+  html[data-theme="desktop"] .task-btn { min-width: 0; max-width: none; min-height: 36px; }
+  html[data-theme="desktop"] .taskbar-clock { padding: 3px 5px; }
+  html[data-theme="desktop"] .start-menu { bottom: 88px; max-height: calc(100dvh - 160px); overflow-y: auto; }
+  html[data-theme="desktop"] .panel { bottom: 100px; max-height: calc(100dvh - 172px); overflow: auto; }
   html[data-theme="desktop"] .chip-artist { display: none; }
-  html[data-theme="desktop"] .task-btn { max-width: 80px; }
 }
