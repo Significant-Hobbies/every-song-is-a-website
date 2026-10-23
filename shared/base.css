@@ -95,6 +95,12 @@ html.drag-lock iframe { pointer-events: none; }
 .frame.is-maxed .player-embed { aspect-ratio: auto; height: 100%; flex: 1; }
 .frame.is-maxed .lyrics-embed { height: 100%; }
 .frame.is-maxed .chat-log { max-height: none; }
+.frame-photos.is-maxed .photo-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-auto-rows: minmax(0, 1fr); height: 100%;
+}
+.frame-photos.is-maxed .photo { display: flex; flex-direction: column; min-width: 0; }
+.frame-photos.is-maxed .photo-scene { width: 100%; height: auto; flex: 1; min-height: 100px; }
 
 .chat-log {
   list-style: none; margin: 0; padding: 0;

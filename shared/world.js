@@ -62,9 +62,30 @@ export function initWorld(slug) {
     allows,
     onMotion,
 
+    openFrame(id) {
+      const frame = world.frameById[id];
+      if (!frame) return;
+      if (world.theme === 'desktop' && innerWidth <= 640) {
+        world.taskBtns?.welcome?.classList.remove('is-open');
+        for (const other of world.frames) {
+          if (other !== frame) {
+            other.el.classList.add('is-closed');
+            world.taskBtns?.[other.spec.id]?.classList.remove('is-open');
+          }
+        }
+      }
+      frame.el.classList.remove('is-closed', 'is-hidden', 'is-collapsed');
+      bringToFront(frame.el);
+      world.taskBtns?.[id]?.classList.add('is-open');
+      frame.el.focus({ preventScroll: true });
+    },
+
     setTheme(next) {
       if (!THEMES[next] || next === world.theme) return;
       THEMES[world.theme].unmount?.(world);
+      if (innerWidth <= 640 && (next === 'desktop' || world.theme === 'desktop')) {
+        for (const frame of world.frames) frame.el.classList.toggle('is-closed', next === 'desktop');
+      }
       world.theme = next;
       document.documentElement.dataset.theme = next;
       for (const a of world.artifacts) a.reskin(next);
@@ -77,7 +98,10 @@ export function initWorld(slug) {
         if (a.spec.type === type) a.el.classList.toggle('is-hidden', !visible);
       }
       for (const f of world.frames) {
-        if (f.spec.type === type) f.el.classList.toggle('is-hidden', !visible);
+        if (f.spec.type === type) {
+          f.el.classList.toggle('is-hidden', !visible);
+          if (visible) world.openFrame(f.spec.id);
+        }
       }
     },
 
@@ -110,6 +134,7 @@ export function initWorld(slug) {
     layers.artifacts.append(f.el);
     world.frames.push(f);
     world.frameById[spec.id] = f;
+    if (initialTheme === 'desktop' && innerWidth <= 640) f.el.classList.add('is-closed');
     draggable(f.el, { handle: f.bar });
     f.el.addEventListener('pointerdown', () => bringToFront(f.el));
   }
@@ -168,10 +193,15 @@ function layoutArtifacts(world) {
 
 function clampAll(world) {
   const w = innerWidth, h = innerHeight;
+  if (world.theme === 'desktop' && w <= 640) {
+    const visible = world.frames.filter((frame) => !frame.el.classList.contains('is-closed') && !frame.el.classList.contains('is-hidden'));
+    const front = visible.sort((a, b) => Number(b.el.style.zIndex) - Number(a.el.style.zIndex))[0];
+    if (front) world.openFrame(front.spec.id);
+  }
   for (const el of [...world.artifacts.map((a) => a.el), ...world.frames.map((f) => f.el)]) {
-    if (el.dataset.fx === undefined) continue;
-    const x = Math.min(Math.max(parseFloat(el.dataset.fx), -40), w - 40);
-    const y = Math.min(Math.max(parseFloat(el.dataset.fy), 0), h - 40);
+    if (el.classList.contains('is-maxed') || el.classList.contains('is-closed')) continue;
+    const x = Math.min(Math.max(el.offsetLeft, 4), Math.max(4, w - el.offsetWidth - 8));
+    const y = Math.min(Math.max(el.offsetTop, 54), Math.max(54, h - el.offsetHeight - 48));
     el.dataset.fx = x; el.dataset.fy = y;
     el.style.left = `${x}px`; el.style.top = `${y}px`;
   }

@@ -100,9 +100,9 @@ export function mountChrome(world) {
       health?.track('song_listen_clicked');
       void Promise.resolve(health?.flush?.()).catch(() => {});
     }
-    const pf = document.querySelector('.frame-player');
-    if (pf?.classList.contains('is-closed')) pf.classList.remove('is-closed');
-    if (pf?.classList.contains('is-hidden')) pf.classList.remove('is-hidden');
+    const player = world.frames.find((frame) => frame.spec.type === 'player');
+    if (player) world.openFrame(player.spec.id);
+    const pf = player?.el;
     playing = !playing;
     pf?.querySelector('iframe')?.contentWindow?.postMessage(
       JSON.stringify({ event: 'command', func: playing ? 'playVideo' : 'pauseVideo', args: '' }), '*');

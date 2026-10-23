@@ -36,7 +36,7 @@ export const desktopTheme = {
         <p class="hero-kicker">now playing</p>
         <h1 class="hero-title">${song.title.toLowerCase()}</h1>
         <p class="hero-artist">${song.artist} · ${song.year}</p>
-        <p class="hero-hint">drag windows · click icons · catch hearts</p>
+        <p class="hero-hint">${innerWidth <= 640 ? 'tap icons · open windows · catch hearts' : 'drag windows · click icons · catch hearts'}</p>
       </div>`;
     layers.hero.append(hero);
     draggable(hero, { handle: hero.querySelector('.frame-bar') });
@@ -73,11 +73,27 @@ export const desktopTheme = {
       b.textContent = f.spec.title;
       taskBtns[f.spec.id] = b;
       on(b, 'click', () => {
-        const closed = f.el.classList.toggle('is-closed');
-        b.classList.toggle('is-open', !closed);
-        if (!closed) f.el.style.zIndex = ++zCounter;
+        if (f.spec.id === 'welcome' && innerWidth <= 640) {
+          for (const frame of world.frames) {
+            frame.el.classList.add('is-closed');
+            taskBtns[frame.spec.id]?.classList.remove('is-open');
+          }
+          f.el.classList.remove('is-closed');
+          b.classList.add('is-open');
+          return;
+        }
+        if (f.el.classList.contains('is-closed')) {
+          if (f.spec.id === 'welcome') {
+            f.el.classList.remove('is-closed');
+            b.classList.add('is-open');
+          } else world.openFrame(f.spec.id);
+        } else {
+          f.el.classList.add('is-closed');
+          b.classList.remove('is-open');
+          if (f.spec.id !== 'welcome') this.frameClosed(world, f.spec.id);
+        }
       });
-      b.classList.add('is-open');
+      b.classList.toggle('is-open', !f.el.classList.contains('is-closed'));
       tasks.append(b);
     }
     world.taskBtns = taskBtns;
@@ -96,7 +112,7 @@ export const desktopTheme = {
     const entries = [
       ...world.frames.map((f) => ({
         id: f.spec.id, label: f.spec.title.replace(/ — .*/, ''), glyph: ICON_GLYPH[f.spec.type] ?? '❏',
-        open: () => { f.el.classList.remove('is-closed'); f.el.style.zIndex = ++zCounter; taskBtns[f.spec.id]?.classList.add('is-open'); },
+        open: () => world.openFrame(f.spec.id),
       })),
       {
         id: 'trash', label: 'trash', glyph: '🗑',
@@ -148,6 +164,9 @@ export const desktopTheme = {
 
   frameClosed(world, id) {
     world.taskBtns?.[id]?.classList.remove('is-open');
+    if (innerWidth <= 640 && world.frames.every((frame) => frame.el.classList.contains('is-closed') || frame.el.classList.contains('is-hidden'))) {
+      world.taskBtns?.welcome?.classList.add('is-open');
+    }
   },
 
   unmount(world) {
