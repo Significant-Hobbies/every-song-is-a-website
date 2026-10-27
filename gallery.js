@@ -1,16 +1,11 @@
+import { DESC, ERAS, galleryIntro } from './shared/gallery-copy.js';
 // Gallery — renders one door per song from the registry. Each door carries a
 // miniature of its world's skin; adding a song to shared/songs.js is enough.
 import './shared/clarity.js';
 import './shared/app-health.js';
 import { ORDER, SONGS } from './shared/songs.js';
 
-const DESC = {
-  desktop: 'a year-2000 desktop',
-  picnic: 'a picnic blanket',
-  kinetic: 'an acid poster',
-  neon: 'a neon night',
-  scrapbook: 'a scrapbook page',
-};
+
 
 const hash = (s) => { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) | 0; return Math.abs(h); };
 
@@ -75,10 +70,7 @@ const SCENES = {
     <i class="mini-doodle"></i>`,
 };
 
-const ERAS = {
-  196: 'the sixties', 197: 'the seventies', 198: 'the eighties', 199: 'the nineties',
-  200: 'the two-thousands', 201: 'the twenty-tens', 202: 'the twenty-twenties',
-};
+
 
 const doors = document.getElementById('doors');
 const built = [];
@@ -86,7 +78,7 @@ const eras = []; // { el, doors: [] }
 // masthead counts itself
 const tagline = document.querySelector('.masthead p');
 if (tagline) tagline.textContent =
-  `${ORDER.length} songs, five worlds, one video player each. pick a door — drag things, click things, stay a minute.`;
+  galleryIntro(ORDER.length);
 let era = null;
 for (const slug of ORDER) {
   const song = SONGS[slug];

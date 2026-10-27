@@ -1,0 +1,577 @@
+{
+  "/": {
+    "description": "Explore songs as interactive websites with visual worlds, draggable objects, and embedded music videos. Pick a song and step inside."
+  },
+  "/surfin-usa/": {
+    "description": "Surfin' U.S.A. by The Beach Boys, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/under-the-boardwalk/": {
+    "description": "Under the Boardwalk by The Drifters, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/california-dreamin/": {
+    "description": "California Dreamin' by The Mamas & the Papas, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/wouldnt-it-be-nice/": {
+    "description": "Wouldn't It Be Nice by The Beach Boys, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/good-vibrations/": {
+    "description": "Good Vibrations by The Beach Boys, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/strawberry-fields-forever/": {
+    "description": "Strawberry Fields Forever by The Beatles, as a website. A drowsy field of strawberries and torn paper.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/here-comes-the-sun/": {
+    "description": "Here Comes the Sun by The Beatles, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/coconut/": {
+    "description": "Coconut by Harry Nilsson, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/imagine/": {
+    "description": "Imagine by John Lennon, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/lean-on-me/": {
+    "description": "Lean on Me by Bill Withers, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/sunny/": {
+    "description": "Sunny by Boney M., as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/three-little-birds/": {
+    "description": "Three Little Birds by Bob Marley, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/lovely-day/": {
+    "description": "Lovely Day by Bill Withers, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/could-you-be-loved/": {
+    "description": "Could You Be Loved by Bob Marley, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/woman/": {
+    "description": "Woman by John Lennon, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/tainted-love/": {
+    "description": "Tainted Love by Soft Cell, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/just-cant-get-enough/": {
+    "description": "Just Can't Get Enough by Depeche Mode, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/billie-jean/": {
+    "description": "Billie Jean by Michael Jackson, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/africa/": {
+    "description": "Africa by Toto, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/eye-of-the-tiger/": {
+    "description": "Eye of the Tiger by Survivor, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/come-on-eileen/": {
+    "description": "Come On Eileen by Dexys Midnight Runners, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/sweet-dreams/": {
+    "description": "Sweet Dreams by Eurythmics, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/girls-just-want-to-have-fun/": {
+    "description": "Girls Just Want to Have Fun by Cyndi Lauper, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/karma-chameleon/": {
+    "description": "Karma Chameleon by Culture Club, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/blue-monday/": {
+    "description": "Blue Monday by New Order, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/cruel-summer/": {
+    "description": "Cruel Summer by Bananarama, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/careless-whisper/": {
+    "description": "Careless Whisper by George Michael, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/you-spin-me-round/": {
+    "description": "You Spin Me Round by Dead or Alive, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/take-on-me/": {
+    "description": "Take On Me by a-ha, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/dont-you-forget-about-me/": {
+    "description": "Don't You (Forget About Me) by Simple Minds, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/everybody-wants-to-rule-the-world/": {
+    "description": "Everybody Wants to Rule the World by Tears for Fears, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/walking-on-sunshine/": {
+    "description": "Walking on Sunshine by Katrina and the Waves, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/livin-on-a-prayer/": {
+    "description": "Livin' on a Prayer by Bon Jovi, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/never-gonna-give-you-up/": {
+    "description": "Never Gonna Give You Up by Rick Astley, as a website. An old desktop, a suspicious link, pixel hearts.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/i-wanna-dance-with-somebody/": {
+    "description": "I Wanna Dance with Somebody by Whitney Houston, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/sweet-child-o-mine/": {
+    "description": "Sweet Child o' Mine by Guns N' Roses, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/faith/": {
+    "description": "Faith by George Michael, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/kokomo/": {
+    "description": "Kokomo by The Beach Boys, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/dont-worry-be-happy/": {
+    "description": "Don't Worry, Be Happy by Bobby McFerrin, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/like-a-prayer/": {
+    "description": "Like a Prayer by Madonna, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/enjoy-the-silence/": {
+    "description": "Enjoy the Silence by Depeche Mode, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/vogue/": {
+    "description": "Vogue by Madonna, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/somewhere-over-the-rainbow/": {
+    "description": "Somewhere Over the Rainbow by Israel Kamakawiwoʻole, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/wannabe/": {
+    "description": "Wannabe by Spice Girls, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/mmmbop/": {
+    "description": "MMMBop by Hanson, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/barbie-girl/": {
+    "description": "Barbie Girl by Aqua, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/blue-da-ba-dee/": {
+    "description": "Blue (Da Ba Dee) by Eiffel 65, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/baby-one-more-time/": {
+    "description": "...Baby One More Time by Britney Spears, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/all-star/": {
+    "description": "All Star by Smash Mouth, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/oops-i-did-it-again/": {
+    "description": "Oops!... I Did It Again by Britney Spears, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/digital-love/": {
+    "description": "Digital Love by Daft Punk, as a website. An old desktop, a chat that never quite ends, pixel hearts.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/island-in-the-sun/": {
+    "description": "Island in the Sun by Weezer, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/crazy-in-love/": {
+    "description": "Crazy in Love by Beyoncé, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/hey-ya/": {
+    "description": "Hey Ya! by Outkast, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/mr-brightside/": {
+    "description": "Mr. Brightside by The Killers, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/since-u-been-gone/": {
+    "description": "Since U Been Gone by Kelly Clarkson, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/banana-pancakes/": {
+    "description": "Banana Pancakes by Jack Johnson, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/better-together/": {
+    "description": "Better Together by Jack Johnson, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/umbrella/": {
+    "description": "Umbrella by Rihanna, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/stronger/": {
+    "description": "Stronger by Kanye West, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/poker-face/": {
+    "description": "Poker Face by Lady Gaga, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/i-gotta-feeling/": {
+    "description": "I Gotta Feeling by Black Eyed Peas, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/bad-romance/": {
+    "description": "Bad Romance by Lady Gaga, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/party-in-the-usa/": {
+    "description": "Party In the U.S.A. by Miley Cyrus, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/california-gurls/": {
+    "description": "California Gurls by Katy Perry, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/power/": {
+    "description": "Power by Kanye West, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/call-me-maybe/": {
+    "description": "Call Me Maybe by Carly Rae Jepsen, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/super-bass/": {
+    "description": "Super Bass by Nicki Minaj, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/glad-you-came/": {
+    "description": "Glad You Came by The Wanted, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/ho-hey/": {
+    "description": "Ho Hey by The Lumineers, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/starships/": {
+    "description": "Starships by Nicki Minaj, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/riptide/": {
+    "description": "Riptide by Vance Joy, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/best-day-of-my-life/": {
+    "description": "Best Day of My Life by American Authors, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/counting-stars/": {
+    "description": "Counting Stars by OneRepublic, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/budapest/": {
+    "description": "Budapest by George Ezra, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/uptown-funk/": {
+    "description": "Uptown Funk by Mark Ronson, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/shake-it-off/": {
+    "description": "Shake It Off by Taylor Swift, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/make-you-mine/": {
+    "description": "Make You Mine by PUBLIC, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/steal-my-girl/": {
+    "description": "Steal My Girl by One Direction, as a website.",
+    "hint": "tap icons · open windows · catch hearts / drag windows · click icons · catch hearts"
+  },
+  "/cake-by-the-ocean/": {
+    "description": "Cake by the Ocean by DNCE, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/cool-for-the-summer/": {
+    "description": "Cool for the Summer by Demi Lovato, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/cant-feel-my-face/": {
+    "description": "Can't Feel My Face by The Weeknd, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/drag-me-down/": {
+    "description": "Drag Me Down by One Direction, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/the-hills/": {
+    "description": "The Hills by The Weeknd, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/stressed-out/": {
+    "description": "Stressed Out by twenty one pilots, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/formation/": {
+    "description": "Formation by Beyoncé, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/side-to-side/": {
+    "description": "Side to Side by Ariana Grande, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/starboy/": {
+    "description": "Starboy by The Weeknd, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/dancing-on-my-own/": {
+    "description": "Dancing On My Own by Calum Scott, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/humble/": {
+    "description": "HUMBLE. by Kendrick Lamar, as a website. Monumental elastic type and chrome on ink.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/bodak-yellow/": {
+    "description": "Bodak Yellow by Cardi B, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/dna/": {
+    "description": "DNA. by Kendrick Lamar, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/truth-hurts/": {
+    "description": "Truth Hurts by Lizzo, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/rockstar/": {
+    "description": "rockstar by Post Malone, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/you-and-me/": {
+    "description": "You and Me by Niall Horan, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/sunflower/": {
+    "description": "Sunflower by Post Malone & Swae Lee, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/finesse/": {
+    "description": "Finesse by Bruno Mars, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/thank-u-next/": {
+    "description": "thank u, next by Ariana Grande, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/gods-plan/": {
+    "description": "God's Plan by Drake, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/sicko-mode/": {
+    "description": "SICKO MODE by Travis Scott, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/borrowed-love/": {
+    "description": "Borrowed Love by Metro Boomin ft. Swae Lee & Wizkid, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/what-i-need/": {
+    "description": "What I Need by Hayley Kiyoko ft. Kehlani, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/bloom/": {
+    "description": "Bloom by Troye Sivan, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/gotta-be-a-reason/": {
+    "description": "Gotta Be a Reason by Alec Benjamin, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/thursday/": {
+    "description": "Thursday by Jess Glynne, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/all-i-am/": {
+    "description": "All I Am by Jess Glynne, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/remedy/": {
+    "description": "REMEDY by Alesso, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/watermelon-sugar/": {
+    "description": "Watermelon Sugar by Harry Styles, as a website. A gingham blanket, rolling fruit, scattered seeds.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/sunday-best/": {
+    "description": "Sunday Best by Surfaces, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/7-rings/": {
+    "description": "7 rings by Ariana Grande, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/bad-guy/": {
+    "description": "bad guy by Billie Eilish, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/old-town-road/": {
+    "description": "Old Town Road by Lil Nas X, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/blinding-lights/": {
+    "description": "Blinding Lights by The Weeknd, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/dont-start-now/": {
+    "description": "Don't Start Now by Dua Lipa, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/nice-to-meet-ya/": {
+    "description": "Nice to Meet Ya by Niall Horan, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/karma/": {
+    "description": "Karma by AJR, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/true-blue/": {
+    "description": "True Blue by Mark Ronson ft. Angel Olsen, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/golden/": {
+    "description": "Golden by Harry Styles, as a website.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/wap/": {
+    "description": "WAP by Cardi B, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/rain-on-me/": {
+    "description": "Rain on Me by Lady Gaga, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/physical/": {
+    "description": "Physical by Dua Lipa, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/savage-love/": {
+    "description": "Savage Love by Jawsh 685 & Jason Derulo, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/i-got-to-live/": {
+    "description": "I Got to Live by Sam Fischer, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/no-judgement/": {
+    "description": "No Judgement by Niall Horan, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/peaches/": {
+    "description": "Peaches by Justin Bieber, as a website. A gingham blanket, roadside fruit, drifting sun.",
+    "hint": "drag the fruit · click the melon"
+  },
+  "/montero/": {
+    "description": "Montero by Lil Nas X, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/industry-baby/": {
+    "description": "Industry Baby by Lil Nas X, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/kiss-me-more/": {
+    "description": "Kiss Me More by Doja Cat, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/good-4-u/": {
+    "description": "good 4 u by Olivia Rodrigo, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/never-did-coke/": {
+    "description": "Never Did Coke by Lil Yachty & Swae Lee, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/numb-little-bug/": {
+    "description": "Numb Little Bug by Em Beihold, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/wondering-why/": {
+    "description": "Wondering Why by The Red Clay Strays, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/paint-the-town-red/": {
+    "description": "Paint the Town Red by Doja Cat, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/360/": {
+    "description": "360 by Charli XCX, as a website. Mirror-check type and liquid chrome on ink.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/von-dutch/": {
+    "description": "Von dutch by Charli XCX, as a website. Oversized elastic type and liquid chrome on ink.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/not-like-us/": {
+    "description": "Not Like Us by Kendrick Lamar, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/espresso/": {
+    "description": "Espresso by Sabrina Carpenter, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/birds-of-a-feather/": {
+    "description": "BIRDS OF A FEATHER by Billie Eilish, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/apple/": {
+    "description": "Apple by Charli XCX, as a website.",
+    "hint": "run your cursor through the title · grab the chrome"
+  },
+  "/die-with-a-smile/": {
+    "description": "Die With A Smile by Lady Gaga & Bruno Mars, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/routines-in-the-night/": {
+    "description": "Routines In The Night by twenty one pilots, as a website.",
+    "hint": "tap a sign — it buzzes"
+  },
+  "/hymn-to-virgil/": {
+    "description": "Hymn To Virgil by Hozier, as a website.",
+    "hint": "click a doodle — it draws itself again"
+  },
+  "/storm-ii/": {
+    "description": "STORM II by GENER8ION & Yung Lean, as a website.",
+    "hint": "tap a sign — it buzzes"
+  }
+}

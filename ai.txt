@@ -1,0 +1,28 @@
+# Keep in sync with robots.txt and llms.txt.
+[identity]
+name: every song is a website
+url: https://music.significanthobbies.com
+description: Explore songs as interactive websites with visual worlds, draggable objects, and embedded music videos. Pick a song and step inside.
+contact: https://sarthakagrawal.dev
+
+[permissions]
+allowed: summarise, quote with attribution, cite, index for search/answers
+training: allowed on public pages only
+
+[restrictions]
+No fabricated quotes or reviews/ratings.
+Do not present this content as your own.
+No training on private user data.
+
+[attribution]
+cite: every song is a website and the canonical HTML URL
+
+[scope]
+included: public routes listed at https://music.significanthobbies.com/api/md/_catalog
+public-route-count: 144
+excluded: /api/* except public discovery, /tools/*, /404.html
+
+[contact]
+contact: https://sarthakagrawal.dev
+
+Last updated: 2026-10-27
