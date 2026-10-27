@@ -1,4 +1,106 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: Bytespider
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: Claude-User
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /api/
+Allow: /api/ai
+Allow: /api/md
+Disallow: /tools/
+Disallow: /404.html
 
 Sitemap: https://music.significanthobbies.com/sitemap.xml
+# Keep in sync with /llms.txt and /ai.txt. Public routes share the song registry.

@@ -1,25 +1,71 @@
-# Every Song Is a Website
+# every song is a website
 
-> A small gallery where each song gets its own visual world. Pick a door.
+> Explore songs as interactive websites with visual worlds, draggable objects, and embedded music videos. Pick a song and step inside.
 
-Site: https://music.significanthobbies.com
+Lyrics remain in the official Genius embed; Markdown links to Genius without copying embedded lyrics. Interactive layout and motion preferences are local browser state and are not exported.
 
-## What it is
+<!-- Keep in sync with robots.txt and ai.txt. -->
 
-A static, dependency-free gallery: one self-contained interactive world per
-song at `/<slug>/`. Eight curated songs get bespoke configs; the rest of the
-100+ song catalog inherit themed defaults (frames, artifacts, chat, seeded
-scatter layout). Themes are runtime-switchable.
+## Public pages
 
-## Structure
+- [every song is a website](https://music.significanthobbies.com/index.md): Explore songs as interactive websites with visual worlds, draggable objects, and embedded music videos. Pick a song and step inside.
+- [Surfin' U.S.A. — The Beach Boys](https://music.significanthobbies.com/surfin-usa.md): Surfin' U.S.A. by The Beach Boys, as a website.
+- [Under the Boardwalk — The Drifters](https://music.significanthobbies.com/under-the-boardwalk.md): Under the Boardwalk by The Drifters, as a website.
+- [California Dreamin' — The Mamas & the Papas](https://music.significanthobbies.com/california-dreamin.md): California Dreamin' by The Mamas & the Papas, as a website.
+- [Wouldn't It Be Nice — The Beach Boys](https://music.significanthobbies.com/wouldnt-it-be-nice.md): Wouldn't It Be Nice by The Beach Boys, as a website.
+- [Good Vibrations — The Beach Boys](https://music.significanthobbies.com/good-vibrations.md): Good Vibrations by The Beach Boys, as a website.
+- [Strawberry Fields Forever — The Beatles](https://music.significanthobbies.com/strawberry-fields-forever.md): Strawberry Fields Forever by The Beatles, as a website. A drowsy field of strawberries and torn paper.
+- [Here Comes the Sun — The Beatles](https://music.significanthobbies.com/here-comes-the-sun.md): Here Comes the Sun by The Beatles, as a website.
+- [Coconut — Harry Nilsson](https://music.significanthobbies.com/coconut.md): Coconut by Harry Nilsson, as a website.
+- [Imagine — John Lennon](https://music.significanthobbies.com/imagine.md): Imagine by John Lennon, as a website.
+- [Lean on Me — Bill Withers](https://music.significanthobbies.com/lean-on-me.md): Lean on Me by Bill Withers, as a website.
+- [Sunny — Boney M.](https://music.significanthobbies.com/sunny.md): Sunny by Boney M., as a website.
+- [Three Little Birds — Bob Marley](https://music.significanthobbies.com/three-little-birds.md): Three Little Birds by Bob Marley, as a website.
+- [Lovely Day — Bill Withers](https://music.significanthobbies.com/lovely-day.md): Lovely Day by Bill Withers, as a website.
+- [Could You Be Loved — Bob Marley](https://music.significanthobbies.com/could-you-be-loved.md): Could You Be Loved by Bob Marley, as a website.
+- [Woman — John Lennon](https://music.significanthobbies.com/woman.md): Woman by John Lennon, as a website.
+- [Tainted Love — Soft Cell](https://music.significanthobbies.com/tainted-love.md): Tainted Love by Soft Cell, as a website.
+- [Just Can't Get Enough — Depeche Mode](https://music.significanthobbies.com/just-cant-get-enough.md): Just Can't Get Enough by Depeche Mode, as a website.
+- [Billie Jean — Michael Jackson](https://music.significanthobbies.com/billie-jean.md): Billie Jean by Michael Jackson, as a website.
+- [Africa — Toto](https://music.significanthobbies.com/africa.md): Africa by Toto, as a website.
+- [Eye of the Tiger — Survivor](https://music.significanthobbies.com/eye-of-the-tiger.md): Eye of the Tiger by Survivor, as a website.
+- [Come On Eileen — Dexys Midnight Runners](https://music.significanthobbies.com/come-on-eileen.md): Come On Eileen by Dexys Midnight Runners, as a website.
+- [Sweet Dreams — Eurythmics](https://music.significanthobbies.com/sweet-dreams.md): Sweet Dreams by Eurythmics, as a website.
+- [Girls Just Want to Have Fun — Cyndi Lauper](https://music.significanthobbies.com/girls-just-want-to-have-fun.md): Girls Just Want to Have Fun by Cyndi Lauper, as a website.
+- [Karma Chameleon — Culture Club](https://music.significanthobbies.com/karma-chameleon.md): Karma Chameleon by Culture Club, as a website.
+- [Blue Monday — New Order](https://music.significanthobbies.com/blue-monday.md): Blue Monday by New Order, as a website.
+- [Cruel Summer — Bananarama](https://music.significanthobbies.com/cruel-summer.md): Cruel Summer by Bananarama, as a website.
+- [Careless Whisper — George Michael](https://music.significanthobbies.com/careless-whisper.md): Careless Whisper by George Michael, as a website.
+- [You Spin Me Round — Dead or Alive](https://music.significanthobbies.com/you-spin-me-round.md): You Spin Me Round by Dead or Alive, as a website.
+- [Take On Me — a-ha](https://music.significanthobbies.com/take-on-me.md): Take On Me by a-ha, as a website.
+- [Don't You (Forget About Me) — Simple Minds](https://music.significanthobbies.com/dont-you-forget-about-me.md): Don't You (Forget About Me) by Simple Minds, as a website.
+- [Everybody Wants to Rule the World — Tears for Fears](https://music.significanthobbies.com/everybody-wants-to-rule-the-world.md): Everybody Wants to Rule the World by Tears for Fears, as a website.
+- [Walking on Sunshine — Katrina and the Waves](https://music.significanthobbies.com/walking-on-sunshine.md): Walking on Sunshine by Katrina and the Waves, as a website.
+- [Livin' on a Prayer — Bon Jovi](https://music.significanthobbies.com/livin-on-a-prayer.md): Livin' on a Prayer by Bon Jovi, as a website.
+- [Never Gonna Give You Up — Rick Astley](https://music.significanthobbies.com/never-gonna-give-you-up.md): Never Gonna Give You Up by Rick Astley, as a website. An old desktop, a suspicious link, pixel hearts.
+- [I Wanna Dance with Somebody — Whitney Houston](https://music.significanthobbies.com/i-wanna-dance-with-somebody.md): I Wanna Dance with Somebody by Whitney Houston, as a website.
+- [Sweet Child o' Mine — Guns N' Roses](https://music.significanthobbies.com/sweet-child-o-mine.md): Sweet Child o' Mine by Guns N' Roses, as a website.
+- [Faith — George Michael](https://music.significanthobbies.com/faith.md): Faith by George Michael, as a website.
+- [Kokomo — The Beach Boys](https://music.significanthobbies.com/kokomo.md): Kokomo by The Beach Boys, as a website.
+- [Don't Worry, Be Happy — Bobby McFerrin](https://music.significanthobbies.com/dont-worry-be-happy.md): Don't Worry, Be Happy by Bobby McFerrin, as a website.
+- [Like a Prayer — Madonna](https://music.significanthobbies.com/like-a-prayer.md): Like a Prayer by Madonna, as a website.
+- [Enjoy the Silence — Depeche Mode](https://music.significanthobbies.com/enjoy-the-silence.md): Enjoy the Silence by Depeche Mode, as a website.
+- [Vogue — Madonna](https://music.significanthobbies.com/vogue.md): Vogue by Madonna, as a website.
+- [Somewhere Over the Rainbow — Israel Kamakawiwoʻole](https://music.significanthobbies.com/somewhere-over-the-rainbow.md): Somewhere Over the Rainbow by Israel Kamakawiwoʻole, as a website.
+- [Wannabe — Spice Girls](https://music.significanthobbies.com/wannabe.md): Wannabe by Spice Girls, as a website.
+- [MMMBop — Hanson](https://music.significanthobbies.com/mmmbop.md): MMMBop by Hanson, as a website.
+- [Barbie Girl — Aqua](https://music.significanthobbies.com/barbie-girl.md): Barbie Girl by Aqua, as a website.
+- [Blue (Da Ba Dee) — Eiffel 65](https://music.significanthobbies.com/blue-da-ba-dee.md): Blue (Da Ba Dee) by Eiffel 65, as a website.
+- [...Baby One More Time — Britney Spears](https://music.significanthobbies.com/baby-one-more-time.md): ...Baby One More Time by Britney Spears, as a website.
+- [All Star — Smash Mouth](https://music.significanthobbies.com/all-star.md): All Star by Smash Mouth, as a website.
 
-- `/` — the gallery index with live filter search
-- `/<slug>/` — one visual world per song (143 songs)
-- `/sitemap.xml` — full URL list
+Showing 50 of 144 pages; the catalog lists all public routes.
 
-## License notes
+## Machine-readable
 
-Lyrics render via Genius's official embed (licensed, never scraped). Player
-frames embed YouTube. Hand-written lines are original demo text only.
-
-Maintained by Sarthak Agrawal: https://sarthakagrawal.dev
+- [Full content](https://music.significanthobbies.com/llms-full.txt): Bounded public page content
+- [Markdown catalog](https://music.significanthobbies.com/api/md/_catalog): All registered public routes
+- [Agent catalog](https://music.significanthobbies.com/api/ai): Existing discovery contract
+- [AI usage policy](https://music.significanthobbies.com/ai.txt): Permissions and attribution
+- [Sitemap](https://music.significanthobbies.com/sitemap.xml): Canonical HTML pages
+- [OpenAPI](https://music.significanthobbies.com/openapi.json): Public API contract
