@@ -1,4 +1,0 @@
-Google Fonts Archivo v25 and JetBrains Mono v24; fetched 2026-10-30.
-The CSS retains the supplied weights, stretch and Unicode subsets.
-Source CSS: https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900&family=JetBrains+Mono:wght@400;700&display=swap
-SIL Open Font License files are included.
