@@ -9,6 +9,10 @@ python3 -m http.server 8080
 # then open http://localhost:8080
 ```
 
+After editing gallery.css, footer.css, or gallery-footer.css, run
+`node tools/inline-gallery-styles.mjs` to refresh the gallery’s byte-identical
+inline styles. `node --test` checks that they stay synchronized.
+
 Any static file server works. Pages must be served over HTTP (ES modules);
 opening `index.html` via `file://` will not work.
 
