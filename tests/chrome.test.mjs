@@ -86,7 +86,7 @@ test('gallery and recovery use the static StudioFooter, not the Precise loaders'
   assert.doesNotMatch(html, /sassmaker\.com\/(project-strip|ai-chat-footer|newsletter-capture|feedback-launcher)/);
   assert.match(html, /<studio-footer\b[^>]*catalog-id="every-song-is-a-website"[^>]*capture="newsletter"/);
   assert.match(html, /<script type="module" src="footer\.js"><\/script>/);
-  assert.match(html, /href="footer\.css"/);
+  assert.match(html, /(?:href|data-gallery-source)="footer\.css"/);
   const song = readFileSync(new URL('../digital-love/index.html', import.meta.url), 'utf8');
   assert.doesNotMatch(song, /<studio-footer\b|project-strip\.js/, 'song worlds stay footer-free');
 });
