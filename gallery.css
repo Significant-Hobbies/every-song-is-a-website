@@ -28,6 +28,11 @@ body {
   font-size: clamp(30px, 6vw, 64px);
   margin: 0; text-transform: lowercase;
 }
+/* Below this measured wrap boundary, the authored title occupies two lines.
+   Keep that space even on devices without the named local fallback fonts. */
+@media (max-width: 437px) {
+  .masthead h1 { min-block-size: 2.15625em; }
+}
 .masthead p {
   margin: 10px 0 0; font-size: 13px; line-height: 1.3076923077; color: rgba(239, 236, 228, 0.55);
   letter-spacing: 0.04em;
